@@ -1,0 +1,23 @@
+//
+//  AppDelegate.h
+//  TeaMenu
+//
+//  Created by Jan on 13.11.14.
+//  Copyright (c) 2014 dfragment.net. All rights reserved.
+//
+
+#import <Cocoa/Cocoa.h>
+
+@interface AppDelegate : NSObject <NSApplicationDelegate>
+
+@property (assign) IBOutlet NSMenu *appMenu;
+@property (assign) NSStatusItem *item;
+
+- (IBAction)showCustomTimer:(id)sender;
+- (IBAction)startTimer:(id)sender;
+
+- (void) actualTimerStart: (NSInteger) seconds;
+- (void) changeIcons:(bool)steaming;
+- (void) timerUp;
+
+@end

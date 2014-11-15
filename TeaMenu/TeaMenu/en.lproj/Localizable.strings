@@ -1,0 +1,7 @@
+// TeaMenu translation
+// English translation
+"TEA_READY" = "Your tea is ready!";
+"CUSTOM_TIMER" = "Start a custom timer";
+"CUSTOM_TIMER_INFO" = "Please enter for how long the timer should run (in minutes).";
+"START_TIMER" = "Start";
+"CANCEL" = "Cancel";

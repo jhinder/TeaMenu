@@ -1,0 +1,7 @@
+// TeaMenu translation
+// Spanish translation
+"TEA_READY" = "Su té está listo!";
+"CUSTOM_TIMER" = "Iniciar un temporizador personalizado";
+"CUSTOM_TIMER_INFO" = "Por favor, indique el número de minutos que el temporizador se ejecute.";
+"START_TIMER" = "Comenzar";
+"CANCEL" = "Cancelar";

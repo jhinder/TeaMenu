@@ -1,0 +1,7 @@
+// TeaMenu translation
+// French translation
+"TEA_READY" = "Votre thé est prêt!";
+"CUSTOM_TIMER" = "Lancer une minuterie personnalisée";
+"CUSTOM_TIMER_INFO" = "S'il vous plaît indiquer combien de minutes le minuteur pour exécuter.";
+"START_TIMER" = "Commencer";
+"CANCEL" = "Annuler";
