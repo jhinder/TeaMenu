@@ -6,13 +6,13 @@
 	<array>
 		<dict>
 			<key>Tea Type</key>
-			<string>Black Tea</string>
+			<string>Té negro</string>
 			<key>Time</key>
 			<integer>5</integer>
 		</dict>
 		<dict>
 			<key>Tea Type</key>
-			<string>Green Tea</string>
+			<string>Té verde</string>
 			<key>Time</key>
 			<integer>3</integer>
 		</dict>
