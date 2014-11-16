@@ -12,12 +12,15 @@
 
 @property (assign) IBOutlet NSMenu *appMenu;
 @property (assign) NSStatusItem *item;
+@property (retain) NSMutableArray *userTeaArray;
 
 - (IBAction)showCustomTimer:(id)sender;
 - (IBAction)startTimer:(id)sender;
+- (IBAction)terminate:(id)sender;
 
 - (void) actualTimerStart: (NSInteger) seconds;
 - (void) changeIcons:(bool)steaming;
+- (void) preparePreferences;
 - (void) timerUp;
 
 @end

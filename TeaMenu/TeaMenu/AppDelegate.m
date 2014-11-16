@@ -12,6 +12,7 @@
 
 @synthesize appMenu = _appMenu;
 @synthesize item = _item;
+@synthesize userTeaArray = userTeas;
 
 /* Quick translation macro. */
 #ifndef T
@@ -22,7 +23,10 @@
 
 /* Called when the app launches, and sets up the menu. */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{        
+{
+    [self preparePreferences];
+    userTeas = [[[NSUserDefaults standardUserDefaults] arrayForKey:@"Teas"] mutableCopy];
+    
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
 
     _item = [[bar statusItemWithLength:NSVariableStatusItemLength] retain];
@@ -30,6 +34,15 @@
     _item.highlightMode = true;
     _item.menu = _appMenu;
 
+}
+
+/* Copies the default preferences into the user domain if necessary. */
+- (void) preparePreferences
+{
+    NSUserDefaults *localPreferences = [NSUserDefaults standardUserDefaults];
+    NSURL *defaultPrefs = [[NSBundle mainBundle] URLForResource:@"DefaultTeas" withExtension:@"plist"];
+    NSDictionary *teaDicts = [NSDictionary dictionaryWithContentsOfURL:defaultPrefs];
+    [localPreferences registerDefaults:teaDicts];
 }
 
 /* Should be called when the menu icons should be changed.
@@ -98,6 +111,15 @@
     NSInteger seconds = accessoryField.integerValue * 60;
     [self actualTimerStart:seconds];
 
+}
+
+/* Interface action for app exit. Saves the settings, then terminates. */
+- (IBAction)terminate:(id)sender
+{
+    NSUserDefaults *localSettings = [NSUserDefaults standardUserDefaults];
+    [localSettings setObject:userTeas forKey:@"Teas"];
+    [localSettings synchronize];
+    [NSApp terminate:0];
 }
 
 /* Called at destruction. */
