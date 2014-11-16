@@ -41,9 +41,9 @@
                                             [currentTeaDict objectForKey:@"Tea Type"],
                                             teaTime,
                                             T("MINUTES.SHORT")];
-        NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:menuItemTitle 
+        NSMenuItem *item = [[[NSMenuItem alloc] initWithTitle:menuItemTitle 
                                                action:@selector(startTimer:)
-                                               keyEquivalent:@""];
+                                               keyEquivalent:@""] autorelease];
         [item setTarget:self];
         [item setTag:(teaTime * 60)];
         [_appMenu insertItem:item atIndex:i];
@@ -61,7 +61,6 @@
     // Detecting user's preferred language or default to en
     NSArray *language = [NSLocale preferredLanguages];
     NSString *userLocale = (language.count == 0) ? @"en" : [language objectAtIndex:0];
-    [language release];
     
     NSURL *defaultPrefs = [[NSBundle mainBundle] URLForResource:@"DefaultTeas"
                                                  withExtension:@"plist"
@@ -113,17 +112,18 @@
     [alert setIcon:[NSImage imageNamed:@"Teaicon_Done.png"]];
     [alert addButtonWithTitle:@"OK"];
     [alert runModal];
+    [alert release];
 }
 
 /* Displays a dialogue to users, from which they can start their own timers. */
 - (IBAction)showCustomTimer:(id)sender
 {
-    NSTextField *accessoryField = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 64, 24)];
+    NSTextField *accessoryField = [[[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 64, 24)] autorelease];
     accessoryField.integerValue = 3;
-    NSNumberFormatter *numformat = [[NSNumberFormatter alloc] init];
+    NSNumberFormatter *numformat = [[[NSNumberFormatter alloc] init] autorelease];
     [accessoryField setFormatter:numformat];
     
-    NSAlert *alert = [[NSAlert alloc] init];
+    NSAlert *alert = [[[NSAlert alloc] init] autorelease];
     [alert setMessageText:T("CUSTOM_TIMER")];
     [alert addButtonWithTitle:T("START_TIMER")];
     [alert addButtonWithTitle:T("CANCEL")];
