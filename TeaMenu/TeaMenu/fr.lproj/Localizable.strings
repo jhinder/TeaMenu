@@ -5,3 +5,4 @@
 "CUSTOM_TIMER_INFO" = "S'il vous plaît indiquer combien de minutes le minuteur pour exécuter.";
 "START_TIMER" = "Commencer";
 "CANCEL" = "Annuler";
+"MINUTES.SHORT" = "min";

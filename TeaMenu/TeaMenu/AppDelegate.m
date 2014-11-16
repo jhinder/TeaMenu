@@ -32,6 +32,23 @@
     _item = [[bar statusItemWithLength:NSVariableStatusItemLength] retain];
     [self changeIcons:false];
     _item.highlightMode = true;
+    
+    // Add all user teas to the menu
+    for (NSUInteger i = 0; i < userTeas.count; i++) {
+        NSDictionary *currentTeaDict = [userTeas objectAtIndex:i];
+        NSInteger teaTime = [[currentTeaDict objectForKey:@"Time"] integerValue];
+        NSString *menuItemTitle = [NSString stringWithFormat:@"%@ (%d %@)",
+                                            [currentTeaDict objectForKey:@"Tea Type"],
+                                            teaTime,
+                                            T("MINUTES.SHORT")];
+        NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:menuItemTitle 
+                                               action:@selector(startTimer:)
+                                               keyEquivalent:@""];
+        [item setTarget:self];
+        [item setTag:(teaTime * 60)];
+        [_appMenu insertItem:item atIndex:i];
+    }
+    
     _item.menu = _appMenu;
 
 }

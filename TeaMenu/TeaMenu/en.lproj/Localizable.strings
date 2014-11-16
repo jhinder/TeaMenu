@@ -5,3 +5,4 @@
 "CUSTOM_TIMER_INFO" = "Please enter for how long the timer should run (in minutes).";
 "START_TIMER" = "Start";
 "CANCEL" = "Cancel";
+"MINUTES.SHORT" = "min";

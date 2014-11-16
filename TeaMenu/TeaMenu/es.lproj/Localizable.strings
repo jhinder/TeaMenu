@@ -5,3 +5,4 @@
 "CUSTOM_TIMER_INFO" = "Por favor, indique el número de minutos que el temporizador se ejecute.";
 "START_TIMER" = "Comenzar";
 "CANCEL" = "Cancelar";
+"MINUTES.SHORT" = "min";

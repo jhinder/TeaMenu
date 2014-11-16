@@ -5,3 +5,4 @@
 "CUSTOM_TIMER_INFO" = "Vi preghiamo di indicare il numero di minuti il timer per l'esecuzione.";
 "START_TIMER" = "Iniziare";
 "CANCEL" = "Annullare";
+"MINUTES.SHORT" = "min";
