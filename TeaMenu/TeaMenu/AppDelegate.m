@@ -40,7 +40,15 @@
 - (void) preparePreferences
 {
     NSUserDefaults *localPreferences = [NSUserDefaults standardUserDefaults];
-    NSURL *defaultPrefs = [[NSBundle mainBundle] URLForResource:@"DefaultTeas" withExtension:@"plist"];
+    
+    // Detecting user's preferred language or default to en
+    NSArray *language = [NSLocale preferredLanguages];
+    NSString *userLocale = (language.count == 0) ? @"en" : [language objectAtIndex:0];
+    [language release];
+    
+    NSURL *defaultPrefs = [[NSBundle mainBundle] URLForResource:@"DefaultTeas"
+                                                 withExtension:@"plist"
+                                                 subdirectory:[userLocale stringByAppendingPathExtension:@"lproj"]];
     NSDictionary *teaDicts = [NSDictionary dictionaryWithContentsOfURL:defaultPrefs];
     [localPreferences registerDefaults:teaDicts];
 }
