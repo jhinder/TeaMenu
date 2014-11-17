@@ -14,6 +14,7 @@
 		3D3FBF2B1A15649E00E7E6A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3FBF2A1A15649E00E7E6A9 /* AppDelegate.m */; };
 		3D3FBF2E1A15649E00E7E6A9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D3FBF2C1A15649E00E7E6A9 /* MainMenu.xib */; };
 		3D3FBF481A157B8F00E7E6A9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D3FBF4A1A157B8F00E7E6A9 /* Localizable.strings */; };
+		3D73E27B1A1ABB890002A5C8 /* MacOSVersion.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D73E27A1A1ABB890002A5C8 /* MacOSVersion.c */; };
 		3DC5ACC21A18E3090004A0CB /* DefaultTeas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DC5ACC41A18E3090004A0CB /* DefaultTeas.plist */; };
 		3DCC29D31A160B770013391E /* Teaicon_Done.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DCC29D21A160B770013391E /* Teaicon_Done.png */; };
 		3DCC29D81A160C590013391E /* menu-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DCC29D41A160C590013391E /* menu-black.png */; };
@@ -45,6 +46,8 @@
 		3D3FBF541A157E8900E7E6A9 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3D3FBF551A157EEF00E7E6A9 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D3FBF561A157EEF00E7E6A9 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3D73E27A1A1ABB890002A5C8 /* MacOSVersion.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MacOSVersion.c; sourceTree = "<group>"; };
+		3D73E27D1A1ABC280002A5C8 /* MacOSVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacOSVersion.h; sourceTree = "<group>"; };
 		3DC5ACC31A18E3090004A0CB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
 		3DC5ACC51A18E3210004A0CB /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = it; path = it.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
 		3DC5ACC61A18E3210004A0CB /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
@@ -111,6 +114,8 @@
 			children = (
 				3D3FBF291A15649E00E7E6A9 /* AppDelegate.h */,
 				3D3FBF2A1A15649E00E7E6A9 /* AppDelegate.m */,
+				3D73E27A1A1ABB890002A5C8 /* MacOSVersion.c */,
+				3D73E27D1A1ABC280002A5C8 /* MacOSVersion.h */,
 				3D3FBF2C1A15649E00E7E6A9 /* MainMenu.xib */,
 				3D3FBF4A1A157B8F00E7E6A9 /* Localizable.strings */,
 				3D3FBF1E1A15649E00E7E6A9 /* Supporting Files */,
@@ -219,6 +224,7 @@
 			files = (
 				3D3FBF241A15649E00E7E6A9 /* main.m in Sources */,
 				3D3FBF2B1A15649E00E7E6A9 /* AppDelegate.m in Sources */,
+				3D73E27B1A1ABB890002A5C8 /* MacOSVersion.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

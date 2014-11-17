@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MacOSVersion.h"
 
 @implementation AppDelegate
 
@@ -44,13 +45,13 @@
         NSMenuItem *item = [[[NSMenuItem alloc] initWithTitle:menuItemTitle 
                                                action:@selector(startTimer:)
                                                keyEquivalent:@""] autorelease];
-        [item setTarget:self];
         [item setTag:(teaTime * 60)];
         [_appMenu insertItem:item atIndex:i];
     }
     
     _item.menu = _appMenu;
-
+    
+    [self sendAnonymousSystemInfo];
 }
 
 /* Copies the default preferences into the user domain if necessary. */
@@ -136,6 +137,13 @@
     NSInteger seconds = accessoryField.integerValue * 60;
     [self actualTimerStart:seconds];
 
+}
+
+/* Makes one HTTP call to send system info. Set up to your own liking. */
+- (void) sendAnonymousSystemInfo
+{
+    NSString *darwinVersion = [NSString stringWithCString:getDarwinVersion() encoding:NSUTF8StringEncoding];
+    
 }
 
 /* Interface action for app exit. Saves the settings, then terminates. */
