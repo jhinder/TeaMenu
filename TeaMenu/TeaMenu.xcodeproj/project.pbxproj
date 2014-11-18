@@ -54,6 +54,15 @@
 		3D73E2811A1ACAE40002A5C8 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D73E2821A1ACAF70002A5C8 /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = sv; path = sv.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3D73E2831A1ACB390002A5C8 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = sv; path = sv.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
+		3DC149511A1B29C800718D30 /* da */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = da; path = da.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		3DC149531A1B29F200718D30 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = da; path = da.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
+		3DC149541A1B2A0400718D30 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3DC149551A1B2BF600718D30 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = pt; path = pt.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
+		3DC149561A1B2C1500718D30 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3DC149571A1B2CBD00718D30 /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = pt.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		3DC149581A1B2D6700718D30 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3DC149591A1B2D9500718D30 /* pl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pl; path = pl.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		3DC1495A1A1B2E0800718D30 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = pl; path = pl.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
 		3DC5ACC31A18E3090004A0CB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
 		3DC5ACC51A18E3210004A0CB /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = it; path = it.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
 		3DC5ACC61A18E3210004A0CB /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
@@ -194,6 +203,9 @@
 				es,
 				nl,
 				sv,
+				da,
+				pt,
+				pl,
 			);
 			mainGroup = 3D3FBF081A15649D00E7E6A9;
 			productRefGroup = 3D3FBF141A15649D00E7E6A9 /* Products */;
@@ -257,6 +269,9 @@
 				3D3FBF541A157E8900E7E6A9 /* es */,
 				3D73E27F1A1ACA340002A5C8 /* nl */,
 				3D73E2821A1ACAF70002A5C8 /* sv */,
+				3DC149511A1B29C800718D30 /* da */,
+				3DC149571A1B2CBD00718D30 /* pt */,
+				3DC149591A1B2D9500718D30 /* pl */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -271,6 +286,9 @@
 				3D3FBF561A157EEF00E7E6A9 /* es */,
 				3D73E27E1A1AC8DA0002A5C8 /* nl */,
 				3D73E2811A1ACAE40002A5C8 /* sv */,
+				3DC149541A1B2A0400718D30 /* da */,
+				3DC149561A1B2C1500718D30 /* pt */,
+				3DC149581A1B2D6700718D30 /* pl */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -285,6 +303,9 @@
 				3DC5ACC81A18E3210004A0CB /* es */,
 				3D73E2801A1ACA5F0002A5C8 /* nl */,
 				3D73E2831A1ACB390002A5C8 /* sv */,
+				3DC149531A1B29F200718D30 /* da */,
+				3DC149551A1B2BF600718D30 /* pt */,
+				3DC1495A1A1B2E0800718D30 /* pl */,
 			);
 			name = DefaultTeas.plist;
 			sourceTree = "<group>";

@@ -1,0 +1,12 @@
+// TeaMenu translation
+// Danish translation
+"TEA_READY" = "Din te er klar!";
+"CUSTOM_TIMER" = "Start en brugerdefineret stopur";
+"CUSTOM_TIMER_INFO" = "Please enter for how long the timer should run (in minutes).";
+"START_TIMER" = "Start";
+"CANCEL" = "Annullere";
+"MINUTES.SHORT" = "min";
+"OPTIN.MESSAGE" = "Send anonym info?";
+"OPTIN.DETAILS" = "De data, vi ville indsamle, er anonyme og består af versionsnummeret på dit operativsystem og det aktuelle sprog.";
+"OPTIN.YES" = "Ja";
+"OPTIN.NO" = "Nej";
