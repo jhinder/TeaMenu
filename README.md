@@ -8,5 +8,9 @@ TeaMenu doesn't require much. All you need is a 64-bit Mac with Mac OS X 10.6 or
 ## Translations
 So far, the app is available in English, German, French, Italian and Spanish. As I only speak the first three, the latter two might contain mistakes. If you want to add/improve languages, feel free to do so.
 
+## Usage Info
+The data I collect about you is tiny: your Mac OS X version number, and your computer's current language. No personal data is being sent. The app will ask if you want to participate at first startup.  
+If you want to take a look at the code behind this, it's inside `sendAnonymousSystemInfo` in `AppDelegate.m`.
+
 ## Licence
 TeaMenu is licenced under the MIT licence. See the LICENSE file for details.

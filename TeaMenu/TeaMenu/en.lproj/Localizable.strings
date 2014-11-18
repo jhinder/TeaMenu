@@ -6,3 +6,7 @@
 "START_TIMER" = "Start";
 "CANCEL" = "Cancel";
 "MINUTES.SHORT" = "min";
+"OPTIN.MESSAGE" = "Send anonymous info?";
+"OPTIN.DETAILS" = "The anonymous data we'd collect would consist of the system version and your current language.";
+"OPTIN.YES" = "Yes";
+"OPTIN.NO" = "No";

@@ -51,6 +51,23 @@
     
     _item.menu = _appMenu;
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if (![defaults boolForKey:@"OpenedBefore"]) {
+        [defaults setBool:true forKey:@"OpenedBefore"];
+        // Not yet asked for permission.
+        NSAlert *optIn = [NSAlert alertWithMessageText:T("OPTIN.MESSAGE")
+                                         defaultButton:T("OPTIN.YES")
+                                       alternateButton:T("OPTIN.NO")
+                                           otherButton:nil
+                             informativeTextWithFormat:T("OPTIN.DETAILS")];
+        NSInteger retVal = [optIn runModal];
+        [defaults setBool:(retVal == NSAlertDefaultReturn)
+                                                forKey:@"StatsParticipate"];
+        [defaults synchronize];
+        
+    }
+    
     [self sendAnonymousSystemInfo];
 }
 
@@ -142,8 +159,13 @@
 /* Makes one HTTP call to send system info. Set up to your own liking. */
 - (void) sendAnonymousSystemInfo
 {
+#ifndef DEBUG // Release builds only!
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"StatsParticipate"])
+        return; // User opted out. Gotta respect that.
     NSString *darwinVersion = [NSString stringWithCString:getDarwinVersion() encoding:NSUTF8StringEncoding];
-    
+    NSArray *preferredLanguages = [NSLocale preferredLanguages];
+    NSString *userLocale = (preferredLanguages.count != 0) ? [preferredLanguages objectAtIndex:0] : @"XX";
+#endif
 }
 
 /* Interface action for app exit. Saves the settings, then terminates. */
