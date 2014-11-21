@@ -51,6 +51,7 @@
     
     _item.menu = _appMenu;
     
+#if 0 // I'm not entirely sure about this. Force disable it for now.
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     if (![defaults boolForKey:@"OpenedBefore"]) {
@@ -65,8 +66,8 @@
         [defaults setBool:(retVal == NSAlertDefaultReturn)
                                                 forKey:@"StatsParticipate"];
         [defaults synchronize];
-        
     }
+#endif
     
     [self sendAnonymousSystemInfo];
 }
@@ -159,6 +160,7 @@
 /* Makes one HTTP call to send system info. Set up to your own liking. */
 - (void) sendAnonymousSystemInfo
 {
+    return; // Again, I'm not sure about this.
 #ifndef DEBUG // Release builds only!
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"StatsParticipate"])
         return; // User opted out. Gotta respect that.
