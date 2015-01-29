@@ -6,7 +6,3 @@
 "START_TIMER" = "Starten";
 "CANCEL" = "Abbrechen";
 "MINUTES.SHORT" = "min";
-"OPTIN.MESSAGE" = "Anonyme Informationen senden?";
-"OPTIN.DETAILS" = "Die Daten, die wir sammeln würden, sind anonym und bestehen aus der Versionsnummer Ihres Betriebssystems und der aktuellen Sprache.";
-"OPTIN.YES" = "Ja";
-"OPTIN.NO" = "Nein";

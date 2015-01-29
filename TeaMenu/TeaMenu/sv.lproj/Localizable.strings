@@ -6,7 +6,3 @@
 "START_TIMER" = "Start";
 "CANCEL" = "Avboka";
 "MINUTES.SHORT" = "min";
-"OPTIN.MESSAGE" = "Skicka anonym information?";
-"OPTIN.DETAILS" = "De uppgifter som vi skulle samla in är anonym och består av den version av operativsystemet och det aktuella språket.";
-"OPTIN.YES" = "Ja";
-"OPTIN.NO" = "Nej";

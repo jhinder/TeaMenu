@@ -6,7 +6,3 @@
 "START_TIMER" = "Start";
 "CANCEL" = "Annuleren";
 "MINUTES.SHORT" = "min";
-"OPTIN.MESSAGE" = "Stuur anonieme informatie?";
-"OPTIN.DETAILS" = "De gegevens die we zouden verzamelen is anoniem en bestaan van het versienummer van uw besturingssysteem en de huidige taal.";
-"OPTIN.YES" = "Ja";
-"OPTIN.NO" = "Nee";

@@ -6,7 +6,3 @@
 "START_TIMER" = "Comenzar";
 "CANCEL" = "Cancelar";
 "MINUTES.SHORT" = "min";
-"OPTIN.MESSAGE" = "Enviar información anónima?";
-"OPTIN.DETAILS" = "Los datos nos recoger es anónima y consiste en el número de versión de su sistema operativo y el idioma actual.";
-"OPTIN.YES" = "Sí";
-"OPTIN.NO" = "No";
