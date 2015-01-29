@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "MacOSVersion.h"
 
 @implementation AppDelegate
 
@@ -51,25 +50,6 @@
     
     _item.menu = _appMenu;
     
-#if 0 // I'm not entirely sure about this. Force disable it for now.
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    if (![defaults boolForKey:@"OpenedBefore"]) {
-        [defaults setBool:true forKey:@"OpenedBefore"];
-        // Not yet asked for permission.
-        NSAlert *optIn = [NSAlert alertWithMessageText:T("OPTIN.MESSAGE")
-                                         defaultButton:T("OPTIN.YES")
-                                       alternateButton:T("OPTIN.NO")
-                                           otherButton:nil
-                             informativeTextWithFormat:T("OPTIN.DETAILS")];
-        NSInteger retVal = [optIn runModal];
-        [defaults setBool:(retVal == NSAlertDefaultReturn)
-                                                forKey:@"StatsParticipate"];
-        [defaults synchronize];
-    }
-#endif
-    
-    [self sendAnonymousSystemInfo];
 }
 
 /* Copies the default preferences into the user domain if necessary. */
@@ -155,19 +135,6 @@
     NSInteger seconds = accessoryField.integerValue * 60;
     [self actualTimerStart:seconds];
 
-}
-
-/* Makes one HTTP call to send system info. Set up to your own liking. */
-- (void) sendAnonymousSystemInfo
-{
-    return; // Again, I'm not sure about this.
-#ifndef DEBUG // Release builds only!
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"StatsParticipate"])
-        return; // User opted out. Gotta respect that.
-    NSString *darwinVersion = [NSString stringWithCString:getDarwinVersion() encoding:NSUTF8StringEncoding];
-    NSArray *preferredLanguages = [NSLocale preferredLanguages];
-    NSString *userLocale = (preferredLanguages.count != 0) ? [preferredLanguages objectAtIndex:0] : @"XX";
-#endif
 }
 
 /* Interface action for app exit. Saves the settings, then terminates. */

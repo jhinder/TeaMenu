@@ -14,9 +14,8 @@
 		3D3FBF2B1A15649E00E7E6A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3FBF2A1A15649E00E7E6A9 /* AppDelegate.m */; };
 		3D3FBF2E1A15649E00E7E6A9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D3FBF2C1A15649E00E7E6A9 /* MainMenu.xib */; };
 		3D3FBF481A157B8F00E7E6A9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D3FBF4A1A157B8F00E7E6A9 /* Localizable.strings */; };
-		3D73E27B1A1ABB890002A5C8 /* MacOSVersion.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D73E27A1A1ABB890002A5C8 /* MacOSVersion.c */; };
+		3D6F8BE81A7AD14D000794CA /* TeaIcon_Done.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F8BE71A7AD14D000794CA /* TeaIcon_Done.png */; };
 		3DC5ACC21A18E3090004A0CB /* DefaultTeas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DC5ACC41A18E3090004A0CB /* DefaultTeas.plist */; };
-		3DCC29D31A160B770013391E /* Teaicon_Done.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DCC29D21A160B770013391E /* Teaicon_Done.png */; };
 		3DCC29D81A160C590013391E /* menu-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DCC29D41A160C590013391E /* menu-black.png */; };
 		3DCC29D91A160C590013391E /* menu-steamblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DCC29D51A160C590013391E /* menu-steamblack.png */; };
 		3DCC29DA1A160C590013391E /* menu-steamwhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DCC29D61A160C590013391E /* menu-steamwhite.png */; };
@@ -46,8 +45,7 @@
 		3D3FBF541A157E8900E7E6A9 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3D3FBF551A157EEF00E7E6A9 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D3FBF561A157EEF00E7E6A9 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3D73E27A1A1ABB890002A5C8 /* MacOSVersion.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MacOSVersion.c; sourceTree = "<group>"; };
-		3D73E27D1A1ABC280002A5C8 /* MacOSVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacOSVersion.h; sourceTree = "<group>"; };
+		3D6F8BE71A7AD14D000794CA /* TeaIcon_Done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TeaIcon_Done.png; sourceTree = "<group>"; };
 		3D73E27E1A1AC8DA0002A5C8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D73E27F1A1ACA340002A5C8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3D73E2801A1ACA5F0002A5C8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = nl; path = nl.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
@@ -68,7 +66,6 @@
 		3DC5ACC61A18E3210004A0CB /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
 		3DC5ACC71A18E3210004A0CB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
 		3DC5ACC81A18E3210004A0CB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = es; path = es.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
-		3DCC29D21A160B770013391E /* Teaicon_Done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Teaicon_Done.png; sourceTree = "<group>"; };
 		3DCC29D41A160C590013391E /* menu-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-black.png"; sourceTree = "<group>"; };
 		3DCC29D51A160C590013391E /* menu-steamblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-steamblack.png"; sourceTree = "<group>"; };
 		3DCC29D61A160C590013391E /* menu-steamwhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-steamwhite.png"; sourceTree = "<group>"; };
@@ -129,8 +126,6 @@
 			children = (
 				3D3FBF291A15649E00E7E6A9 /* AppDelegate.h */,
 				3D3FBF2A1A15649E00E7E6A9 /* AppDelegate.m */,
-				3D73E27A1A1ABB890002A5C8 /* MacOSVersion.c */,
-				3D73E27D1A1ABC280002A5C8 /* MacOSVersion.h */,
 				3D3FBF2C1A15649E00E7E6A9 /* MainMenu.xib */,
 				3D3FBF4A1A157B8F00E7E6A9 /* Localizable.strings */,
 				3D3FBF1E1A15649E00E7E6A9 /* Supporting Files */,
@@ -158,7 +153,7 @@
 				3DCC29D51A160C590013391E /* menu-steamblack.png */,
 				3DCC29D61A160C590013391E /* menu-steamwhite.png */,
 				3DCC29D71A160C590013391E /* menu-white.png */,
-				3DCC29D21A160B770013391E /* Teaicon_Done.png */,
+				3D6F8BE71A7AD14D000794CA /* TeaIcon_Done.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -225,13 +220,13 @@
 				3D3FBF221A15649E00E7E6A9 /* InfoPlist.strings in Resources */,
 				3D3FBF2E1A15649E00E7E6A9 /* MainMenu.xib in Resources */,
 				3D3FBF481A157B8F00E7E6A9 /* Localizable.strings in Resources */,
-				3DCC29D31A160B770013391E /* Teaicon_Done.png in Resources */,
 				3DCC29D81A160C590013391E /* menu-black.png in Resources */,
 				3DCC29D91A160C590013391E /* menu-steamblack.png in Resources */,
 				3DCC29DA1A160C590013391E /* menu-steamwhite.png in Resources */,
 				3DCC29DB1A160C590013391E /* menu-white.png in Resources */,
 				3D0541401A16A3B10097BBBE /* TeaIcon1.1.icns in Resources */,
 				3DC5ACC21A18E3090004A0CB /* DefaultTeas.plist in Resources */,
+				3D6F8BE81A7AD14D000794CA /* TeaIcon_Done.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,7 +239,6 @@
 			files = (
 				3D3FBF241A15649E00E7E6A9 /* main.m in Sources */,
 				3D3FBF2B1A15649E00E7E6A9 /* AppDelegate.m in Sources */,
-				3D73E27B1A1ABB890002A5C8 /* MacOSVersion.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

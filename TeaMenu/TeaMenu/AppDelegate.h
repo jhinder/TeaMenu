@@ -22,6 +22,5 @@
 - (void) changeIcons:(bool)steaming;
 - (void) preparePreferences;
 - (void) timerUp;
-- (void) sendAnonymousSystemInfo;
 
 @end
