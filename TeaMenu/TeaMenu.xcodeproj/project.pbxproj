@@ -34,7 +34,6 @@
 		3D3FBF1F1A15649E00E7E6A9 /* TeaMenu-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TeaMenu-Info.plist"; sourceTree = "<group>"; };
 		3D3FBF211A15649E00E7E6A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3D3FBF231A15649E00E7E6A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3D3FBF251A15649E00E7E6A9 /* TeaMenu-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TeaMenu-Prefix.pch"; sourceTree = "<group>"; };
 		3D3FBF291A15649E00E7E6A9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3D3FBF2A1A15649E00E7E6A9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3D3FBF2D1A15649E00E7E6A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -137,7 +136,6 @@
 				3D3FBF1F1A15649E00E7E6A9 /* TeaMenu-Info.plist */,
 				3D3FBF201A15649E00E7E6A9 /* InfoPlist.strings */,
 				3D3FBF231A15649E00E7E6A9 /* main.m */,
-				3D3FBF251A15649E00E7E6A9 /* TeaMenu-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -350,8 +348,8 @@
 		3D3FBF321A15649E00E7E6A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TeaMenu/TeaMenu-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "TeaMenu/TeaMenu-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -361,8 +359,8 @@
 		3D3FBF331A15649E00E7E6A9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TeaMenu/TeaMenu-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "TeaMenu/TeaMenu-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
