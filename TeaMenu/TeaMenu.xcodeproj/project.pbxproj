@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3D0541401A16A3B10097BBBE /* TeaIcon1.1.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3D05413F1A16A3B10097BBBE /* TeaIcon1.1.icns */; };
+		3D3630081A7ADFE600B34E2C /* menu-steamblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D3630071A7ADFE600B34E2C /* menu-steamblack.png */; };
+		3D36300A1A7AE08A00B34E2C /* menu-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D3630091A7AE08A00B34E2C /* menu-black.png */; };
 		3D3FBF181A15649E00E7E6A9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D3FBF171A15649E00E7E6A9 /* Cocoa.framework */; };
 		3D3FBF221A15649E00E7E6A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D3FBF201A15649E00E7E6A9 /* InfoPlist.strings */; };
 		3D3FBF241A15649E00E7E6A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3FBF231A15649E00E7E6A9 /* main.m */; };
@@ -16,14 +18,14 @@
 		3D3FBF481A157B8F00E7E6A9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D3FBF4A1A157B8F00E7E6A9 /* Localizable.strings */; };
 		3D6F8BE81A7AD14D000794CA /* TeaIcon_Done.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F8BE71A7AD14D000794CA /* TeaIcon_Done.png */; };
 		3DC5ACC21A18E3090004A0CB /* DefaultTeas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DC5ACC41A18E3090004A0CB /* DefaultTeas.plist */; };
-		3DCC29D81A160C590013391E /* menu-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DCC29D41A160C590013391E /* menu-black.png */; };
-		3DCC29D91A160C590013391E /* menu-steamblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DCC29D51A160C590013391E /* menu-steamblack.png */; };
 		3DCC29DA1A160C590013391E /* menu-steamwhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DCC29D61A160C590013391E /* menu-steamwhite.png */; };
 		3DCC29DB1A160C590013391E /* menu-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DCC29D71A160C590013391E /* menu-white.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3D05413F1A16A3B10097BBBE /* TeaIcon1.1.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = TeaIcon1.1.icns; sourceTree = "<group>"; };
+		3D3630071A7ADFE600B34E2C /* menu-steamblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-steamblack.png"; sourceTree = "<group>"; };
+		3D3630091A7AE08A00B34E2C /* menu-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-black.png"; sourceTree = "<group>"; };
 		3D3FBF131A15649D00E7E6A9 /* TeaMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeaMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D3FBF171A15649E00E7E6A9 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3D3FBF1A1A15649E00E7E6A9 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -63,8 +65,6 @@
 		3DC5ACC61A18E3210004A0CB /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
 		3DC5ACC71A18E3210004A0CB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
 		3DC5ACC81A18E3210004A0CB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = es; path = es.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
-		3DCC29D41A160C590013391E /* menu-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-black.png"; sourceTree = "<group>"; };
-		3DCC29D51A160C590013391E /* menu-steamblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-steamblack.png"; sourceTree = "<group>"; };
 		3DCC29D61A160C590013391E /* menu-steamwhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-steamwhite.png"; sourceTree = "<group>"; };
 		3DCC29D71A160C590013391E /* menu-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-white.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,8 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				3D05413F1A16A3B10097BBBE /* TeaIcon1.1.icns */,
-				3DCC29D41A160C590013391E /* menu-black.png */,
-				3DCC29D51A160C590013391E /* menu-steamblack.png */,
+				3D3630091A7AE08A00B34E2C /* menu-black.png */,
+				3D3630071A7ADFE600B34E2C /* menu-steamblack.png */,
 				3DCC29D61A160C590013391E /* menu-steamwhite.png */,
 				3DCC29D71A160C590013391E /* menu-white.png */,
 				3D6F8BE71A7AD14D000794CA /* TeaIcon_Done.png */,
@@ -217,13 +217,13 @@
 				3D3FBF221A15649E00E7E6A9 /* InfoPlist.strings in Resources */,
 				3D3FBF2E1A15649E00E7E6A9 /* MainMenu.xib in Resources */,
 				3D3FBF481A157B8F00E7E6A9 /* Localizable.strings in Resources */,
-				3DCC29D81A160C590013391E /* menu-black.png in Resources */,
-				3DCC29D91A160C590013391E /* menu-steamblack.png in Resources */,
 				3DCC29DA1A160C590013391E /* menu-steamwhite.png in Resources */,
 				3DCC29DB1A160C590013391E /* menu-white.png in Resources */,
 				3D0541401A16A3B10097BBBE /* TeaIcon1.1.icns in Resources */,
 				3DC5ACC21A18E3090004A0CB /* DefaultTeas.plist in Resources */,
 				3D6F8BE81A7AD14D000794CA /* TeaIcon_Done.png in Resources */,
+				3D3630081A7ADFE600B34E2C /* menu-steamblack.png in Resources */,
+				3D36300A1A7AE08A00B34E2C /* menu-black.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
