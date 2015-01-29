@@ -8,7 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate> {
+	NSMenu *_appMenu;
+	NSStatusItem *_item;
+	NSMutableArray *userTeas;
+}
 
 @property (assign) IBOutlet NSMenu *appMenu;
 @property (assign) NSStatusItem *item;
