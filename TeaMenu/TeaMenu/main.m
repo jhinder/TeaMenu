@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 dfragment.net. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <AppKit/NSApplication.h>
 
 int main(int argc, char *argv[])
 {

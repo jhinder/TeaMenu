@@ -10,8 +10,6 @@
 		3D3630081A7ADFE600B34E2C /* menu-steamblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D3630071A7ADFE600B34E2C /* menu-steamblack.png */; };
 		3D36300A1A7AE08A00B34E2C /* menu-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D3630091A7AE08A00B34E2C /* menu-black.png */; };
 		3D36300E1A7AE9CE00B34E2C /* TeaIcon1.1.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3D36300D1A7AE9CE00B34E2C /* TeaIcon1.1.icns */; };
-		3D3FBF181A15649E00E7E6A9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D3FBF171A15649E00E7E6A9 /* Cocoa.framework */; };
-		3D3FBF221A15649E00E7E6A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D3FBF201A15649E00E7E6A9 /* InfoPlist.strings */; };
 		3D3FBF241A15649E00E7E6A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3FBF231A15649E00E7E6A9 /* main.m */; };
 		3D3FBF2B1A15649E00E7E6A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3FBF2A1A15649E00E7E6A9 /* AppDelegate.m */; };
 		3D3FBF2E1A15649E00E7E6A9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D3FBF2C1A15649E00E7E6A9 /* MainMenu.xib */; };
@@ -20,6 +18,8 @@
 		3DC5ACC21A18E3090004A0CB /* DefaultTeas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DC5ACC41A18E3090004A0CB /* DefaultTeas.plist */; };
 		3DCC29DA1A160C590013391E /* menu-steamwhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DCC29D61A160C590013391E /* menu-steamwhite.png */; };
 		3DCC29DB1A160C590013391E /* menu-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DCC29D71A160C590013391E /* menu-white.png */; };
+		3DF08D891A7AF864002D68FE /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D3FBF1A1A15649E00E7E6A9 /* AppKit.framework */; };
+		3DF08D8A1A7AF864002D68FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D3FBF1C1A15649E00E7E6A9 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +27,7 @@
 		3D3630091A7AE08A00B34E2C /* menu-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-black.png"; sourceTree = "<group>"; };
 		3D36300D1A7AE9CE00B34E2C /* TeaIcon1.1.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = TeaIcon1.1.icns; sourceTree = "<group>"; };
 		3D3FBF131A15649D00E7E6A9 /* TeaMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeaMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D3FBF171A15649E00E7E6A9 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3D3FBF1A1A15649E00E7E6A9 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		3D3FBF1B1A15649E00E7E6A9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3D3FBF1C1A15649E00E7E6A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3D3FBF1F1A15649E00E7E6A9 /* TeaMenu-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TeaMenu-Info.plist"; sourceTree = "<group>"; };
 		3D3FBF211A15649E00E7E6A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -73,7 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D3FBF181A15649E00E7E6A9 /* Cocoa.framework in Frameworks */,
+				3DF08D891A7AF864002D68FE /* AppKit.framework in Frameworks */,
+				3DF08D8A1A7AF864002D68FE /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,20 +100,10 @@
 		3D3FBF161A15649D00E7E6A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3D3FBF171A15649E00E7E6A9 /* Cocoa.framework */,
-				3D3FBF191A15649E00E7E6A9 /* Other Frameworks */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3D3FBF191A15649E00E7E6A9 /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
 				3D3FBF1A1A15649E00E7E6A9 /* AppKit.framework */,
-				3D3FBF1B1A15649E00E7E6A9 /* CoreData.framework */,
 				3D3FBF1C1A15649E00E7E6A9 /* Foundation.framework */,
 			);
-			name = "Other Frameworks";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		3D3FBF1D1A15649E00E7E6A9 /* TeaMenu */ = {
@@ -212,7 +201,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D3FBF221A15649E00E7E6A9 /* InfoPlist.strings in Resources */,
 				3D3FBF2E1A15649E00E7E6A9 /* MainMenu.xib in Resources */,
 				3D3FBF481A157B8F00E7E6A9 /* Localizable.strings in Resources */,
 				3DCC29DA1A160C590013391E /* menu-steamwhite.png in Resources */,

@@ -6,7 +6,8 @@
 //  Copyright (c) 2014 dfragment.net. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <AppKit/AppKit.h>
+#import <Foundation/Foundation.h>
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
 	NSMenu *_appMenu;
