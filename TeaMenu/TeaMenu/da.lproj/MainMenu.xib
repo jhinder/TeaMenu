@@ -52,6 +52,15 @@
 							<string key="NSResourceName">NSMenuMixedState</string>
 						</object>
 					</object>
+					<object class="NSMenuItem" id="237495939">
+						<reference key="NSMenu" ref="10868178"/>
+						<bool key="NSIsDisabled">YES</bool>
+						<string key="NSTitle">Stop stopur</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="177549431"/>
+						<reference key="NSMixedImage" ref="696236708"/>
+					</object>
 					<object class="NSMenuItem" id="587350446">
 						<reference key="NSMenu" ref="10868178"/>
 						<bool key="NSIsDisabled">YES</bool>
@@ -71,6 +80,7 @@
 						<reference key="NSMixedImage" ref="696236708"/>
 					</object>
 				</array>
+				<bool key="NSNoAutoenable">YES</bool>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -106,6 +116,22 @@
 						<reference key="destination" ref="381696313"/>
 					</object>
 					<int key="connectionID">546</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">stopTeaItem</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="237495939"/>
+					</object>
+					<int key="connectionID">548</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">stopTimer:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="237495939"/>
+					</object>
+					<int key="connectionID">549</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -146,6 +172,7 @@
 							<reference ref="1048251881"/>
 							<reference ref="587350446"/>
 							<reference ref="381696313"/>
+							<reference ref="237495939"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -164,6 +191,11 @@
 						<reference key="object" ref="381696313"/>
 						<reference key="parent" ref="10868178"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">547</int>
+						<reference key="object" ref="237495939"/>
+						<reference key="parent" ref="10868178"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -175,12 +207,13 @@
 				<string key="539.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="540.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="545.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="547.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">546</int>
+			<int key="maxID">549</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -190,6 +223,7 @@
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="showCustomTimer:">id</string>
 						<string key="startTimer:">id</string>
+						<string key="stopTimer:">id</string>
 						<string key="terminate:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
@@ -201,22 +235,29 @@
 							<string key="name">startTimer:</string>
 							<string key="candidateClassName">id</string>
 						</object>
+						<object class="IBActionInfo" key="stopTimer:">
+							<string key="name">stopTimer:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="terminate:">
 							<string key="name">terminate:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">appMenu</string>
-						<string key="NS.object.0">NSMenu</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">appMenu</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="appMenu">NSMenu</string>
+						<string key="stopTeaItem">NSMenuItem</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="appMenu">
 							<string key="name">appMenu</string>
 							<string key="candidateClassName">NSMenu</string>
 						</object>
-					</object>
+						<object class="IBToOneOutletInfo" key="stopTeaItem">
+							<string key="name">stopTeaItem</string>
+							<string key="candidateClassName">NSMenuItem</string>
+						</object>
+					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/AppDelegate.h</string>
