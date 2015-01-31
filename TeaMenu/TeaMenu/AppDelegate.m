@@ -13,6 +13,9 @@
 @synthesize appMenu = _appMenu;
 @synthesize item = _item;
 @synthesize userTeaArray = userTeas;
+@synthesize stopTeaItem = stopTimerItem;
+
+bool teaBrewing;
 
 /* Quick translation macro. */
 #ifndef T
@@ -24,6 +27,7 @@
 /* Called when the app launches, and sets up the menu. */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+	teaBrewing = NO;
     [self preparePreferences];
     userTeas = [[[NSUserDefaults standardUserDefaults] arrayForKey:@"Teas"] mutableCopy];
     
@@ -96,22 +100,45 @@
 - (void) actualTimerStart: (NSInteger) seconds
 {
 #ifdef DEBUG
-    seconds = 1;
+    seconds = 5;
 #endif
+	teaBrewing = TRUE;
     [self changeIcons:true];
+	[stopTimerItem setEnabled:YES];
     [self performSelector:@selector(timerUp) withObject:nil afterDelay:seconds];
 }
 
 /* Called once a timer expires. */
 - (void) timerUp
 {
+	teaBrewing = NO;
     [self changeIcons:false];
+	[stopTimerItem setEnabled:NO];
+	
     NSAlert *alert = [[NSAlert alloc] init];
     [alert setMessageText:T("TEA_READY")];
     [alert setIcon:[NSImage imageNamed:@"Teaicon_Done.png"]];
     [alert addButtonWithTitle:@"OK"];
     [alert runModal];
     [alert release];
+}
+
+/* Interface action to stop the timer. */
+- (IBAction) stopTimer:(id)sender
+{
+	[self haltTimer];
+}
+
+/* Stops the queued timer. */
+- (void) haltTimer
+{
+	if (!teaBrewing)
+		return;
+	// Cancels all to-be-performed selectors -- which is our tea in this case.
+	[NSObject cancelPreviousPerformRequestsWithTarget:self];
+	[self changeIcons:NO];
+	[stopTimerItem setEnabled:NO];
+	teaBrewing = NO;
 }
 
 /* Displays a dialogue to users, from which they can start their own timers. */
