@@ -117,7 +117,7 @@ bool teaBrewing;
 	
     NSAlert *alert = [[NSAlert alloc] init];
     [alert setMessageText:T("TEA_READY")];
-    [alert setIcon:[NSImage imageNamed:@"Teaicon_Done.png"]];
+    [alert setIcon:[NSImage imageNamed:@"Teaicon_Done"]];
     [alert addButtonWithTitle:@"OK"];
     [alert runModal];
     [alert release];
