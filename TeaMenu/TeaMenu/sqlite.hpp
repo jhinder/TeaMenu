@@ -13,8 +13,7 @@
 #include <vector>
 #include <string>
 
-#define DBPATH "~/Library/Application Support/TeaMenu/Teas.db"
-
+// SQL statements
 #define SQL_CREATE_TABLE   "CREATE TABLE IF NOT EXISTS Teas" \
                            "(Time INT NOT NULL, Name TEXT NOT NULL)"
 #define SQL_INSERT_TEA     "INSERT INTO Teas VALUES (?, ?)"
@@ -23,20 +22,20 @@
 #define SQL_DELETE_ONE_TEA "DELETE FROM Teas WHERE Name = ?"
 #define SQL_COUNT_TEAS     "SELECT COUNT(*) AS TeaCount FROM Teas"
 
+// C(++) struct for storing teas
 struct teaNode {
 	int minutes;
 	std::string name;
 };
 
-// Note: all return values are to be seen as booleans: 0 = false, 1 = true.
-int initDB(void);
-int prepareDB(void);
-int closeDB(void);
-int writeTea(int, const char*);
-int removeTea(const char*);
-int removeAllTeas(void);
-int readAllTeas(std::vector<teaNode>& nodeVector);
-// The next call is NOT a boolean, but a count.
+// Function definitions
+bool initDB(const char*);
+bool prepareDB(void);
+bool closeDB(void);
+bool writeTea(int, const char*);
+bool removeTea(const char*);
+bool removeAllTeas(void);
+bool readAllTeas(std::vector<teaNode>& nodeVector);
 int countTeas(void);
 
 #endif

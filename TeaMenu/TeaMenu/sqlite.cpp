@@ -15,9 +15,11 @@ sqlite3 *db;
 void sqliteLog(void*, const char*);
 
 /* Initializes the database */
-int initDB(void)
+bool initDB(const char *path)
 {
-	int initOkay = (sqlite3_open(DBPATH, &db) == SQLITE_OK);
+	if (path == NULL)
+		return false;
+	bool initOkay = (sqlite3_open(path, &db) == SQLITE_OK);
 #ifdef DEBUG
 	sqlite3_trace(db, sqliteLog, NULL);
 #endif
@@ -25,20 +27,20 @@ int initDB(void)
 }
 
 /* Creates all necessary structures in the database */
-int prepareDB()
+bool prepareDB()
 {
 	return (sqlite3_exec(db, SQL_CREATE_TABLE, 0, 0, NULL) == SQLITE_OK);
 }
 
 /* Closes the database */
-int closeDB(void)
+bool closeDB(void)
 {
 	// Closing NULL is a no-op according to the docs
 	return (sqlite3_close(db) == SQLITE_OK);
 }
 
 /* Inserts a single tea entity into the database */
-int writeTea(int time, const char *name)
+bool writeTea(int time, const char *name)
 {
 	sqlite3_stmt *stmt;
 	int retVal = 0;
@@ -53,7 +55,7 @@ int writeTea(int time, const char *name)
 }
 
 /* Removes a single tea by its name */
-int removeTea(const char *name)
+bool removeTea(const char *name)
 {
 	sqlite3_stmt *stmt;
 	int retVal = 0;
@@ -67,7 +69,7 @@ int removeTea(const char *name)
 }
 
 /* Removes all teas from the database */
-int removeAllTeas(void)
+bool removeAllTeas(void)
 {
 	return (sqlite3_exec(db, SQL_DELETE_TEAS, 0, 0, NULL) == SQLITE_OK);
 }
@@ -85,7 +87,7 @@ int countTeas(void)
 	return rowCount;
 }
 
-int readAllTeas(std::vector<teaNode>& nodeVector)
+bool readAllTeas(std::vector<teaNode>& nodeVector)
 {
 	sqlite3_stmt *stmt;
 	if (sqlite3_prepare(db, SQL_READ_ALL_TEAS, -1, &stmt, 0) == SQLITE_OK) {
@@ -99,9 +101,9 @@ int readAllTeas(std::vector<teaNode>& nodeVector)
 			nodeVector.push_back(cNode);
 		}
 		sqlite3_finalize(stmt);
-		return 1;
+		return true;
 	}
-	return 0;
+	return false;
 }
 
 /* Logs all SQL queries to stderr in Debug builds */

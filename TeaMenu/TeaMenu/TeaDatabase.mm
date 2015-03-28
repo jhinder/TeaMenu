@@ -10,11 +10,112 @@
 
 @implementation TeaDatabase
 
+/** Local helper functions **/
+BOOL createAppSupport(void);
+NSString * getAppSupportFolder(void);
+
+/* Creates a TeaMenu folder in the user's Application Support folder */
+BOOL createAppSupport(void)
+{
+	NSString *directory = [NSString stringWithFormat:@"%@/TeaMenu/", getAppSupportFolder()];
+	if (directory == NULL)
+		return FALSE;
+	BOOL isDir;
+	NSFileManager *fileManager= [NSFileManager defaultManager];
+	if ((![fileManager fileExistsAtPath:directory isDirectory:&isDir])) {
+		return [fileManager createDirectoryAtPath:directory
+			   withIntermediateDirectories:YES
+								attributes:nil
+									 error:NULL];
+	} else {
+		return isDir;
+	}
+	return FALSE;
+}
+
+/* Gets the Library/Application Support folder for the user */
+NSString * getAppSupportFolder(void)
+{
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+	return (([paths count] != 0) ? [paths objectAtIndex:0] : NULL);
+}
+
+/** Class implementation **/
+
 - (id) init
 {
 	self = [super init];
     if (self) {
-		//initDB();
+		const char *dbPath = [[NSString stringWithFormat:@"%@/TeaMenu/Teas.db", getAppSupportFolder()] UTF8String];
+		if (createAppSupport() && initDB(dbPath) && prepareDB()) {
+			// nothing.
+		} else {
+			NSLog(@"Could not initialize the database.");
+			[self release];
+			self = nil; // Nothing we can do now...
+		}
+    }
+    return self;
+}
+
+/* Returns the number of teas in the database */
+- (NSInteger) countTeas
+{
+	return countTeas();
+}
+
+/* Inserts a tea with name and brewing time into the database */
+- (bool) insertTeaWithName: (NSString *)name andTime: (int)minutes
+{
+	return writeTea(minutes, name.UTF8String);
+}
+
+/* Deletes a tea with the given name */
+- (bool) deleteTeaWithName: (NSString *)name
+{
+	return removeTea(name.UTF8String);
+}
+
+/* Clears the database */
+- (bool) resetDatabase
+{
+	return removeAllTeas();
+}
+
+/* Gets all teas and returns them as an NSArray of TeaObject entities */
+- (NSArray *) queryTeas
+{
+	std::vector<struct teaNode> teaVector;
+	if (!readAllTeas(teaVector)) {
+		delete &teaVector;
+		return nil;
+	}
+
+	NSMutableArray *teaArray = [[NSMutableArray alloc] init];
+	for (std::vector<struct teaNode>::iterator it = teaVector.begin(); it != teaVector.end(); ++it)
+	{
+		TeaObject *nextTea = [[TeaObject alloc] initWithName:[NSString stringWithFormat:@"%s", (*it).name.c_str()]
+												 andDuration:(*it).minutes];
+		[teaArray addObject:nextTea];
+	}
+
+	teaVector.clear();
+	return teaArray;
+}
+
+@end
+
+@implementation TeaObject
+
+@synthesize teaName;
+@synthesize teaDuration;
+
+- (id) initWithName:(NSString *)name andDuration:(NSInteger)duration
+{
+	self = [super init];
+    if (self) {
+		teaName = name;
+		teaDuration = duration;
     }
     return self;
 }
