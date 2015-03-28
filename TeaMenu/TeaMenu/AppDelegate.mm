@@ -14,7 +14,7 @@
 @synthesize item = _item;
 @synthesize userTeaArray = userTeas;
 @synthesize stopTeaItem = stopTimerItem;
-//@synthesize database = db;
+@synthesize database = db;
 
 bool teaBrewing;
 

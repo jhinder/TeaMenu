@@ -8,21 +8,21 @@
 
 #import <AppKit/AppKit.h>
 #import <Foundation/Foundation.h>
-//#import "TeaDatabase.h"
+#import "TeaDatabase.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
 	NSMenu *_appMenu;
 	NSStatusItem *_item;
 	NSMutableArray *userTeas;
 	NSMenuItem *stopTimerItem;
-	//TeaDatabase *database;
+	TeaDatabase *database;
 }
 
 @property (assign) IBOutlet NSMenu *appMenu;
 @property (assign) NSStatusItem *item;
 @property (retain) NSMutableArray *userTeaArray;
 @property (assign) IBOutlet NSMenuItem *stopTeaItem;
-//@property (retain) TeaDatabase *database;
+@property (retain) TeaDatabase *database;
 
 - (IBAction)showCustomTimer:(id)sender;
 - (IBAction)startTimer:(id)sender;
