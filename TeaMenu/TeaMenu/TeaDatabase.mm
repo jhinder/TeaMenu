@@ -103,6 +103,12 @@ NSString * getAppSupportFolder(void)
 	return teaArray;
 }
 
+/* Destructor; closes the database connection */
+- (void) dealloc
+{
+	closeDB();
+}
+
 @end
 
 @implementation TeaObject

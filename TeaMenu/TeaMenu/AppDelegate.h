@@ -34,7 +34,7 @@
 - (void) actualTimerStart: (NSInteger) seconds;
 - (void) haltTimer;
 - (void) changeIcons:(bool)steaming;
-- (void) preparePreferences;
+- (void) copyDefaultTeas;
 - (void) timerUp;
 
 @end

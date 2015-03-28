@@ -30,6 +30,8 @@ bool teaBrewing;
 /* Called when the app launches, and sets up the menu. */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+	db = [[TeaDatabase alloc] init];
+	
 	/* Templating has two major benefits:
 	 * a) we get white versions of the icons when needed,
 	 * b) it works natively with Yosemite's dark mode.
@@ -40,38 +42,39 @@ bool teaBrewing;
 	[_mugSteaming setTemplate:YES];
 	
 	teaBrewing = NO;
-    [self preparePreferences];
-    userTeas = [[[NSUserDefaults standardUserDefaults] arrayForKey:@"Teas"] mutableCopy];
-    
-    NSStatusBar *bar = [NSStatusBar systemStatusBar];
-    _item = [[bar statusItemWithLength:NSVariableStatusItemLength] retain];
+	
+	// Database init/loading
+	if ([db countTeas] == 0)
+		[self copyDefaultTeas];
+	NSArray *dbTeas = [db queryTeas];
+	
+	// Initialize menu bar/status item
+    _item = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
     [self changeIcons:false];
     _item.highlightMode = true;
     
-    // Add all user teas to the menu
-    for (NSUInteger i = 0; i < userTeas.count; i++) {
-        NSDictionary *currentTeaDict = [userTeas objectAtIndex:i];
-        NSInteger teaTime = [[currentTeaDict objectForKey:@"Time"] integerValue];
+	// Add all user teas to the menu
+	int index = 0;
+	for (TeaObject *tea in dbTeas) {
+		NSInteger teaTime = tea.teaDuration;
         NSString *menuItemTitle = [NSString stringWithFormat:@"%@ (%d %@)",
-                                            [currentTeaDict objectForKey:@"Tea Type"],
-                                            teaTime,
-                                            T("MINUTES.SHORT")];
+								   tea.teaName,
+								   teaTime,
+								   T("MINUTES.SHORT")];
         NSMenuItem *item = [[[NSMenuItem alloc] initWithTitle:menuItemTitle 
-                                               action:@selector(startTimer:)
-                                               keyEquivalent:@""] autorelease];
+													   action:@selector(startTimer:)
+												keyEquivalent:@""] autorelease];
         [item setTag:(teaTime * 60)];
-        [_appMenu insertItem:item atIndex:i];
-    }
-    
+        [_appMenu insertItem:item atIndex:(index++)];
+	}
+	
     _item.menu = _appMenu;
     
 }
 
-/* Copies the default preferences into the user domain if necessary. */
-- (void) preparePreferences
+/* Copy the Default Teas plist into the database */
+- (void) copyDefaultTeas
 {
-    NSUserDefaults *localPreferences = [NSUserDefaults standardUserDefaults];
-    
     // Detecting user's preferred language or default to en
     NSArray *language = [NSLocale preferredLanguages];
     NSString *userLocale = (language.count == 0) ? @"en" : [language objectAtIndex:0];
@@ -80,7 +83,12 @@ bool teaBrewing;
                                                  withExtension:@"plist"
                                                  subdirectory:[userLocale stringByAppendingPathExtension:@"lproj"]];
     NSDictionary *teaDicts = [NSDictionary dictionaryWithContentsOfURL:defaultPrefs];
-    [localPreferences registerDefaults:teaDicts];
+	
+	for (NSDictionary *subTea in [teaDicts objectForKey:@"Teas"]) {
+		NSString *name = [subTea objectForKey:@"Tea Type"];
+		NSInteger time = [[subTea objectForKey:@"Time"] integerValue];
+		[db insertTeaWithName:name andTime:(int)time];
+	}
 }
 
 /**
@@ -123,7 +131,7 @@ bool teaBrewing;
 	
     NSAlert *alert = [[NSAlert alloc] init];
     [alert setMessageText:T("TEA_READY")];
-    [alert setIcon:[NSImage imageNamed:@"Teaicon_Done"]];
+    [alert setIcon:[NSImage imageNamed:@"TeaIcon_Done"]];
     [alert addButtonWithTitle:@"OK"];
     [alert runModal];
     [alert release];
@@ -173,9 +181,7 @@ bool teaBrewing;
 /* Interface action for app exit. Saves the settings, then terminates. */
 - (IBAction)terminate:(id)sender
 {
-    NSUserDefaults *localSettings = [NSUserDefaults standardUserDefaults];
-    [localSettings setObject:userTeas forKey:@"Teas"];
-    [localSettings synchronize];
+    [db dealloc];
     [NSApp terminate:0];
 }
 
