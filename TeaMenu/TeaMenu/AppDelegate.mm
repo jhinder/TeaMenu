@@ -15,6 +15,8 @@
 @synthesize userTeaArray = userTeas;
 @synthesize stopTeaItem = stopTimerItem;
 @synthesize database = db;
+@synthesize mug = _mug;
+@synthesize mugSteaming = _mugSteaming;
 
 bool teaBrewing;
 
@@ -28,12 +30,20 @@ bool teaBrewing;
 /* Called when the app launches, and sets up the menu. */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+	/* Templating has two major benefits:
+	 * a) we get white versions of the icons when needed,
+	 * b) it works natively with Yosemite's dark mode.
+	 */
+	_mug = [NSImage imageNamed:@"menu-black"];
+	[_mug setTemplate:YES];
+	_mugSteaming = [NSImage imageNamed:@"menu-steamblack"];
+	[_mugSteaming setTemplate:YES];
+	
 	teaBrewing = NO;
     [self preparePreferences];
     userTeas = [[[NSUserDefaults standardUserDefaults] arrayForKey:@"Teas"] mutableCopy];
     
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
-
     _item = [[bar statusItemWithLength:NSVariableStatusItemLength] retain];
     [self changeIcons:false];
     _item.highlightMode = true;
@@ -73,18 +83,13 @@ bool teaBrewing;
     [localPreferences registerDefaults:teaDicts];
 }
 
-/* Should be called when the menu icons should be changed.
- * steaming: indicates if the cup icon should display steam.
+/**
+ Changes the icon for the menu bar icon.
+ @param steaming Determines if the icon should show the steaming mug.
  */
 - (void) changeIcons:(bool)steaming
 {
-    if (steaming) {
-        _item.image = [NSImage imageNamed:@"menu-steamblack"];
-        _item.alternateImage = [NSImage imageNamed:@"menu-steamwhite"];
-    } else {
-        _item.image = [NSImage imageNamed:@"menu-black"];
-        _item.alternateImage = [NSImage imageNamed:@"menu-white"];        
-    }
+	_item.image = (steaming ? _mugSteaming : _mug);
 }
 
 /* Action to start a pre-defined timer.

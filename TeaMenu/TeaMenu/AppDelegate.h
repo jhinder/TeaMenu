@@ -16,6 +16,7 @@
 	NSMutableArray *userTeas;
 	NSMenuItem *stopTimerItem;
 	TeaDatabase *database;
+	NSImage *mug, *mugSteaming;
 }
 
 @property (assign) IBOutlet NSMenu *appMenu;
@@ -23,6 +24,7 @@
 @property (retain) NSMutableArray *userTeaArray;
 @property (assign) IBOutlet NSMenuItem *stopTeaItem;
 @property (retain) TeaDatabase *database;
+@property (retain) NSImage *mug, *mugSteaming;
 
 - (IBAction)showCustomTimer:(id)sender;
 - (IBAction)startTimer:(id)sender;
