@@ -11,7 +11,7 @@
 		3D36300A1A7AE08A00B34E2C /* menu-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D3630091A7AE08A00B34E2C /* menu-black.png */; };
 		3D36300E1A7AE9CE00B34E2C /* TeaIcon1.1.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3D36300D1A7AE9CE00B34E2C /* TeaIcon1.1.icns */; };
 		3D3FBF241A15649E00E7E6A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3FBF231A15649E00E7E6A9 /* main.m */; };
-		3D3FBF2B1A15649E00E7E6A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3FBF2A1A15649E00E7E6A9 /* AppDelegate.m */; };
+		3D3FBF2B1A15649E00E7E6A9 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3D3FBF2A1A15649E00E7E6A9 /* AppDelegate.mm */; };
 		3D3FBF2E1A15649E00E7E6A9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D3FBF2C1A15649E00E7E6A9 /* MainMenu.xib */; };
 		3D3FBF481A157B8F00E7E6A9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D3FBF4A1A157B8F00E7E6A9 /* Localizable.strings */; };
 		3D6F8BE81A7AD14D000794CA /* TeaIcon_Done.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F8BE71A7AD14D000794CA /* TeaIcon_Done.png */; };
@@ -37,7 +37,7 @@
 		3D3FBF211A15649E00E7E6A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3D3FBF231A15649E00E7E6A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3D3FBF291A15649E00E7E6A9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		3D3FBF2A1A15649E00E7E6A9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3D3FBF2A1A15649E00E7E6A9 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		3D3FBF2D1A15649E00E7E6A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3D3FBF451A1579F200E7E6A9 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3D3FBF491A157B8F00E7E6A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				3D3FBF291A15649E00E7E6A9 /* AppDelegate.h */,
-				3D3FBF2A1A15649E00E7E6A9 /* AppDelegate.m */,
+				3D3FBF2A1A15649E00E7E6A9 /* AppDelegate.mm */,
 				3D3FBF2C1A15649E00E7E6A9 /* MainMenu.xib */,
 				3D3FBF4A1A157B8F00E7E6A9 /* Localizable.strings */,
 				3D3FBF1E1A15649E00E7E6A9 /* Supporting Files */,
@@ -237,7 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D3FBF241A15649E00E7E6A9 /* main.m in Sources */,
-				3D3FBF2B1A15649E00E7E6A9 /* AppDelegate.m in Sources */,
+				3D3FBF2B1A15649E00E7E6A9 /* AppDelegate.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

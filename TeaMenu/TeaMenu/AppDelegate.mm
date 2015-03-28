@@ -14,6 +14,7 @@
 @synthesize item = _item;
 @synthesize userTeaArray = userTeas;
 @synthesize stopTeaItem = stopTimerItem;
+//@synthesize database = db;
 
 bool teaBrewing;
 
@@ -145,7 +146,7 @@ bool teaBrewing;
 - (IBAction)showCustomTimer:(id)sender
 {
     NSTextField *accessoryField = [[[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 64, 24)] autorelease];
-    accessoryField.integerValue = 3;
+    accessoryField.integerValue = 4;
     NSNumberFormatter *numformat = [[[NSNumberFormatter alloc] init] autorelease];
     [accessoryField setFormatter:numformat];
     
