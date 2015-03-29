@@ -91,11 +91,11 @@ NSString * getAppSupportFolder(void)
 		return nil;
 	}
 
-	NSMutableArray *teaArray = [[NSMutableArray alloc] init];
+	NSMutableArray *teaArray = [[[NSMutableArray alloc] init] autorelease];
 	for (std::vector<struct teaNode>::iterator it = teaVector.begin(); it != teaVector.end(); ++it)
 	{
-		TeaObject *nextTea = [[TeaObject alloc] initWithName:[NSString stringWithFormat:@"%s", (*it).name.c_str()]
-												 andDuration:(*it).minutes];
+		TeaObject *nextTea = [[[TeaObject alloc] initWithName:[NSString stringWithFormat:@"%s", (*it).name.c_str()]
+												 andDuration:(*it).minutes] autorelease];
 		[teaArray addObject:nextTea];
 	}
 
@@ -119,11 +119,11 @@ NSString * getAppSupportFolder(void)
 - (id) initWithName:(NSString *)name andDuration:(NSInteger)duration
 {
 	self = [super init];
-    if (self) {
+	if (self) {
 		teaName = name;
 		teaDuration = duration;
-    }
-    return self;
+	}
+	return self;
 }
 
 @end

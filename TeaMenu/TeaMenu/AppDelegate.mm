@@ -12,11 +12,11 @@
 
 @synthesize appMenu = _appMenu;
 @synthesize item = _item;
-@synthesize userTeaArray = userTeas;
 @synthesize stopTeaItem = stopTimerItem;
-@synthesize database = db;
-@synthesize mug = _mug;
-@synthesize mugSteaming = _mugSteaming;
+@synthesize database;
+@synthesize mug;
+@synthesize mugSteaming;
+@synthesize editor;
 
 bool teaBrewing;
 
@@ -30,23 +30,23 @@ bool teaBrewing;
 /* Called when the app launches, and sets up the menu. */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	db = [[TeaDatabase alloc] init];
+	database = [[TeaDatabase alloc] init];
 	
 	/* Templating has two major benefits:
 	 * a) we get white versions of the icons when needed,
 	 * b) it works natively with Yosemite's dark mode.
 	 */
-	_mug = [NSImage imageNamed:@"menu-black"];
-	[_mug setTemplate:YES];
-	_mugSteaming = [NSImage imageNamed:@"menu-steamblack"];
-	[_mugSteaming setTemplate:YES];
+	mug = [NSImage imageNamed:@"menu-black"];
+	[mug setTemplate:YES];
+	mugSteaming = [NSImage imageNamed:@"menu-steamblack"];
+	[mugSteaming setTemplate:YES];
 	
 	teaBrewing = NO;
 	
 	// Database init/loading
-	if ([db countTeas] == 0)
+	if ([database countTeas] == 0)
 		[self copyDefaultTeas];
-	NSArray *dbTeas = [db queryTeas];
+	NSArray *dbTeas = [database queryTeas];
 	
 	// Initialize menu bar/status item
     _item = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
@@ -93,7 +93,7 @@ bool teaBrewing;
 	for (NSDictionary *subTea in [langDict objectForKey:@"Teas"]) {
 		NSString *name = [subTea objectForKey:@"Tea Type"];
 		NSInteger time = [[subTea objectForKey:@"Time"] integerValue];
-		[db insertTeaWithName:name andTime:(int)time];
+		[database insertTeaWithName:name andTime:(int)time];
 	}
 }
 
@@ -103,7 +103,7 @@ bool teaBrewing;
  */
 - (void) changeIcons:(bool)steaming
 {
-	_item.image = (steaming ? _mugSteaming : _mug);
+	_item.image = (steaming ? mugSteaming : mug);
 }
 
 /* Action to start a pre-defined timer.
@@ -187,7 +187,7 @@ bool teaBrewing;
 /* Interface action for app exit. Saves the settings, then terminates. */
 - (IBAction)terminate:(id)sender
 {
-    [db dealloc];
+    [database dealloc];
     [NSApp terminate:0];
 }
 

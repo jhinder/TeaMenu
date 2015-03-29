@@ -13,7 +13,6 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
 	NSMenu *_appMenu;
 	NSStatusItem *_item;
-	NSMutableArray *userTeas;
 	NSMenuItem *stopTimerItem;
 	TeaDatabase *database;
 	NSImage *mug, *mugSteaming;
@@ -21,7 +20,6 @@
 
 @property (assign) IBOutlet NSMenu *appMenu;
 @property (assign) NSStatusItem *item;
-@property (retain) NSMutableArray *userTeaArray;
 @property (assign) IBOutlet NSMenuItem *stopTeaItem;
 @property (retain) TeaDatabase *database;
 @property (retain) NSImage *mug, *mugSteaming;
