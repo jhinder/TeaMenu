@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>de</key>
+	<dict>
+		<key>Teas</key>
+		<array>
+			<dict>
+				<key>Tea Type</key>
+				<string>Schwarzer Tee</string>
+				<key>Time</key>
+				<integer>5</integer>
+			</dict>
+			<dict>
+				<key>Tea Type</key>
+				<string>Grüner Tee</string>
+				<key>Time</key>
+				<integer>3</integer>
+			</dict>
+		</array>
+	</dict>
+	<key>en</key>
+	<dict>
+		<key>Teas</key>
+		<array>
+			<dict>
+				<key>Tea Type</key>
+				<string>Black tea</string>
+				<key>Time</key>
+				<integer>5</integer>
+			</dict>
+			<dict>
+				<key>Tea Type</key>
+				<string>Green tea</string>
+				<key>Time</key>
+				<integer>3</integer>
+			</dict>
+		</array>
+	</dict>
+	<key>it</key>
+	<dict>
+		<key>Teas</key>
+		<array>
+			<dict>
+				<key>Tea Type</key>
+				<string>Tè nero</string>
+				<key>Time</key>
+				<integer>5</integer>
+			</dict>
+			<dict>
+				<key>Tea Type</key>
+				<string>Tè verde</string>
+				<key>Time</key>
+				<integer>3</integer>
+			</dict>
+		</array>
+	</dict>
+	<key>fr</key>
+	<dict>
+		<key>Teas</key>
+		<array>
+			<dict>
+				<key>Tea Type</key>
+				<string>Thé noir</string>
+				<key>Time</key>
+				<integer>5</integer>
+			</dict>
+			<dict>
+				<key>Tea Type</key>
+				<string>Thé vert</string>
+				<key>Time</key>
+				<integer>3</integer>
+			</dict>
+		</array>
+	</dict>
+	<key>es</key>
+	<dict>
+		<key>Teas</key>
+		<array>
+			<dict>
+				<key>Tea Type</key>
+				<string>Té negro</string>
+				<key>Time</key>
+				<integer>5</integer>
+			</dict>
+			<dict>
+				<key>Tea Type</key>
+				<string>Té verde</string>
+				<key>Time</key>
+				<integer>3</integer>
+			</dict>
+		</array>
+	</dict>
+	<key>nl</key>
+	<dict>
+		<key>Teas</key>
+		<array>
+			<dict>
+				<key>Tea Type</key>
+				<string>Zwarte thee</string>
+				<key>Time</key>
+				<integer>5</integer>
+			</dict>
+			<dict>
+				<key>Tea Type</key>
+				<string>Groene thee</string>
+				<key>Time</key>
+				<integer>3</integer>
+			</dict>
+		</array>
+	</dict>
+	<key>sv</key>
+	<dict>
+		<key>Teas</key>
+		<array>
+			<dict>
+				<key>Tea Type</key>
+				<string>Svart te</string>
+				<key>Time</key>
+				<integer>5</integer>
+			</dict>
+			<dict>
+				<key>Tea Type</key>
+				<string>Grönt te</string>
+				<key>Time</key>
+				<integer>3</integer>
+			</dict>
+		</array>
+	</dict>
+	<key>pt</key>
+	<dict>
+		<key>Teas</key>
+		<array>
+			<dict>
+				<key>Tea Type</key>
+				<string>Chá preto</string>
+				<key>Time</key>
+				<integer>5</integer>
+			</dict>
+			<dict>
+				<key>Tea Type</key>
+				<string>Chá verde</string>
+				<key>Time</key>
+				<integer>3</integer>
+			</dict>
+		</array>
+	</dict>
+	<key>da</key>
+	<dict>
+		<key>Teas</key>
+		<array>
+			<dict>
+				<key>Tea Type</key>
+				<string>Sort te</string>
+				<key>Time</key>
+				<integer>5</integer>
+			</dict>
+			<dict>
+				<key>Tea Type</key>
+				<string>Grøn te</string>
+				<key>Time</key>
+				<integer>3</integer>
+			</dict>
+		</array>
+	</dict>
+</dict>
+</plist>

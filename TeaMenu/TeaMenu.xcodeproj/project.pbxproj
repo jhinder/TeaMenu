@@ -20,9 +20,9 @@
 		3D9ECC861AC5F16A0007256B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9ECC851AC5F16A0007256B /* libsqlite3.dylib */; };
 		3D9ECC8A1AC5F1E00007256B /* TeaDatabase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3D9ECC891AC5F1E00007256B /* TeaDatabase.mm */; };
 		3D9ECC8E1AC5F3B00007256B /* sqlite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D9ECC8D1AC5F3B00007256B /* sqlite.cpp */; };
-		3DC5ACC21A18E3090004A0CB /* DefaultTeas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DC5ACC41A18E3090004A0CB /* DefaultTeas.plist */; };
 		3DF08D891A7AF864002D68FE /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D3FBF1A1A15649E00E7E6A9 /* AppKit.framework */; };
 		3DF08D8A1A7AF864002D68FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D3FBF1C1A15649E00E7E6A9 /* Foundation.framework */; };
+		3DF0CBEF1AC842E100B5AEDE /* DefaultTeas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DF0CBEE1AC842E100B5AEDE /* DefaultTeas.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,26 +52,18 @@
 		3D71E3B11AC35E6D007C42EA /* menu-steamblack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-steamblack@2x.png"; sourceTree = "<group>"; };
 		3D73E27E1A1AC8DA0002A5C8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D73E27F1A1ACA340002A5C8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		3D73E2801A1ACA5F0002A5C8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = nl; path = nl.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
 		3D73E2811A1ACAE40002A5C8 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D73E2821A1ACAF70002A5C8 /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = sv; path = sv.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		3D73E2831A1ACB390002A5C8 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = sv; path = sv.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
 		3D9ECC851AC5F16A0007256B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		3D9ECC881AC5F1E00007256B /* TeaDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeaDatabase.h; sourceTree = "<group>"; };
 		3D9ECC891AC5F1E00007256B /* TeaDatabase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TeaDatabase.mm; sourceTree = "<group>"; };
 		3D9ECC8C1AC5F3A80007256B /* sqlite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = sqlite.hpp; sourceTree = "<group>"; };
 		3D9ECC8D1AC5F3B00007256B /* sqlite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sqlite.cpp; sourceTree = "<group>"; };
 		3DC149511A1B29C800718D30 /* da */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = da; path = da.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		3DC149531A1B29F200718D30 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = da; path = da.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
 		3DC149541A1B2A0400718D30 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3DC149551A1B2BF600718D30 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = pt; path = pt.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
 		3DC149561A1B2C1500718D30 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3DC149571A1B2CBD00718D30 /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = pt.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		3DC5ACC31A18E3090004A0CB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
-		3DC5ACC51A18E3210004A0CB /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = it; path = it.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
-		3DC5ACC61A18E3210004A0CB /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
-		3DC5ACC71A18E3210004A0CB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
-		3DC5ACC81A18E3210004A0CB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = es; path = es.lproj/DefaultTeas.plist; sourceTree = "<group>"; };
+		3DF0CBEE1AC842E100B5AEDE /* DefaultTeas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultTeas.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +124,7 @@
 		3D3FBF1E1A15649E00E7E6A9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3DC5ACC41A18E3090004A0CB /* DefaultTeas.plist */,
+				3DF0CBEE1AC842E100B5AEDE /* DefaultTeas.plist */,
 				3D3FBF1F1A15649E00E7E6A9 /* TeaMenu-Info.plist */,
 				3D3FBF201A15649E00E7E6A9 /* InfoPlist.strings */,
 				3D3FBF231A15649E00E7E6A9 /* main.m */,
@@ -225,13 +217,13 @@
 			files = (
 				3D3FBF2E1A15649E00E7E6A9 /* MainMenu.xib in Resources */,
 				3D3FBF481A157B8F00E7E6A9 /* Localizable.strings in Resources */,
-				3DC5ACC21A18E3090004A0CB /* DefaultTeas.plist in Resources */,
 				3D6F8BE81A7AD14D000794CA /* TeaIcon_Done.png in Resources */,
 				3D3630081A7ADFE600B34E2C /* menu-steamblack.png in Resources */,
 				3D36300A1A7AE08A00B34E2C /* menu-black.png in Resources */,
 				3D36300E1A7AE9CE00B34E2C /* TeaIcon1.1.icns in Resources */,
 				3D71E3B41AC35E6D007C42EA /* menu-black@2x.png in Resources */,
 				3D71E3B51AC35E6D007C42EA /* menu-steamblack@2x.png in Resources */,
+				3DF0CBEF1AC842E100B5AEDE /* DefaultTeas.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,22 +282,6 @@
 				3DC149561A1B2C1500718D30 /* pt */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		3DC5ACC41A18E3090004A0CB /* DefaultTeas.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3DC5ACC31A18E3090004A0CB /* en */,
-				3DC5ACC51A18E3210004A0CB /* it */,
-				3DC5ACC61A18E3210004A0CB /* de */,
-				3DC5ACC71A18E3210004A0CB /* fr */,
-				3DC5ACC81A18E3210004A0CB /* es */,
-				3D73E2801A1ACA5F0002A5C8 /* nl */,
-				3D73E2831A1ACB390002A5C8 /* sv */,
-				3DC149531A1B29F200718D30 /* da */,
-				3DC149551A1B2BF600718D30 /* pt */,
-			);
-			name = DefaultTeas.plist;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -78,13 +78,19 @@ bool teaBrewing;
     // Detecting user's preferred language or default to en
     NSArray *language = [NSLocale preferredLanguages];
     NSString *userLocale = (language.count == 0) ? @"en" : [language objectAtIndex:0];
+	NSArray *supportedLanguages = [NSArray arrayWithObjects:@"en", @"de", @"it",
+															@"fr", @"es", @"nl", 
+															@"sv", @"da", @"pt",
+															nil];
+	if (![supportedLanguages containsObject:userLocale])
+		userLocale = @"en";
     
     NSURL *defaultPrefs = [[NSBundle mainBundle] URLForResource:@"DefaultTeas"
-                                                 withExtension:@"plist"
-                                                 subdirectory:[userLocale stringByAppendingPathExtension:@"lproj"]];
+                                                 withExtension:@"plist"];
     NSDictionary *teaDicts = [NSDictionary dictionaryWithContentsOfURL:defaultPrefs];
+	NSDictionary *langDict = [teaDicts objectForKey:userLocale];
 	
-	for (NSDictionary *subTea in [teaDicts objectForKey:@"Teas"]) {
+	for (NSDictionary *subTea in [langDict objectForKey:@"Teas"]) {
 		NSString *name = [subTea objectForKey:@"Tea Type"];
 		NSInteger time = [[subTea objectForKey:@"Time"] integerValue];
 		[db insertTeaWithName:name andTime:(int)time];
