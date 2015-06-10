@@ -106,6 +106,7 @@ NSString * getAppSupportFolder(void)
 /* Destructor; closes the database connection */
 - (void) dealloc
 {
+	[super dealloc];
 	closeDB();
 }
 

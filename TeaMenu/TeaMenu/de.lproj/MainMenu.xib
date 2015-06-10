@@ -61,6 +61,24 @@
 						<reference key="NSOnImage" ref="285282933"/>
 						<reference key="NSMixedImage" ref="199020583"/>
 					</object>
+					<object class="NSMenuItem" id="411609000">
+						<reference key="NSMenu" ref="172093133"/>
+						<bool key="NSIsDisabled">YES</bool>
+						<bool key="NSIsSeparator">YES</bool>
+						<string key="NSTitle"/>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="285282933"/>
+						<reference key="NSMixedImage" ref="199020583"/>
+					</object>
+					<object class="NSMenuItem" id="832325029">
+						<reference key="NSMenu" ref="172093133"/>
+						<string key="NSTitle">Tees bearbeiten…</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="285282933"/>
+						<reference key="NSMixedImage" ref="199020583"/>
+					</object>
 					<object class="NSMenuItem" id="767974646">
 						<reference key="NSMenu" ref="172093133"/>
 						<bool key="NSIsDisabled">YES</bool>
@@ -133,6 +151,14 @@
 					</object>
 					<int key="connectionID">551</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">openTeaEditor:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="832325029"/>
+					</object>
+					<int key="connectionID">554</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -173,6 +199,8 @@
 							<reference ref="767974646"/>
 							<reference ref="287932279"/>
 							<reference ref="757960052"/>
+							<reference ref="832325029"/>
+							<reference ref="411609000"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -196,6 +224,16 @@
 						<reference key="object" ref="757960052"/>
 						<reference key="parent" ref="172093133"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">552</int>
+						<reference key="object" ref="832325029"/>
+						<reference key="parent" ref="172093133"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">553</int>
+						<reference key="object" ref="411609000"/>
+						<reference key="parent" ref="172093133"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -208,12 +246,14 @@
 				<string key="540.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="545.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="548.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="552.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="553.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">551</int>
+			<int key="maxID">555</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -221,12 +261,17 @@
 					<string key="className">AppDelegate</string>
 					<string key="superclassName">NSObject</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="openTeaEditor:">id</string>
 						<string key="showCustomTimer:">id</string>
 						<string key="startTimer:">id</string>
 						<string key="stopTimer:">id</string>
 						<string key="terminate:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="openTeaEditor:">
+							<string key="name">openTeaEditor:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="showCustomTimer:">
 							<string key="name">showCustomTimer:</string>
 							<string key="candidateClassName">id</string>

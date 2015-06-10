@@ -184,6 +184,14 @@ bool teaBrewing;
 
 }
 
+/* Shows the tea database editor */
+- (IBAction)openTeaEditor:(id)sender
+{
+	if (editor == nil)
+		editor = [[TeaEditor alloc] initWithWindowNibName:@"TeaEditorWindow"];
+	[editor showWindow:self];
+}
+
 /* Interface action for app exit. Saves the settings, then terminates. */
 - (IBAction)terminate:(id)sender
 {
