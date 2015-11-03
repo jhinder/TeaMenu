@@ -94,8 +94,8 @@ NSString * getAppSupportFolder(void)
 	NSMutableArray *teaArray = [[[NSMutableArray alloc] init] autorelease];
 	for (std::vector<struct teaNode>::iterator it = teaVector.begin(); it != teaVector.end(); ++it)
 	{
-		TeaObject *nextTea = [[[TeaObject alloc] initWithName:[NSString stringWithFormat:@"%s", (*it).name.c_str()]
-												 andDuration:(*it).minutes] autorelease];
+		TeaObject *nextTea = [[[TeaObject alloc] initWithName:[NSString stringWithUTF8String:(*it).name.c_str()]
+												  andDuration:(*it).minutes] autorelease];
 		[teaArray addObject:nextTea];
 	}
 
