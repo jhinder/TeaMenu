@@ -38,28 +38,20 @@
 			<object class="NSMenu" id="10868178">
 				<string key="NSTitle"/>
 				<array class="NSMutableArray" key="NSMenuItems">
-					<object class="NSMenuItem" id="381696313">
-						<reference key="NSMenu" ref="10868178"/>
-						<string key="NSTitle">Anpassad stoppur…</string>
-						<string key="NSKeyEquiv"/>
-						<int key="NSMnemonicLoc">2147483647</int>
-						<object class="NSCustomResource" key="NSOnImage" id="177549431">
-							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">NSMenuCheckmark</string>
-						</object>
-						<object class="NSCustomResource" key="NSMixedImage" id="696236708">
-							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">NSMenuMixedState</string>
-						</object>
-					</object>
 					<object class="NSMenuItem" id="51816214">
 						<reference key="NSMenu" ref="10868178"/>
 						<bool key="NSIsDisabled">YES</bool>
 						<string key="NSTitle">Stoppa stoppuret</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
-						<reference key="NSOnImage" ref="177549431"/>
-						<reference key="NSMixedImage" ref="696236708"/>
+						<object class="NSCustomResource" key="NSOnImage" id="364947325">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">NSMenuCheckmark</string>
+						</object>
+						<object class="NSCustomResource" key="NSMixedImage" id="259036155">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">NSMenuMixedState</string>
+						</object>
 					</object>
 					<object class="NSMenuItem" id="587350446">
 						<reference key="NSMenu" ref="10868178"/>
@@ -68,16 +60,16 @@
 						<string key="NSTitle"/>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
-						<reference key="NSOnImage" ref="177549431"/>
-						<reference key="NSMixedImage" ref="696236708"/>
+						<reference key="NSOnImage" ref="364947325"/>
+						<reference key="NSMixedImage" ref="259036155"/>
 					</object>
 					<object class="NSMenuItem" id="1048251881">
 						<reference key="NSMenu" ref="10868178"/>
 						<string key="NSTitle">Avsluta TeaMenu</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
-						<reference key="NSOnImage" ref="177549431"/>
-						<reference key="NSMixedImage" ref="696236708"/>
+						<reference key="NSOnImage" ref="364947325"/>
+						<reference key="NSMixedImage" ref="259036155"/>
 					</object>
 				</array>
 				<bool key="NSNoAutoenable">YES</bool>
@@ -108,14 +100,6 @@
 						<reference key="destination" ref="10868178"/>
 					</object>
 					<int key="connectionID">541</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">showCustomTimer:</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="381696313"/>
-					</object>
-					<int key="connectionID">546</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -171,7 +155,6 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="1048251881"/>
 							<reference ref="587350446"/>
-							<reference ref="381696313"/>
 							<reference ref="51816214"/>
 						</array>
 						<reference key="parent" ref="0"/>
@@ -184,11 +167,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">540</int>
 						<reference key="object" ref="587350446"/>
-						<reference key="parent" ref="10868178"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">545</int>
-						<reference key="object" ref="381696313"/>
 						<reference key="parent" ref="10868178"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -206,7 +184,6 @@
 				<string key="536.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="539.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="540.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="545.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="547.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
@@ -221,12 +198,17 @@
 					<string key="className">AppDelegate</string>
 					<string key="superclassName">NSObject</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="openTeaEditor:">id</string>
 						<string key="showCustomTimer:">id</string>
 						<string key="startTimer:">id</string>
 						<string key="stopTimer:">id</string>
 						<string key="terminate:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="openTeaEditor:">
+							<string key="name">openTeaEditor:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="showCustomTimer:">
 							<string key="name">showCustomTimer:</string>
 							<string key="candidateClassName">id</string>

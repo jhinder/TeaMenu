@@ -15,7 +15,6 @@
  * See that file for the explanation.
  */
 
-- (IBAction)showCustomTimer:(id)sender;
 - (IBAction)startTimer:(id)sender;
 - (IBAction)stopTimer:(id)sender;
 - (IBAction)terminate:(id)sender;

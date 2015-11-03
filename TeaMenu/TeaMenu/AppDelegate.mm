@@ -171,29 +171,6 @@ bool teaBrewing;
 	teaBrewing = NO;
 }
 
-/* Displays a dialogue to users, from which they can start their own timers. */
-- (IBAction)showCustomTimer:(id)sender
-{
-    NSTextField *accessoryField = [[[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 64, 24)] autorelease];
-    accessoryField.integerValue = 4;
-    NSNumberFormatter *numformat = [[[NSNumberFormatter alloc] init] autorelease];
-    [accessoryField setFormatter:numformat];
-    
-    NSAlert *alert = [[[NSAlert alloc] init] autorelease];
-    [alert setMessageText:T("CUSTOM_TIMER")];
-    [alert addButtonWithTitle:T("START_TIMER")];
-    [alert addButtonWithTitle:T("CANCEL")];
-    [alert setInformativeText:T("CUSTOM_TIMER_INFO")];
-    [alert setAccessoryView:accessoryField];
-    NSInteger retValue = [alert runModal];
-    if (retValue != NSAlertFirstButtonReturn)
-        return;
-    
-    NSInteger seconds = accessoryField.integerValue * 60;
-    [self actualTimerStart:seconds];
-
-}
-
 /* Shows the tea database editor */
 - (IBAction)openTeaEditor:(id)sender
 {
