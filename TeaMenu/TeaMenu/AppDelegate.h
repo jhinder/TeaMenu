@@ -8,24 +8,12 @@
 
 #import <AppKit/AppKit.h>
 #import <Foundation/Foundation.h>
-#import "TeaDatabase.h"
-#import "TeaEditor.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate> {
-	NSMenu *_appMenu;
-	NSStatusItem *_item;
-	NSMenuItem *stopTimerItem;
-	TeaDatabase *database;
-	NSImage *mug, *mugSteaming;
-	TeaEditor *editor;
-}
+@interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property (assign) IBOutlet NSMenu *appMenu;
-@property (assign) NSStatusItem *item;
-@property (assign) IBOutlet NSMenuItem *stopTeaItem;
-@property (retain) TeaDatabase *database;
-@property (retain) NSImage *mug, *mugSteaming;
-@property (retain) TeaEditor *editor;
+/* All ivars and properties are found in AppDelegate+Extensions!
+ * See that file for the explanation.
+ */
 
 - (IBAction)showCustomTimer:(id)sender;
 - (IBAction)startTimer:(id)sender;

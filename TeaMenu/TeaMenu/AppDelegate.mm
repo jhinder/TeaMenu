@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "AppDelegate+Extensions.h"
 
 @implementation AppDelegate
 
@@ -17,6 +18,7 @@
 @synthesize mug;
 @synthesize mugSteaming;
 @synthesize editor;
+@synthesize customTeaItem;
 
 bool teaBrewing;
 
@@ -67,6 +69,14 @@ bool teaBrewing;
         [item setTag:(teaTime * 60)];
         [_appMenu insertItem:item atIndex:(index++)];
 	}
+	
+	// Load and insert the custom slider view
+    customTeaItem = [[CustomTeaItemViewController alloc] initWithNibName:@"CustomTeaMenuItem" bundle:[NSBundle mainBundle]];
+	NSView *theView = [customTeaItem view];
+	NSMenuItem *customSliderItem = [[[NSMenuItem alloc] init] autorelease];
+	[customSliderItem setView:theView];
+	[_appMenu insertItem:customSliderItem atIndex:(index)];
+    // used to be (index+1); using (index) puts the custom slider just above the "Stop timer" field, which is where it should go.
 	
     _item.menu = _appMenu;
     
