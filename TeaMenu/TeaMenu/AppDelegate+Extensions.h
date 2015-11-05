@@ -19,15 +19,10 @@
 #import "TeaDatabase.h"
 #import "TeaEditor.h"
 #import "CustomTeaItemViewController.h"
+#import "TeaManager.h"
 
 @interface AppDelegate () {
-    NSMenu *_appMenu;
-    NSStatusItem *_item;
-    NSMenuItem *stopTimerItem;
-    TeaDatabase *database;
-    NSImage *mug, *mugSteaming;
-    TeaEditor *editor;
-    CustomTeaItemViewController *customTeaItem;
+    
 }
 
 @property (assign) IBOutlet NSMenu *appMenu;
@@ -37,5 +32,6 @@
 @property (retain) NSImage *mug, *mugSteaming;
 @property (retain) TeaEditor *editor;
 @property (retain) CustomTeaItemViewController *customTeaItem;
+@property (retain) TeaManager *teaManager;
 
 @end

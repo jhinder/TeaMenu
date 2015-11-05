@@ -15,12 +15,10 @@
 @synthesize item = _item;
 @synthesize stopTeaItem = stopTimerItem;
 @synthesize database;
-@synthesize mug;
-@synthesize mugSteaming;
+@synthesize mug, mugSteaming;
 @synthesize editor;
 @synthesize customTeaItem;
-
-bool teaBrewing;
+@synthesize teaManager;
 
 /* Quick translation macro. */
 #ifndef T
@@ -33,17 +31,25 @@ bool teaBrewing;
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	database = [[TeaDatabase alloc] init];
+    teaManager = [[TeaManager alloc] init];
 	
 	/* Templating has two major benefits:
 	 * a) we get white versions of the icons when needed,
-	 * b) it works natively with Yosemite's dark mode.
+	 * b) it works natively with the dark mode of 10.10+.
 	 */
 	mug = [NSImage imageNamed:@"menu-black"];
 	[mug setTemplate:YES];
 	mugSteaming = [NSImage imageNamed:@"menu-steamblack"];
 	[mugSteaming setTemplate:YES];
-	
-	teaBrewing = NO;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(startTeaNotification:)
+                                                 name:START_TEA_NOTIFICATION
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(stopTeaNotification:)
+                                                 name:STOP_TEA_NOTIFICATION
+                                               object:nil];
 	
 	// Database init/loading
 	if ([database countTeas] == 0)
@@ -122,53 +128,42 @@ bool teaBrewing;
  */
 - (IBAction)startTimer:(id)sender
 {
-    NSInteger seconds = [sender tag];
-    [self actualTimerStart:seconds];
-}
-
-/* Actually starts the timer. */
-- (void) actualTimerStart: (NSInteger) seconds
-{
-#ifdef DEBUG
-    seconds = 5;
-#endif
-	teaBrewing = TRUE;
-    [self changeIcons:true];
-	[stopTimerItem setEnabled:YES];
-    [self performSelector:@selector(timerUp) withObject:nil afterDelay:seconds];
-}
-
-/* Called once a timer expires. */
-- (void) timerUp
-{
-	teaBrewing = NO;
-    [self changeIcons:false];
-	[stopTimerItem setEnabled:NO];
-	
-    NSAlert *alert = [[NSAlert alloc] init];
-    [alert setMessageText:T("TEA_READY")];
-    [alert setIcon:[NSImage imageNamed:@"TeaIcon_Done"]];
-    [alert addButtonWithTitle:@"OK"];
-    [alert runModal];
-    [alert release];
+    NSNumber *startObj = [NSNumber numberWithInteger:[sender tag]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:START_TEA_NOTIFICATION
+                                                        object:startObj];
 }
 
 /* Interface action to stop the timer. */
 - (IBAction) stopTimer:(id)sender
 {
-	[self haltTimer];
+	NSNumber *stopObj = [NSNumber numberWithBool:YES]; // true = user cancelled
+    [[NSNotificationCenter defaultCenter] postNotificationName:STOP_TEA_NOTIFICATION
+                                                        object:stopObj];
 }
 
-/* Stops the queued timer. */
-- (void) haltTimer
+- (void) startTeaNotification:(NSNotification *)notification
 {
-	if (!teaBrewing)
-		return;
-	// Cancels all to-be-performed selectors -- which is our tea in this case.
-	[NSObject cancelPreviousPerformRequestsWithTarget:self];
-	[self changeIcons:NO];
+    // Set user interface to "tea brewing"
+    [self changeIcons:true];
+	[stopTimerItem setEnabled:YES];
+    [_appMenu cancelTracking]; // closes the menu on click, even for CustomTeaMI
+}
+
+- (void) stopTeaNotification:(NSNotification *)notification
+{
+    // Set user interface to "no tea brewing"
+    [self changeIcons:NO];
 	[stopTimerItem setEnabled:NO];
-	teaBrewing = NO;
+    if (notification.object != nil) {
+        if (!((NSNumber *)notification.object).boolValue) { // false = timer ran out
+            NSAlert *alert = [[NSAlert alloc] init];
+            [alert setMessageText:T("TEA_READY")];
+            [alert setIcon:[NSImage imageNamed:@"TeaIcon_Done"]];
+            [alert addButtonWithTitle:@"OK"];
+            [alert runModal];
+            [alert release];
+        }
+    }
 }
 
 /* Shows the tea database editor */
@@ -182,7 +177,7 @@ bool teaBrewing;
 /* Interface action for app exit. Saves the settings, then terminates. */
 - (IBAction)terminate:(id)sender
 {
-    [database dealloc];
+    [self dealloc];
     [NSApp terminate:0];
 }
 
@@ -190,6 +185,13 @@ bool teaBrewing;
 - (void)dealloc
 {
     [super dealloc];
+    [database dealloc];
+    [teaManager dealloc];
+    [customTeaItem dealloc];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+#undef T
 
 @end

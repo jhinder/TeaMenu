@@ -8,8 +8,9 @@
 
 #import <AppKit/AppKit.h>
 #import <Foundation/Foundation.h>
+#import "TeaTimerNotification.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, TeaTimerNotification>
 
 /* All ivars and properties are found in AppDelegate+Extensions!
  * See that file for the explanation.
@@ -20,10 +21,7 @@
 - (IBAction)terminate:(id)sender;
 - (IBAction)openTeaEditor:(id)sender;
 
-- (void) actualTimerStart: (NSInteger) seconds;
-- (void) haltTimer;
 - (void) changeIcons:(bool)steaming;
 - (void) copyDefaultTeas;
-- (void) timerUp;
 
 @end

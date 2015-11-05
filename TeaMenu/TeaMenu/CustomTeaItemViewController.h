@@ -8,10 +8,9 @@
 
 #import <AppKit/AppKit.h>
 #import "CustomTeaMenuItem.h"
+#import "TeaTimerNotification.h"
 
-@interface CustomTeaItemViewController : NSViewController {
-	CustomTeaTimeModel *timerModel;
-	CustomTeaMenuItem *timerView;
+@interface CustomTeaItemViewController : NSViewController <TeaTimerNotification> {
 }
 
 @property (retain) CustomTeaTimeModel *timerModel;

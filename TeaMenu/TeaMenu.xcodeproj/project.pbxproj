@@ -16,6 +16,7 @@
 		3D3FBF2B1A15649E00E7E6A9 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3D3FBF2A1A15649E00E7E6A9 /* AppDelegate.mm */; };
 		3D3FBF2E1A15649E00E7E6A9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D3FBF2C1A15649E00E7E6A9 /* MainMenu.xib */; };
 		3D3FBF481A157B8F00E7E6A9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D3FBF4A1A157B8F00E7E6A9 /* Localizable.strings */; };
+		3D673B641BEBFEF90051B2C4 /* TeaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D673B631BEBFEF90051B2C4 /* TeaManager.m */; };
 		3D6F8BE81A7AD14D000794CA /* TeaIcon_Done.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F8BE71A7AD14D000794CA /* TeaIcon_Done.png */; };
 		3D71E3B41AC35E6D007C42EA /* menu-black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D71E3B01AC35E6D007C42EA /* menu-black@2x.png */; };
 		3D71E3B51AC35E6D007C42EA /* menu-steamblack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D71E3B11AC35E6D007C42EA /* menu-steamblack@2x.png */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D0629891BEBF8C8008C98F4 /* TeaTimerNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeaTimerNotification.h; sourceTree = "<group>"; };
 		3D1442B81AC7436A00816B7F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TeaEditorWindow.xib; sourceTree = "<group>"; };
 		3D1442BA1AC7436F00816B7F /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/TeaEditorWindow.xib; sourceTree = "<group>"; };
 		3D1442BB1AC746B400816B7F /* TeaEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeaEditor.h; sourceTree = "<group>"; };
@@ -56,6 +58,8 @@
 		3D3FBF541A157E8900E7E6A9 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3D3FBF551A157EEF00E7E6A9 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D3FBF561A157EEF00E7E6A9 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3D673B621BEBFEF90051B2C4 /* TeaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeaManager.h; sourceTree = "<group>"; };
+		3D673B631BEBFEF90051B2C4 /* TeaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeaManager.m; sourceTree = "<group>"; };
 		3D6F8BE71A7AD14D000794CA /* TeaIcon_Done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TeaIcon_Done.png; sourceTree = "<group>"; };
 		3D71E3B01AC35E6D007C42EA /* menu-black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-black@2x.png"; sourceTree = "<group>"; };
 		3D71E3B11AC35E6D007C42EA /* menu-steamblack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-steamblack@2x.png"; sourceTree = "<group>"; };
@@ -131,6 +135,9 @@
 				3D3FBF291A15649E00E7E6A9 /* AppDelegate.h */,
 				3DD20B831BE96B2700C184E4 /* AppDelegate+Extensions.h */,
 				3D3FBF2A1A15649E00E7E6A9 /* AppDelegate.mm */,
+				3D0629891BEBF8C8008C98F4 /* TeaTimerNotification.h */,
+				3D673B621BEBFEF90051B2C4 /* TeaManager.h */,
+				3D673B631BEBFEF90051B2C4 /* TeaManager.m */,
 				3D1442BB1AC746B400816B7F /* TeaEditor.h */,
 				3D1442BC1AC746B400816B7F /* TeaEditor.mm */,
 				3D3FBF2C1A15649E00E7E6A9 /* MainMenu.xib */,
@@ -275,6 +282,7 @@
 				3D1442BD1AC746B400816B7F /* TeaEditor.mm in Sources */,
 				3DD20B761BE9600000C184E4 /* CustomTeaMenuItem.m in Sources */,
 				3DD20B811BE9640800C184E4 /* CustomTeaItemViewController.m in Sources */,
+				3D673B641BEBFEF90051B2C4 /* TeaManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,7 +345,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -363,7 +371,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = c99;

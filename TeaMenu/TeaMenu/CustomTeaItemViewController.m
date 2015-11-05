@@ -19,18 +19,46 @@
     if (self) {
         timerModel = [[CustomTeaTimeModel alloc] init];
         timerModel.minutes = 3; // default value
+        timerModel.teaNotBrewing = YES; // app start: no tea brewing
         timerView = (CustomTeaMenuItem *)[self view];
         timerView.model = self.timerModel;
         [self setView:timerView];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(startTeaNotification:)
+                                                     name:START_TEA_NOTIFICATION
+                                                   object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(stopTeaNotification:)
+                                                     name:STOP_TEA_NOTIFICATION
+                                                   object:nil];
     }
     
     return self;
 }
 
 - (IBAction)startTimer:(id)sender {
-    AppDelegate *appDelegate = [[NSApplication sharedApplication] delegate];
-    // we don't need to go through startTimer:(id) here; we already have the number
-    [appDelegate actualTimerStart:(timerModel.minutes * 60)];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"StartTea"
+                                                        object:[NSNumber numberWithInteger:timerModel.minutes]];
+}
+
+// These notification recipients are only responsible for toggling timeModel.teaNotBrewing
+// The actual starting/stopping is done by AppDelegate's recipients.
+
+- (void) startTeaNotification: (NSNotification *) notification
+{
+    timerModel.teaNotBrewing = NO;
+}
+
+- (void) stopTeaNotification: (NSNotification *) notification
+{
+    timerModel.teaNotBrewing = YES;
+}
+
+- (void) dealloc
+{
+    [super dealloc];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

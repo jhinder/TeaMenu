@@ -7,6 +7,7 @@
 //
 
 #import "CustomTeaMenuItem.h"
+#import "AppDelegate.h"
 
 @implementation CustomTeaMenuItem
 
@@ -31,7 +32,7 @@
 
 @end
 
-// Implementation for CustomTeaTimeModel -- literally three lines long.
+// TeaTime data model
 @implementation CustomTeaTimeModel
-@synthesize minutes;
+@synthesize minutes, teaNotBrewing;
 @end
