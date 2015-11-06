@@ -7,8 +7,9 @@
 //
 
 #import <AppKit/AppKit.h>
-#import "CustomTeaMenuItem.h"
 #import "TeaTimerNotification.h"
+
+@class CustomTeaTimeModel, CustomTeaMenuItem;
 
 @interface CustomTeaItemViewController : NSViewController <TeaTimerNotification> {
 }

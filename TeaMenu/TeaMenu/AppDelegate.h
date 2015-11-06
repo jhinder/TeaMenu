@@ -10,11 +10,19 @@
 #import <Foundation/Foundation.h>
 #import "TeaTimerNotification.h"
 
+@class TeaManager, CustomTeaItemViewController, TeaDatabase;
+@class TeaEditor;
+
 @interface AppDelegate : NSObject <NSApplicationDelegate, TeaTimerNotification>
 
-/* All ivars and properties are found in AppDelegate+Extensions!
- * See that file for the explanation.
- */
+@property (assign) IBOutlet NSMenu *appMenu;
+@property (assign) NSStatusItem *item;
+@property (assign) IBOutlet NSMenuItem *stopTeaItem;
+@property (retain) TeaDatabase *database;
+@property (retain) NSImage *mug, *mugSteaming;
+@property (retain) TeaEditor *editor;
+@property (retain) CustomTeaItemViewController *customTeaItem;
+@property (retain) TeaManager *teaManager;
 
 - (IBAction)startTimer:(id)sender;
 - (IBAction)stopTimer:(id)sender;

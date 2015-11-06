@@ -81,7 +81,6 @@
 		3DD20B751BE9600000C184E4 /* CustomTeaMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTeaMenuItem.m; sourceTree = "<group>"; };
 		3DD20B7E1BE9640800C184E4 /* CustomTeaItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTeaItemViewController.h; sourceTree = "<group>"; };
 		3DD20B7F1BE9640800C184E4 /* CustomTeaItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTeaItemViewController.m; sourceTree = "<group>"; };
-		3DD20B831BE96B2700C184E4 /* AppDelegate+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Extensions.h"; sourceTree = "<group>"; };
 		3DF0CBEE1AC842E100B5AEDE /* DefaultTeas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultTeas.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,7 +132,6 @@
 				3DD20B781BE9634B00C184E4 /* Custom Tea Timer */,
 				3D9ECC8B1AC5F37E0007256B /* Database */,
 				3D3FBF291A15649E00E7E6A9 /* AppDelegate.h */,
-				3DD20B831BE96B2700C184E4 /* AppDelegate+Extensions.h */,
 				3D3FBF2A1A15649E00E7E6A9 /* AppDelegate.mm */,
 				3D0629891BEBF8C8008C98F4 /* TeaTimerNotification.h */,
 				3D673B621BEBFEF90051B2C4 /* TeaManager.h */,

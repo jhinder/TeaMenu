@@ -7,7 +7,11 @@
 //
 
 #import "AppDelegate.h"
-#import "AppDelegate+Extensions.h"
+
+#import "TeaDatabase.h"
+#import "TeaEditor.h"
+#import "CustomTeaItemViewController.h"
+#import "TeaManager.h"
 
 @implementation AppDelegate
 

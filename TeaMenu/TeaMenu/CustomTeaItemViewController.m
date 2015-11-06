@@ -7,7 +7,7 @@
 //
 
 #import "CustomTeaItemViewController.h"
-#import "AppDelegate.h"
+#import "CustomTeaMenuItem.h"
 
 @implementation CustomTeaItemViewController
 

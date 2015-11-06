@@ -7,7 +7,6 @@
 //
 
 #import "CustomTeaMenuItem.h"
-#import "AppDelegate.h"
 
 @implementation CustomTeaMenuItem
 
