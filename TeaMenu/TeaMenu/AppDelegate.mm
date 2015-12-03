@@ -35,6 +35,10 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	database = [[TeaDatabase alloc] init];
+    if (database == nil) {
+        // Could not init the database, for some reason. (How to handle?)
+    }
+    
     teaManager = [[TeaManager alloc] init];
 	
 	/* Templating has two major benefits:
@@ -81,7 +85,8 @@
 	}
 	
 	// Load and insert the custom slider view
-    customTeaItem = [[CustomTeaItemViewController alloc] initWithNibName:@"CustomTeaMenuItem" bundle:[NSBundle mainBundle]];
+    customTeaItem = [[CustomTeaItemViewController alloc] initWithNibName:@"CustomTeaMenuItem"
+                                                                  bundle:[NSBundle mainBundle]];
 	NSView *theView = [customTeaItem view];
 	NSMenuItem *customSliderItem = [[[NSMenuItem alloc] init] autorelease];
 	[customSliderItem setView:theView];
@@ -112,8 +117,8 @@
 	
 	for (NSDictionary *subTea in [langDict objectForKey:@"Teas"]) {
 		NSString *name = [subTea objectForKey:@"Tea Type"];
-		NSInteger time = [[subTea objectForKey:@"Time"] integerValue];
-		[database insertTeaWithName:name andTime:(int)time];
+		int time = [[subTea objectForKey:@"Time"] intValue];
+		[database insertTeaWithName:name andTime:time];
 	}
 }
 
@@ -173,6 +178,8 @@
 /* Shows the tea database editor */
 - (IBAction)openTeaEditor:(id)sender
 {
+    if (database == nil)
+        return;
 	if (editor == nil)
 		editor = [[TeaEditor alloc] initWithWindowNibName:@"TeaEditorWindow"];
 	[editor showWindow:self];

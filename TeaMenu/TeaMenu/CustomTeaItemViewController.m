@@ -39,7 +39,7 @@
 
 - (IBAction)startTimer:(id)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"StartTea"
-                                                        object:[NSNumber numberWithInteger:timerModel.minutes]];
+                                                        object:[NSNumber numberWithInteger:(timerModel.minutes * 60)]];
 }
 
 // These notification recipients are only responsible for toggling timeModel.teaNotBrewing

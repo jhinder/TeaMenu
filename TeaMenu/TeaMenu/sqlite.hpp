@@ -16,7 +16,8 @@
 // SQL statements
 #define SQL_CREATE_TABLE   "CREATE TABLE IF NOT EXISTS Teas" \
                            "(Time INT  NOT NULL CHECK (Time > 0)," \
-                           " Name TEXT NOT NULL)"
+                           " Name TEXT NOT NULL," \
+                           " UNIQUE (Time, Name) ON CONFLICT REPLACE)"
 #define SQL_INSERT_TEA     "INSERT INTO Teas VALUES (?, ?)"
 #define SQL_DELETE_TEAS    "DELETE FROM Teas"
 #define SQL_READ_ALL_TEAS  "SELECT Time, Name FROM Teas"
