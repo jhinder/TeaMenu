@@ -19,15 +19,31 @@
                            " Name TEXT NOT NULL," \
                            " UNIQUE (Time, Name) ON CONFLICT REPLACE)"
 #define SQL_INSERT_TEA     "INSERT INTO Teas VALUES (?, ?)"
-#define SQL_DELETE_TEAS    "DELETE FROM Teas"
 #define SQL_READ_ALL_TEAS  "SELECT Time, Name FROM Teas"
 #define SQL_DELETE_ONE_TEA "DELETE FROM Teas WHERE Name = ?"
 #define SQL_COUNT_TEAS     "SELECT COUNT(*) AS TeaCount FROM Teas"
 
 // C(++) struct for storing teas
-struct teaNode {
-	int minutes;
-	std::string name;
+struct TeaNode {
+    
+    TeaNode(int minutes, std::string name)
+        : _minutes(minutes), _name(name)
+    { }
+    
+    int getMinutes() const
+    {
+        return _minutes;
+    }
+    
+    std::string getName() const
+    {
+        return _name;
+    }
+    
+private:
+    int _minutes;
+	std::string _name;
+    
 };
 
 // Function definitions
@@ -36,8 +52,7 @@ bool prepareDB(void);
 bool closeDB(void);
 bool writeTea(int, const char*);
 bool removeTea(const char*);
-bool removeAllTeas(void);
-bool readAllTeas(std::vector<teaNode>& nodeVector);
+bool readAllTeas(std::vector<TeaNode> &nodeVector);
 int countTeas(void);
 
 #endif

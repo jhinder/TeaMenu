@@ -76,28 +76,21 @@ NSString * getAppSupportFolder(void)
 	return removeTea(name.UTF8String);
 }
 
-/* Clears the database */
-- (bool) resetDatabase
-{
-	return removeAllTeas();
-}
-
 /* Gets all teas and returns them as an NSArray of TeaObject entities */
 - (NSArray *) queryTeas
 {
-	std::vector<struct teaNode> teaVector;
+	std::vector<TeaNode> teaVector;
 	if (!readAllTeas(teaVector)) {
 		delete &teaVector;
 		return nil;
 	}
 
 	NSMutableArray *teaArray = [[[NSMutableArray alloc] init] autorelease];
-	for (std::vector<struct teaNode>::iterator it = teaVector.begin(); it != teaVector.end(); ++it)
-	{
-		TeaObject *nextTea = [[[TeaObject alloc] initWithName:[NSString stringWithUTF8String:(*it).name.c_str()]
-												  andDuration:(*it).minutes] autorelease];
-		[teaArray addObject:nextTea];
-	}
+    for (auto tea : teaVector) {
+        TeaObject *nextTea = [[[TeaObject alloc] initWithName:[NSString stringWithUTF8String:tea.getName().c_str()]
+                                                  andDuration:tea.getMinutes()] autorelease];
+        [teaArray addObject:nextTea];
+    }
 
 	teaVector.clear();
 	return teaArray;

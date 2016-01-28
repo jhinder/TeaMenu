@@ -7,7 +7,6 @@
 //
 
 #include <iostream>
-#include <cstring>
 #include "sqlite.hpp"
 
 sqlite3 *db;
@@ -68,12 +67,6 @@ bool removeTea(const char *name)
 	return retVal;
 }
 
-/* Removes all teas from the database */
-bool removeAllTeas(void)
-{
-	return (sqlite3_exec(db, SQL_DELETE_TEAS, 0, 0, NULL) == SQLITE_OK);
-}
-
 /* Counts the number of entries in the Teas table */
 int countTeas(void)
 {
@@ -84,26 +77,26 @@ int countTeas(void)
 		// We ignore all subsequent rows -- the next one is SQLITE_DONE anyway.
 		rowCount = sqlite3_column_int(stmt, 0);
 	}
+    sqlite3_finalize(stmt);
 	return rowCount;
 }
 
-bool readAllTeas(std::vector<teaNode>& nodeVector)
+/* Reads all teas into the vector. */
+bool readAllTeas(std::vector<TeaNode> &nodeVector)
 {
 	sqlite3_stmt *stmt;
+    bool ok = false;
 	if (sqlite3_prepare(db, SQL_READ_ALL_TEAS, -1, &stmt, 0) == SQLITE_OK) {
 		while (sqlite3_step(stmt) == SQLITE_ROW) {
 			// Get the data of the current row
 			int rMinutes = sqlite3_column_int(stmt, 0);
-			const char *ccName = (const char *) sqlite3_column_text(stmt, 1);
-			std::string rName = std::string(ccName, strlen(ccName));
-			// New node; add to vector
-			teaNode cNode = { .minutes = rMinutes, .name = rName };
-			nodeVector.push_back(cNode);
+			std::string rName = std::string(reinterpret_cast<const char *>(sqlite3_column_text(stmt, 1)));
+			nodeVector.push_back(TeaNode(rMinutes, rName));
 		}
-		sqlite3_finalize(stmt);
-		return true;
+        ok = true;
 	}
-	return false;
+    sqlite3_finalize(stmt);
+	return ok;
 }
 
 /* Logs all SQL queries to stderr in Debug builds */

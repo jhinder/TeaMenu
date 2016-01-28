@@ -19,7 +19,6 @@
 - (NSInteger) countTeas;
 - (bool) insertTeaWithName: (NSString *)name andTime: (int)minutes;
 - (bool) deleteTeaWithName: (NSString *)name;
-- (bool) resetDatabase;
 - (NSArray *) queryTeas;
 
 @end
