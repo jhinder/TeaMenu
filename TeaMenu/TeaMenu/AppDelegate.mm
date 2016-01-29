@@ -13,6 +13,8 @@
 #import "CustomTeaItemViewController.h"
 #import "TeaManager.h"
 
+#define CAN_USE_NCENTER NSAppKitVersionNumber >= NSAppKitVersionNumber10_8
+
 @implementation AppDelegate
 
 @synthesize appMenu = _appMenu;
@@ -158,20 +160,42 @@
     [_appMenu cancelTracking]; // closes the menu on click, even for CustomTeaMI
 }
 
+/**
+ * Shows the tea notification.
+ * @param showInCenter Shows the notification in the Notification Center if possible.
+ */
+- (void) showTeaNotification:(bool)showInCenter
+{
+    if (showInCenter && !(CAN_USE_NCENTER))
+        showInCenter = false; // Can't use Notification Center before 10.8
+    
+    if (showInCenter) {
+        NSUserNotification *notification = [[NSUserNotification alloc] init];
+        [notification setTitle:T("TEA_READY")];
+        [notification setDeliveryDate:[NSDate date]]; // i.e. now
+        [[NSUserNotificationCenter defaultUserNotificationCenter] scheduleNotification:notification];
+        // TODO how to find out if it was actually delivered? Full screen hides the notifications
+        [notification release];
+
+    } else {
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert setMessageText:T("TEA_READY")];
+        [alert setIcon:[NSImage imageNamed:@"TeaIcon_Done"]];
+        [alert addButtonWithTitle:@"OK"];
+        [alert runModal];
+        [alert release];
+    }
+}
+
 - (void) stopTeaNotification:(NSNotification *)notification
 {
     // Set user interface to "no tea brewing"
     [self changeIcons:NO];
 	[stopTimerItem setEnabled:NO];
-    if (notification.object != nil) {
-        if (!((NSNumber *)notification.object).boolValue) { // false = timer ran out
-            NSAlert *alert = [[NSAlert alloc] init];
-            [alert setMessageText:T("TEA_READY")];
-            [alert setIcon:[NSImage imageNamed:@"TeaIcon_Done"]];
-            [alert addButtonWithTitle:@"OK"];
-            [alert runModal];
-            [alert release];
-        }
+    if (notification.object != nil && !((NSNumber *)notification.object).boolValue) {
+        [self showTeaNotification:true];
+        // TODO make this dynamic, based on OS and user settings
+        // For now it defaults to "notification" for 10.8+, and "alert" for all others
     }
 }
 

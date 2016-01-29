@@ -31,5 +31,6 @@
 
 - (void) changeIcons:(bool)steaming;
 - (void) copyDefaultTeas;
+- (void) showTeaNotification:(bool)showInCenter;
 
 @end

@@ -32,6 +32,8 @@
 	<string>Copyright © 2014–2015 dfragment.net</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
+	<key>NSUserNotificationAlertStyle</key>
+	<string>banner</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 </dict>
