@@ -44,33 +44,34 @@
 		3D3FBF231A15649E00E7E6A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3D3FBF291A15649E00E7E6A9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3D3FBF2A1A15649E00E7E6A9 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
-		3D3FBF2D1A15649E00E7E6A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		3D3FBF451A1579F200E7E6A9 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3D3FBF491A157B8F00E7E6A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D3FBF4B1A157B9300E7E6A9 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D3FBF4C1A157BBA00E7E6A9 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3D3FBF4D1A157BE000E7E6A9 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		3D3FBF521A157E8400E7E6A9 /* it */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = it; path = it.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		3D3FBF541A157E8900E7E6A9 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3D3FBF551A157EEF00E7E6A9 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D3FBF561A157EEF00E7E6A9 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3D46066F1C5C232400766414 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		3D4606711C5C232E00766414 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		3D4606741C5C249500766414 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		3D4606751C5C254B00766414 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		3D4606761C5C254F00766414 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		3D4606771C5C255200766414 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		3D4606781C5C255500766414 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		3D4606791C5C255800766414 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		3D46067A1C5C255B00766414 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		3D46067B1C5C255E00766414 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		3D673B621BEBFEF90051B2C4 /* TeaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeaManager.h; sourceTree = "<group>"; };
 		3D673B631BEBFEF90051B2C4 /* TeaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeaManager.m; sourceTree = "<group>"; };
 		3D6F8BE71A7AD14D000794CA /* TeaIcon_Done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TeaIcon_Done.png; sourceTree = "<group>"; };
 		3D73E27E1A1AC8DA0002A5C8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3D73E27F1A1ACA340002A5C8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3D73E2811A1ACAE40002A5C8 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3D73E2821A1ACAF70002A5C8 /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = sv; path = sv.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3D9ECC851AC5F16A0007256B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		3D9ECC881AC5F1E00007256B /* TeaDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeaDatabase.h; sourceTree = "<group>"; };
 		3D9ECC891AC5F1E00007256B /* TeaDatabase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TeaDatabase.mm; sourceTree = "<group>"; };
 		3D9ECC8C1AC5F3A80007256B /* sqlite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = sqlite.hpp; sourceTree = "<group>"; };
 		3D9ECC8D1AC5F3B00007256B /* sqlite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sqlite.cpp; sourceTree = "<group>"; };
 		3DB25A421B2DD49B00DFEBBA /* CustomTeaMenuItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomTeaMenuItem.xib; path = ../CustomTeaMenuItem.xib; sourceTree = "<group>"; };
-		3DC149511A1B29C800718D30 /* da */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = da; path = da.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3DC149541A1B2A0400718D30 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3DC149561A1B2C1500718D30 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3DC149571A1B2CBD00718D30 /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = pt.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3DD20B741BE9600000C184E4 /* CustomTeaMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTeaMenuItem.h; sourceTree = "<group>"; };
 		3DD20B751BE9600000C184E4 /* CustomTeaMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTeaMenuItem.m; sourceTree = "<group>"; };
 		3DD20B7E1BE9640800C184E4 /* CustomTeaItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTeaItemViewController.h; sourceTree = "<group>"; };
@@ -226,7 +227,7 @@
 				sv,
 				da,
 				pt,
-				pl,
+				Base,
 			);
 			mainGroup = 3D3FBF081A15649D00E7E6A9;
 			productRefGroup = 3D3FBF141A15649D00E7E6A9 /* Products */;
@@ -295,15 +296,16 @@
 		3D3FBF2C1A15649E00E7E6A9 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3D3FBF2D1A15649E00E7E6A9 /* en */,
-				3D3FBF451A1579F200E7E6A9 /* de */,
-				3D3FBF4D1A157BE000E7E6A9 /* fr */,
-				3D3FBF521A157E8400E7E6A9 /* it */,
-				3D3FBF541A157E8900E7E6A9 /* es */,
-				3D73E27F1A1ACA340002A5C8 /* nl */,
-				3D73E2821A1ACAF70002A5C8 /* sv */,
-				3DC149511A1B29C800718D30 /* da */,
-				3DC149571A1B2CBD00718D30 /* pt */,
+				3D46066F1C5C232400766414 /* Base */,
+				3D4606711C5C232E00766414 /* en */,
+				3D4606741C5C249500766414 /* de */,
+				3D4606751C5C254B00766414 /* fr */,
+				3D4606761C5C254F00766414 /* it */,
+				3D4606771C5C255200766414 /* es */,
+				3D4606781C5C255500766414 /* pt */,
+				3D4606791C5C255800766414 /* da */,
+				3D46067A1C5C255B00766414 /* sv */,
+				3D46067B1C5C255E00766414 /* nl */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -347,7 +349,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -368,7 +370,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
 			};
 			name = Release;

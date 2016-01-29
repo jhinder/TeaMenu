@@ -1,0 +1,23 @@
+
+/* Class = "NSMenuItem"; title = "Quit TeaMenu"; ObjectID = "539"; */
+"539.title" = "TeaMenu beenden";
+
+/* Class = "NSMenuItem"; title = "Stop timer"; ObjectID = "547"; */
+"547.title" = "Stop timer";
+
+/* Class = "NSMenuItem"; title = "Mitteilungszentrale"; ObjectID = "3jp-0Z-BBE"; */
+"3jp-0Z-BBE.title" = "Mitteilungszentrale";
+
+/* Class = "NSMenuItem"; title = "Hinweis-Fenster"; ObjectID = "4Xy-Ei-bDC"; */
+"4Xy-Ei-bDC.title" = "Hinweis-Fenster";
+
+/* Class = "NSMenu"; title = "Nachrichten anzeigen"; ObjectID = "Nwa-MU-tqx"; */
+/* Submenu title */
+"Nwa-MU-tqx.title" = "Nachrichten anzeigen in";
+
+/* Class = "NSMenuItem"; title = "Nachrichten anzeigen"; ObjectID = "NzY-7u-sUC"; */
+/* Menu Item */
+"NzY-7u-sUC.title" = "Nachrichten anzeigen in";
+
+/* Class = "NSMenuItem"; title = "Tees bearbeiten…"; ObjectID = "Omt-Mc-5bm"; */
+"Omt-Mc-5bm.title" = "Tees bearbeiten…";
