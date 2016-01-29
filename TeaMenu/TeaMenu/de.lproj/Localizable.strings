@@ -1,8 +1,4 @@
 // TeaMenu translation
 // German translation
 "TEA_READY" = "Ihr Tee ist fertig!";
-"CUSTOM_TIMER" = "Eigenen Timer starten";
-"CUSTOM_TIMER_INFO" = "Bitte geben Sie an, wie viele Minuten der Timer laufen soll.";
-"START_TIMER" = "Starten";
-"CANCEL" = "Abbrechen";
 "MINUTES.SHORT" = "min";

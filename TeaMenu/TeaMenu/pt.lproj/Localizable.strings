@@ -1,8 +1,4 @@
 // TeaMenu translation
 // Portuguese translation
 "TEA_READY" = "Seu chá está pronto!";
-"CUSTOM_TIMER" = "Iniciar um cronômetro personalizado";
-"CUSTOM_TIMER_INFO" = "Por favor, indique quantos minutos o timer estiver em execução.";
-"START_TIMER" = "Start";
-"CANCEL" = "Cancelar";
 "MINUTES.SHORT" = "min";

@@ -1,8 +1,4 @@
 // TeaMenu translation
 // Danish translation
 "TEA_READY" = "Din te er klar!";
-"CUSTOM_TIMER" = "Start en brugerdefineret stopur";
-"CUSTOM_TIMER_INFO" = "Please enter for how long the timer should run (in minutes).";
-"START_TIMER" = "Start";
-"CANCEL" = "Annullere";
 "MINUTES.SHORT" = "min";
