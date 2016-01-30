@@ -14,8 +14,8 @@
 @interface CustomTeaItemViewController : NSViewController <TeaTimerNotification> {
 }
 
-@property (retain) CustomTeaTimeModel *timerModel;
-@property (retain) CustomTeaMenuItem *timerView;
+@property (strong) CustomTeaTimeModel *timerModel;
+@property (strong) CustomTeaMenuItem *timerView;
 
 - (IBAction)startTimer:(id)sender;
 

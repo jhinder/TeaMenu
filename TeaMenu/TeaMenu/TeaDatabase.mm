@@ -50,7 +50,6 @@ NSString * getAppSupportFolder(void)
 			// nothing.
 		} else {
 			NSLog(@"Could not initialize the database.");
-			[self release];
 			self = nil; // Nothing we can do now...
 		}
     }
@@ -82,9 +81,9 @@ NSString * getAppSupportFolder(void)
 	if (!readAllTeas(teaVector))
 		return nil;
 
-	NSMutableArray *teaArray = [[[NSMutableArray alloc] init] autorelease];
+	NSMutableArray *teaArray = [[NSMutableArray alloc] init];
     for (auto tea : teaVector) {
-        TeaObject *nextTea = [[[TeaObject alloc] initWithTeaNode:tea] autorelease];
+        TeaObject *nextTea = [[TeaObject alloc] initWithTeaNode:tea];
         [teaArray addObject:nextTea];
     }
 
@@ -94,8 +93,7 @@ NSString * getAppSupportFolder(void)
 /* Destructor; closes the database connection */
 - (void) dealloc
 {
-	[super dealloc];
-	closeDB();
+    closeDB();
 }
 
 @end

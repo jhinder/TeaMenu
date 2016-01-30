@@ -12,6 +12,6 @@
 	NSArrayController *arrayController;
 }
 
-@property (retain) IBOutlet NSArrayController *arrayController;
+@property (strong) IBOutlet NSArrayController *arrayController;
 
 @end

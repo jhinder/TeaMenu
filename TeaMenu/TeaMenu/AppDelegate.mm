@@ -67,7 +67,7 @@
 	NSArray *dbTeas = [database queryTeas];
 	
 	// Initialize menu bar/status item
-    _item = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
+    _item = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     [self changeIcons:false];
     _item.highlightMode = true;
     
@@ -79,9 +79,9 @@
 								   tea.teaName,
 								   (long)teaTime,
 								   T("MINUTES.SHORT")];
-        NSMenuItem *item = [[[NSMenuItem alloc] initWithTitle:menuItemTitle 
+        NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:menuItemTitle 
 													   action:@selector(startTimer:)
-												keyEquivalent:@""] autorelease];
+												keyEquivalent:@""];
         [item setTag:(teaTime * 60)];
         [_appMenu insertItem:item atIndex:(index++)];
 	}
@@ -90,7 +90,7 @@
     customTeaItem = [[CustomTeaItemViewController alloc] initWithNibName:@"CustomTeaMenuItem"
                                                                   bundle:[NSBundle mainBundle]];
 	NSView *theView = [customTeaItem view];
-	NSMenuItem *customSliderItem = [[[NSMenuItem alloc] init] autorelease];
+	NSMenuItem *customSliderItem = [[NSMenuItem alloc] init];
 	[customSliderItem setView:theView];
 	[_appMenu insertItem:customSliderItem atIndex:(index)];
     // used to be (index+1); using (index) puts the custom slider just above the "Stop timer" field, which is where it should go.
@@ -174,7 +174,6 @@
         [notification setDeliveryDate:[NSDate date]]; // i.e. now
         [[NSUserNotificationCenter defaultUserNotificationCenter] scheduleNotification:notification];
         // TODO how to find out if it was actually delivered? Full screen hides the notifications
-        [notification release];
 
     } else {
         NSAlert *alert = [[NSAlert alloc] init];
@@ -182,7 +181,6 @@
         [alert setIcon:[NSImage imageNamed:@"TeaIcon_Done"]];
         [alert addButtonWithTitle:@"OK"];
         [alert runModal];
-        [alert release];
     }
 }
 
@@ -211,23 +209,13 @@
 /* Interface action for app exit. Saves the settings, then terminates. */
 - (IBAction)terminate:(id)sender
 {
-    [self dealloc];
-    [NSApp terminate:0];
-}
-
-/* Called at destruction. */
-- (void)dealloc
-{
-    [super dealloc];
-    [database dealloc];
-    [teaManager dealloc];
-    [customTeaItem dealloc];
-    
+    // Cleanup
     if (CAN_USE_NCENTER)
         [[NSUserNotificationCenter defaultUserNotificationCenter] removeAllDeliveredNotifications];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
-    [super dealloc];
+    // Terminate the app
+    [NSApp terminate:0];
 }
 
 #undef T

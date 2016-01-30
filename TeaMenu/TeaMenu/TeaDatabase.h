@@ -32,7 +32,7 @@
 }
 
 @property (assign) NSInteger teaDuration;
-@property (retain) NSString *teaName;
+@property (strong) NSString *teaName;
 
 - (instancetype) initWithTeaNode: (TeaNode &)node;
 - (instancetype) initWithName:(NSString *)name andDuration:(NSInteger)duration;

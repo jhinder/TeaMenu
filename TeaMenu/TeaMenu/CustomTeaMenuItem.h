@@ -16,6 +16,6 @@
 @interface CustomTeaMenuItem : NSView {
 }
 
-@property (nonatomic, assign) CustomTeaTimeModel *model;
+@property (nonatomic, weak) CustomTeaTimeModel *model;
 
 @end

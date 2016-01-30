@@ -15,14 +15,14 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, TeaTimerNotification>
 
-@property (assign) IBOutlet NSMenu *appMenu;
-@property (assign) NSStatusItem *item;
-@property (assign) IBOutlet NSMenuItem *stopTeaItem;
-@property (retain) TeaDatabase *database;
-@property (retain) NSImage *mug, *mugSteaming;
-@property (retain) TeaEditor *editor;
-@property (retain) CustomTeaItemViewController *customTeaItem;
-@property (retain) TeaManager *teaManager;
+@property (weak) IBOutlet NSMenu *appMenu;
+@property  NSStatusItem *item;
+@property (weak) IBOutlet NSMenuItem *stopTeaItem;
+@property (strong) TeaDatabase *database;
+@property (strong) NSImage *mug, *mugSteaming;
+@property (strong) TeaEditor *editor;
+@property (strong) CustomTeaItemViewController *customTeaItem;
+@property (strong) TeaManager *teaManager;
 
 - (IBAction)startTimer:(id)sender;
 - (IBAction)stopTimer:(id)sender;
