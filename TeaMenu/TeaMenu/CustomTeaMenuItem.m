@@ -15,7 +15,7 @@
 - (id)initWithFrame:(CGRect)frame
 {
     // no custom constructor needed
-    return [super initWithFrame:frame];
+    return (self = [super initWithFrame:frame]);
 }
 
 // Overrides to allow for touch & scroll events
@@ -31,21 +31,23 @@
 
 - (void) scrollWheel:(NSEvent *) theEvent
 {
-	double avgDelta = sqrt( pow(theEvent.deltaX, 2.0f)
-                          + pow(theEvent.deltaY, 2.0f)
-                          + pow(theEvent.deltaZ, 2.0f));
+    int inversionFactor = (theEvent.isDirectionInvertedFromDevice ? -1 : 1);
+    double dx = theEvent.deltaX * inversionFactor;
+    double dy = theEvent.deltaY * inversionFactor;
     
-	if (abs(avgDelta) < 0.25f)
+    double avgDelta = sqrt((dx * dx) + (dy * dy));
+    
+	if (avgDelta < 0.25)
 		return; // too small
 	
-	bool isNegative = !(theEvent.deltaX < 0 // inversion of (negative to the left OR 
-                        || (theEvent.deltaY < 0 // downwards and...
-                            && theEvent.deltaX < 0.1f)); // only small x-movement)
+	bool isNegative = !(dx < 0 // inversion of (negative to the left OR
+                        || (dy < 0 // downwards and...
+                            && dx < 0.1)); // only small x-movement)
 	
-	int stepDelta = (int)floor(avgDelta * 0.49);
+    int stepDelta = (int)avgDelta;
 	if (isNegative)
-		stepDelta *= (-1);
-	
+		stepDelta = -stepDelta;
+    
 	[model setMinutes:(model.minutes + stepDelta)]; // using the setter also updates the bindings
 }
 
