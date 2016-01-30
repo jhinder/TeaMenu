@@ -12,7 +12,7 @@
 
 @synthesize teaBrewing;
 
-- (id) init
+- (instancetype) init
 {
     self = [super init];
     if (self) {
@@ -68,7 +68,7 @@
 - (void) timerUp
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:STOP_TEA_NOTIFICATION
-                                                        object:[NSNumber numberWithBool:NO]];
+                                                        object:@NO];
 }
 
 - (void) dealloc

@@ -75,9 +75,9 @@
 	int index = 0;
 	for (TeaObject *tea in dbTeas) {
 		NSInteger teaTime = tea.teaDuration;
-        NSString *menuItemTitle = [NSString stringWithFormat:@"%@ (%d %@)",
+        NSString *menuItemTitle = [NSString stringWithFormat:@"%@ (%ld %@)",
 								   tea.teaName,
-								   teaTime,
+								   (long)teaTime,
 								   T("MINUTES.SHORT")];
         NSMenuItem *item = [[[NSMenuItem alloc] initWithTitle:menuItemTitle 
 													   action:@selector(startTimer:)
@@ -104,22 +104,21 @@
 {
     // Detecting user's preferred language or default to en
     NSArray *language = [NSLocale preferredLanguages];
-    NSString *userLocale = (language.count == 0) ? @"en" : [language objectAtIndex:0];
-	NSArray *supportedLanguages = [NSArray arrayWithObjects:@"en", @"de", @"it",
-															@"fr", @"es", @"nl", 
-															@"sv", @"da", @"pt",
-															nil];
+    NSString *userLocale = (language.count == 0) ? @"en" : language[0];
+    NSArray *supportedLanguages = @[@"en", @"de", @"it",
+                                    @"fr", @"es", @"nl",
+                                    @"sv", @"da", @"pt"];
 	if (![supportedLanguages containsObject:userLocale])
 		userLocale = @"en";
     
     NSURL *defaultPrefs = [[NSBundle mainBundle] URLForResource:@"DefaultTeas"
                                                  withExtension:@"plist"];
     NSDictionary *teaDicts = [NSDictionary dictionaryWithContentsOfURL:defaultPrefs];
-	NSDictionary *langDict = [teaDicts objectForKey:userLocale];
+    NSDictionary *langDict = teaDicts[userLocale];
 	
-	for (NSDictionary *subTea in [langDict objectForKey:@"Teas"]) {
-		NSString *name = [subTea objectForKey:@"Tea Type"];
-		int time = [[subTea objectForKey:@"Time"] intValue];
+	for (NSDictionary *subTea in langDict[@"Teas"]) {
+		NSString *name = subTea[@"TeaType"];
+		int time = [subTea[@"Time"] intValue];
 		[database insertTeaWithName:name andTime:time];
 	}
 }
@@ -139,7 +138,7 @@
  */
 - (IBAction)startTimer:(id)sender
 {
-    NSNumber *startObj = [NSNumber numberWithInteger:[sender tag]];
+    NSNumber *startObj = @([sender tag]);
     [[NSNotificationCenter defaultCenter] postNotificationName:START_TEA_NOTIFICATION
                                                         object:startObj];
 }
@@ -147,7 +146,7 @@
 /* Interface action to stop the timer. */
 - (IBAction) stopTimer:(id)sender
 {
-	NSNumber *stopObj = [NSNumber numberWithBool:YES]; // true = user cancelled
+	NSNumber *stopObj = @YES; // true = user cancelled
     [[NSNotificationCenter defaultCenter] postNotificationName:STOP_TEA_NOTIFICATION
                                                         object:stopObj];
 }
@@ -224,7 +223,11 @@
     [teaManager dealloc];
     [customTeaItem dealloc];
     
+    if (CAN_USE_NCENTER)
+        [[NSUserNotificationCenter defaultUserNotificationCenter] removeAllDeliveredNotifications];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [super dealloc];
 }
 
 #undef T

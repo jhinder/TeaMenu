@@ -3,7 +3,7 @@
 "539.title" = "TeaMenu beenden";
 
 /* Class = "NSMenuItem"; title = "Stop timer"; ObjectID = "547"; */
-"547.title" = "Stop timer";
+"547.title" = "Timer anhalten";
 
 /* Class = "NSMenuItem"; title = "Mitteilungszentrale"; ObjectID = "3jp-0Z-BBE"; */
 "3jp-0Z-BBE.title" = "Mitteilungszentrale";

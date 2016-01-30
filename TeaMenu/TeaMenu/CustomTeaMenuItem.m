@@ -12,7 +12,7 @@
 
 @synthesize model;
 
-- (id)initWithFrame:(CGRect)frame
+- (instancetype) initWithFrame:(CGRect)frame
 {
     // no custom constructor needed
     return (self = [super initWithFrame:frame]);

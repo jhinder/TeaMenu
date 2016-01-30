@@ -14,7 +14,7 @@
 @interface TeaDatabase : NSObject {
 }
 
-- (id) init;
+- (instancetype) init;
 
 - (NSInteger) countTeas;
 - (bool) insertTeaWithName: (NSString *)name andTime: (int)minutes;
@@ -34,6 +34,7 @@
 @property (assign) NSInteger teaDuration;
 @property (retain) NSString *teaName;
 
-- (id) initWithName:(NSString *)name andDuration:(NSInteger)duration;
+- (instancetype) initWithTeaNode: (TeaNode &)node;
+- (instancetype) initWithName:(NSString *)name andDuration:(NSInteger)duration;
 
 @end

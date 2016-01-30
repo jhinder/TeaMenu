@@ -30,23 +30,22 @@ BOOL createAppSupport(void)
 	} else {
 		return isDir;
 	}
-	return FALSE;
 }
 
 /* Gets the Library/Application Support folder for the user */
 NSString * getAppSupportFolder(void)
 {
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
-	return (([paths count] != 0) ? [paths objectAtIndex:0] : NULL);
+	return ((paths.count != 0) ? paths[0]: NULL);
 }
 
 /** Class implementation **/
 
-- (id) init
+- (instancetype) init
 {
 	self = [super init];
     if (self) {
-		const char *dbPath = [[NSString stringWithFormat:@"%@/TeaMenu/Teas.db", getAppSupportFolder()] UTF8String];
+		const char *dbPath = [NSString stringWithFormat:@"%@/TeaMenu/Teas.db", getAppSupportFolder()].UTF8String;
 		if (createAppSupport() && initDB(dbPath) && prepareDB()) {
 			// nothing.
 		} else {
@@ -79,20 +78,16 @@ NSString * getAppSupportFolder(void)
 /* Gets all teas and returns them as an NSArray of TeaObject entities */
 - (NSArray *) queryTeas
 {
-	std::vector<TeaNode> teaVector;
-	if (!readAllTeas(teaVector)) {
-		delete &teaVector;
+    std::vector<TeaNode> teaVector;
+	if (!readAllTeas(teaVector))
 		return nil;
-	}
 
 	NSMutableArray *teaArray = [[[NSMutableArray alloc] init] autorelease];
     for (auto tea : teaVector) {
-        TeaObject *nextTea = [[[TeaObject alloc] initWithName:[NSString stringWithUTF8String:tea.getName().c_str()]
-                                                  andDuration:tea.getMinutes()] autorelease];
+        TeaObject *nextTea = [[[TeaObject alloc] initWithTeaNode:tea] autorelease];
         [teaArray addObject:nextTea];
     }
 
-	teaVector.clear();
 	return teaArray;
 }
 
@@ -110,7 +105,16 @@ NSString * getAppSupportFolder(void)
 @synthesize teaName;
 @synthesize teaDuration;
 
-- (id) initWithName:(NSString *)name andDuration:(NSInteger)duration
+- (instancetype) initWithTeaNode: (TeaNode &) node
+{
+    if (self = [super init]) {
+        teaName = @(node.getName().c_str());
+        teaDuration = node.getMinutes();
+    }
+    return self;
+}
+
+- (instancetype) initWithName:(NSString *)name andDuration:(NSInteger)duration
 {
 	self = [super init];
 	if (self) {
