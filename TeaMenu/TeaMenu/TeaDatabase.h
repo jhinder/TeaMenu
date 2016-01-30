@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #include "sqlite.hpp"
 
+@class TeaObject; // forward declaration for TeaDatabase
+
 // -- Declaration of TeaDatabase
 
 @interface TeaDatabase : NSObject {
@@ -18,6 +20,7 @@
 
 - (NSInteger) countTeas;
 - (bool) insertTeaWithName: (NSString *)name andTime: (int)minutes;
+- (bool) insertTeaWithObject: (TeaObject *) obj;
 - (bool) deleteTeaWithName: (NSString *)name;
 - (NSArray *) queryTeas;
 

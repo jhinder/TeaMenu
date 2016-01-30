@@ -8,10 +8,33 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface TeaEditor : NSWindowController {
-	NSArrayController *arrayController;
+#ifndef RELOAD_TEAS
+#define RELOAD_TEAS @"ReloadTeas"
+#endif
+
+@class TeaDatabase;
+
+@interface TeaEditor : NSWindowController <NSTableViewDelegate, NSTableViewDataSource> {
 }
 
-@property (strong) IBOutlet NSArrayController *arrayController;
+// Main window
+@property (strong) TeaDatabase *db;
+@property IBOutlet NSTableView *table;
+@property NSMutableArray *teaCache;
+
+// Sheet view
+@property IBOutlet NSWindow *sheetContents;
+@property IBOutlet NSTextField *teaName;
+@property IBOutlet NSTextField *teaTime;
+
+- (IBAction) addTea:(id)sender;
+- (IBAction) removeTea:(id)sender;
+
+- (void) clearSheet;
+- (IBAction) cancelSheet:(id)sender;
+- (IBAction) submitSheet:(id)sender;
+
+- (void) windowWillClose: (NSNotification *)_;
+- (void) cleanup;
 
 @end

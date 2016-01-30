@@ -68,6 +68,11 @@ NSString * getAppSupportFolder(void)
 	return writeTea(minutes, name.UTF8String);
 }
 
+- (bool) insertTeaWithObject: (TeaObject *)obj
+{
+    return [self insertTeaWithName:obj.teaName andTime:(int)obj.teaDuration];
+}
+
 /* Deletes a tea with the given name */
 - (bool) deleteTeaWithName: (NSString *)name
 {

@@ -33,6 +33,15 @@
     #warning T defined twice! May lead to problems.
 #endif
 
+// Macro for registering for notifications
+#define RegisterForNotification(notifName, sel) \
+    [[NSNotificationCenter defaultCenter] addObserver:self \
+        selector:@selector(sel) \
+        name:notifName \
+        object:nil]
+
+NSInteger currentTeaCount = 0;
+
 /* Called when the app launches, and sets up the menu. */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -52,39 +61,21 @@
 	mugSteaming = [NSImage imageNamed:@"menu-steamblack"];
 	[mugSteaming setTemplate:YES];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(startTeaNotification:)
-                                                 name:START_TEA_NOTIFICATION
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(stopTeaNotification:)
-                                                 name:STOP_TEA_NOTIFICATION
-                                               object:nil];
+    RegisterForNotification(START_TEA_NOTIFICATION, startTeaNotification:);
+    RegisterForNotification(STOP_TEA_NOTIFICATION, stopTeaNotification:);
+    RegisterForNotification(RELOAD_TEAS, reloadTeaMenu:);
 	
 	// Database init/loading
 	if ([database countTeas] == 0)
 		[self copyDefaultTeas];
-	NSArray *dbTeas = [database queryTeas];
 	
 	// Initialize menu bar/status item
     _item = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     [self changeIcons:false];
     _item.highlightMode = true;
     
-	// Add all user teas to the menu
-	int index = 0;
-	for (TeaObject *tea in dbTeas) {
-		NSInteger teaTime = tea.teaDuration;
-        NSString *menuItemTitle = [NSString stringWithFormat:@"%@ (%ld %@)",
-								   tea.teaName,
-								   (long)teaTime,
-								   T("MINUTES.SHORT")];
-        NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:menuItemTitle 
-													   action:@selector(startTimer:)
-												keyEquivalent:@""];
-        [item setTag:(teaTime * 60)];
-        [_appMenu insertItem:item atIndex:(index++)];
-	}
+    // Add all user teas to the menu
+    [self reloadTeaMenu:nil];
 	
 	// Load and insert the custom slider view
     customTeaItem = [[CustomTeaItemViewController alloc] initWithNibName:@"CustomTeaMenuItem"
@@ -92,7 +83,7 @@
 	NSView *theView = [customTeaItem view];
 	NSMenuItem *customSliderItem = [[NSMenuItem alloc] init];
 	[customSliderItem setView:theView];
-	[_appMenu insertItem:customSliderItem atIndex:(index)];
+	[_appMenu insertItem:customSliderItem atIndex:currentTeaCount];
     // used to be (index+1); using (index) puts the custom slider just above the "Stop timer" field, which is where it should go.
 	
     _item.menu = _appMenu;
@@ -204,6 +195,32 @@
 	if (editor == nil)
 		editor = [[TeaEditor alloc] initWithWindowNibName:@"TeaEditorWindow"];
 	[editor showWindow:self];
+}
+
+- (void) reloadTeaMenu:(NSNotification *)_
+{
+    // Phase 1: remove all teas
+    for (NSMenuItem *item in _appMenu.itemArray) {
+        if (item.tag != 0)
+            [_appMenu removeItem:item];
+    }
+    
+    // Phase 2: insert all teas.
+    NSArray *dbTeas = [database queryTeas];
+    int index = 0;
+    for (TeaObject *tea in dbTeas) {
+        NSInteger teaTime = tea.teaDuration;
+        NSString *menuItemTitle = [NSString stringWithFormat:@"%@ (%ld %@)",
+                                   tea.teaName,
+                                   (long)teaTime,
+                                   T("MINUTES.SHORT")];
+        NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:menuItemTitle
+                                                      action:@selector(startTimer:)
+                                               keyEquivalent:@""];
+        [item setTag:(teaTime * 60)];
+        [_appMenu insertItem:item atIndex:(index++)];
+    }
+    currentTeaCount = dbTeas.count;
 }
 
 /* Interface action for app exit. Saves the settings, then terminates. */

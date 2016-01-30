@@ -42,12 +42,12 @@ bool closeDB(void)
 bool writeTea(int time, const char *name)
 {
 	sqlite3_stmt *stmt;
-	int retVal = 0;
+    bool retVal = false;
 	if ((sqlite3_prepare(db, SQL_INSERT_TEA, -1, &stmt, 0) == SQLITE_OK)
 		&& (sqlite3_bind_int(stmt, 1, time) == SQLITE_OK)
 		&& (sqlite3_bind_text(stmt, 2, name, (int)strlen(name), SQLITE_STATIC) == SQLITE_OK)
 		&& (sqlite3_step(stmt) == SQLITE_DONE)) {
-		retVal = 1;
+		retVal = true;
 	}
 	sqlite3_finalize(stmt);
 	return retVal;
@@ -57,11 +57,11 @@ bool writeTea(int time, const char *name)
 bool removeTea(const char *name)
 {
 	sqlite3_stmt *stmt;
-	int retVal = 0;
+    bool retVal = false;
 	if ((sqlite3_prepare(db, SQL_DELETE_ONE_TEA, -1, &stmt, 0) == SQLITE_OK)
 		&& (sqlite3_bind_text(stmt, 1, name, (int)strlen(name), SQLITE_STATIC) == SQLITE_OK)
 		&& (sqlite3_step(stmt) == SQLITE_DONE)) {
-		retVal = 1;
+		retVal = true;
 	}
 	sqlite3_finalize(stmt);
 	return retVal;

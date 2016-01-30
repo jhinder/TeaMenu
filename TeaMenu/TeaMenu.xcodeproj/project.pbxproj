@@ -30,8 +30,6 @@
 
 /* Begin PBXFileReference section */
 		3D0629891BEBF8C8008C98F4 /* TeaTimerNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeaTimerNotification.h; sourceTree = "<group>"; };
-		3D1442B81AC7436A00816B7F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TeaEditorWindow.xib; sourceTree = "<group>"; };
-		3D1442BA1AC7436F00816B7F /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/TeaEditorWindow.xib; sourceTree = "<group>"; };
 		3D1442BB1AC746B400816B7F /* TeaEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeaEditor.h; sourceTree = "<group>"; };
 		3D1442BC1AC746B400816B7F /* TeaEditor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TeaEditor.mm; sourceTree = "<group>"; };
 		3D1BDE0C1C5AD51500E95DF9 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
@@ -59,6 +57,7 @@
 		3D4606791C5C255800766414 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		3D46067A1C5C255B00766414 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		3D46067B1C5C255E00766414 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		3D46067C1C5CEB5600766414 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TeaEditorWindow.xib; sourceTree = "<group>"; };
 		3D673B621BEBFEF90051B2C4 /* TeaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeaManager.h; sourceTree = "<group>"; };
 		3D673B631BEBFEF90051B2C4 /* TeaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeaManager.m; sourceTree = "<group>"; };
 		3D6F8BE71A7AD14D000794CA /* TeaIcon_Done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TeaIcon_Done.png; sourceTree = "<group>"; };
@@ -279,8 +278,7 @@
 		3D1442B91AC7436A00816B7F /* TeaEditorWindow.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3D1442B81AC7436A00816B7F /* en */,
-				3D1442BA1AC7436F00816B7F /* de */,
+				3D46067C1C5CEB5600766414 /* Base */,
 			);
 			name = TeaEditorWindow.xib;
 			sourceTree = "<group>";
