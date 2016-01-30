@@ -15,6 +15,8 @@
         <customObject id="494" customClass="AppDelegate">
             <connections>
                 <outlet property="appMenu" destination="536" id="541"/>
+                <outlet property="displayOptionAlertItem" destination="4Xy-Ei-bDC" id="i9L-DZ-S8p"/>
+                <outlet property="displayOptionNCItem" destination="3jp-0Z-BBE" id="C3F-Xg-H3u"/>
                 <outlet property="stopTeaItem" destination="547" id="549"/>
             </connections>
         </customObject>
@@ -31,11 +33,17 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Show notifications in" id="Nwa-MU-tqx">
                         <items>
-                            <menuItem title="Alert window" id="4Xy-Ei-bDC">
+                            <menuItem title="Alert window" tag="1" id="4Xy-Ei-bDC">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="changeNotificationDisplayPrefs:" target="494" id="WzY-AL-Kpe"/>
+                                </connections>
                             </menuItem>
-                            <menuItem title="Notification Center" id="3jp-0Z-BBE">
+                            <menuItem title="Notification Center" tag="2" id="3jp-0Z-BBE">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="changeNotificationDisplayPrefs:" target="494" id="bYM-RK-PQp"/>
+                                </connections>
                             </menuItem>
                         </items>
                     </menu>

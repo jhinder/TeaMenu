@@ -23,11 +23,13 @@
 @property (strong) TeaEditor *editor;
 @property (strong) CustomTeaItemViewController *customTeaItem;
 @property (strong) TeaManager *teaManager;
+@property (weak) IBOutlet NSMenuItem *displayOptionAlertItem, *displayOptionNCItem;
 
 - (IBAction)startTimer:(id)sender;
 - (IBAction)stopTimer:(id)sender;
 - (IBAction)terminate:(id)sender;
 - (IBAction)openTeaEditor:(id)sender;
+- (IBAction)changeNotificationDisplayPrefs:(id)sender;
 
 - (void) changeIcons:(bool)steaming;
 - (void) copyDefaultTeas;

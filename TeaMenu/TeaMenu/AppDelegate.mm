@@ -14,6 +14,7 @@
 #import "TeaManager.h"
 
 #define CAN_USE_NCENTER NSAppKitVersionNumber >= NSAppKitVersionNumber10_8
+#define NOTIFICATION_DISPLAY_PREF_KEY @"NotificationDisplay"
 
 @implementation AppDelegate
 
@@ -86,6 +87,15 @@ NSInteger currentTeaCount = 0;
 	[_appMenu insertItem:customSliderItem atIndex:currentTeaCount];
     // used to be (index+1); using (index) puts the custom slider just above the "Stop timer" field, which is where it should go.
 	
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSInteger displayPreference = [prefs integerForKey:NOTIFICATION_DISPLAY_PREF_KEY];
+    if (displayPreference == 0) { // 0 = not set
+        displayPreference = 2;
+        [prefs setInteger:displayPreference forKey:NOTIFICATION_DISPLAY_PREF_KEY];
+        [prefs synchronize];
+    }
+    [(displayPreference == 1 ? _displayOptionAlertItem : _displayOptionNCItem) setState:NSOnState];
+    
     _item.menu = _appMenu;
     
 }
@@ -181,9 +191,8 @@ NSInteger currentTeaCount = 0;
     [self changeIcons:NO];
 	[stopTimerItem setEnabled:NO];
     if (notification.object != nil && !((NSNumber *)notification.object).boolValue) {
-        [self showTeaNotification:true];
-        // TODO make this dynamic, based on OS and user settings
-        // For now it defaults to "notification" for 10.8+, and "alert" for all others
+        BOOL showInNC = ([[NSUserDefaults standardUserDefaults] integerForKey:NOTIFICATION_DISPLAY_PREF_KEY]); // 1 = NC, 0 = window
+        [self showTeaNotification:showInNC];
     }
 }
 
@@ -221,6 +230,16 @@ NSInteger currentTeaCount = 0;
         [_appMenu insertItem:item atIndex:(index++)];
     }
     currentTeaCount = dbTeas.count;
+}
+
+- (IBAction)changeNotificationDisplayPrefs:(id)sender
+{
+    NSInteger tag = ((NSMenuItem *)sender).tag;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:tag forKey:NOTIFICATION_DISPLAY_PREF_KEY];
+    [_displayOptionAlertItem setState:(tag == 1) ? NSOnState : NSOffState];
+    [_displayOptionNCItem    setState:(tag == 2) ? NSOnState : NSOffState];
+    [defaults synchronize];
 }
 
 /* Interface action for app exit. Saves the settings, then terminates. */
