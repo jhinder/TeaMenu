@@ -9,7 +9,7 @@
 	<key>CFBundleIconFile</key>
 	<string>TeaIcon1.1.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>net.dfragment.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -32,9 +32,9 @@
 	<string>Copyright © 2014–2015 dfragment.net</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
-	<key>NSUserNotificationAlertStyle</key>
-	<string>banner</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSUserNotificationAlertStyle</key>
+	<string>banner</string>
 </dict>
 </plist>
