@@ -1,0 +1,24 @@
+
+/* Class = "NSWindow"; title = "Edit tea database"; ObjectID = "1"; */
+"1.title" = "Editar base de datos de té";
+
+/* Class = "NSTableColumn"; headerCell.title = "Tea Name"; ObjectID = "6WX-kH-tkJ"; */
+"6WX-kH-tkJ.headerCell.title" = "Nombre del té";
+
+/* Class = "NSButtonCell"; title = "OK"; ObjectID = "GDy-MT-sxM"; */
+"GDy-MT-sxM.title" = "OK";
+
+/* Class = "NSTextFieldCell"; title = "Name:"; ObjectID = "Rzl-dT-cCi"; */
+"Rzl-dT-cCi.title" = "Nombre:";
+
+/* Class = "NSTableColumn"; headerCell.title = "Time"; ObjectID = "cuc-ko-nO9"; */
+"cuc-ko-nO9.headerCell.title" = "Hora";
+
+/* Class = "NSTextFieldCell"; title = "Time:"; ObjectID = "gym-fn-iaA"; */
+"gym-fn-iaA.title" = "Hora:";
+
+/* Class = "NSTextFieldCell"; title = "min"; ObjectID = "ywe-k2-wUa"; */
+"ywe-k2-wUa.title" = "min";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "zGg-h5-1tQ"; */
+"zGg-h5-1tQ.title" = "Cancelar";
