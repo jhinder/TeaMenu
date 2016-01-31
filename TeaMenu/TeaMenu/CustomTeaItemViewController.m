@@ -37,7 +37,8 @@
     return self;
 }
 
-- (IBAction)startTimer:(id)sender {
+- (IBAction)startTimer:(id)sender
+{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"StartTea"
                                                         object:@(timerModel.minutes * 60)];
 }

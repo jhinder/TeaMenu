@@ -70,11 +70,12 @@ bool dirty = false;
     [sheetContents makeFirstResponder:teaName];
     [self.window beginSheet:sheetContents completionHandler:^(NSModalResponse returnCode) {
         if (returnCode == NSModalResponseOK) {
-            TeaObject *obj = [[TeaObject alloc] initWithName:teaName.stringValue andDuration:teaTime.intValue];
+            TeaObject *obj = [[TeaObject alloc] initWithName:self->teaName.stringValue
+                                                 andDuration:self->teaTime.intValue];
             [teaCache addObject:obj];
             [db insertTeaWithObject:obj];
             dirty = true;
-            [table reloadData];
+            [self->table reloadData];
         }
         [self clearSheet];
     }];

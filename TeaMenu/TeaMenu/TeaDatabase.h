@@ -28,11 +28,7 @@
 
 // -- Declaration of TeaObject
 
-@interface TeaObject : NSObject {
-@private
-    NSInteger teaDuration;
-	NSString *teaName;
-}
+@interface TeaObject : NSObject
 
 @property (assign) NSInteger teaDuration;
 @property (strong) NSString *teaName;

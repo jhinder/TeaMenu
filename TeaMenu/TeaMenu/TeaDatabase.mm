@@ -110,7 +110,7 @@ NSString * getAppSupportFolder(void)
 
 - (instancetype) initWithTeaNode: (TeaNode &) node
 {
-    if (self = [super init]) {
+    if ((self = [super init])) {
         teaName = @(node.getName().c_str());
         teaDuration = node.getMinutes();
     }

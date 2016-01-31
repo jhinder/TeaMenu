@@ -45,7 +45,7 @@ bool writeTea(int time, const char *name)
     bool retVal = false;
 	if ((sqlite3_prepare(db, SQL_INSERT_TEA, -1, &stmt, 0) == SQLITE_OK)
 		&& (sqlite3_bind_int(stmt, 1, time) == SQLITE_OK)
-		&& (sqlite3_bind_text(stmt, 2, name, (int)strlen(name), SQLITE_STATIC) == SQLITE_OK)
+		&& (sqlite3_bind_text(stmt, 2, name, static_cast<int>(strlen(name)), SQLITE_STATIC) == SQLITE_OK)
 		&& (sqlite3_step(stmt) == SQLITE_DONE)) {
 		retVal = true;
 	}
@@ -59,7 +59,7 @@ bool removeTea(const char *name)
 	sqlite3_stmt *stmt;
     bool retVal = false;
 	if ((sqlite3_prepare(db, SQL_DELETE_ONE_TEA, -1, &stmt, 0) == SQLITE_OK)
-		&& (sqlite3_bind_text(stmt, 1, name, (int)strlen(name), SQLITE_STATIC) == SQLITE_OK)
+		&& (sqlite3_bind_text(stmt, 1, name, static_cast<int>(strlen(name)), SQLITE_STATIC) == SQLITE_OK)
 		&& (sqlite3_step(stmt) == SQLITE_DONE)) {
 		retVal = true;
 	}
@@ -100,7 +100,7 @@ bool readAllTeas(std::vector<TeaNode> &nodeVector)
 }
 
 /* Logs all SQL queries to stderr in Debug builds */
-void sqliteLog(void* v, const char* c)
+void sqliteLog(void*, const char* c)
 {
 #ifdef DEBUG
 	std::cerr << "[tea-sql] " << c << std::endl;

@@ -27,7 +27,7 @@
 struct TeaNode {
     
     TeaNode(int minutes, std::string name)
-        : _minutes(minutes), _name(name)
+        : _name(name), _minutes(minutes)
     { }
     
     int getMinutes() const
@@ -41,8 +41,8 @@ struct TeaNode {
     }
     
 private:
+    std::string _name;
     int _minutes;
-	std::string _name;
     
 };
 

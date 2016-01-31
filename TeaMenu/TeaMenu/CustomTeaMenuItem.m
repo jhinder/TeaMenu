@@ -58,9 +58,10 @@
 @synthesize minutes = _minutes;
 @synthesize teaNotBrewing;
 
-const int MAX_MINUTES = 10;
+static const int MAX_MINUTES = 10;
 
-- (void) setMinutes:(NSInteger)minutes {
+- (void) setMinutes:(NSInteger)minutes
+{
     // Custom setter: restrict values to (0, 10]
     if (minutes > 0 && minutes <= MAX_MINUTES)
         _minutes = minutes;
