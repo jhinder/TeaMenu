@@ -3,19 +3,17 @@
 //  TeaMenu
 //
 //  Created by Jan on 28.03.15.
-//  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2015 dfragment.net. All rights reserved.
 //
 
 #import "TeaEditor.h"
+#import "TeaObject.h"
 
 @implementation TeaEditor
 
-@synthesize table;
-
 @synthesize sheetContents;
 @synthesize teaName, teaTime;
-
-bool dirty = false;
+@synthesize teaArrayController;
 
 - (void) clearSheet
 {
@@ -43,12 +41,6 @@ bool dirty = false;
     [super windowDidLoad];
 }
 
-- (void) cleanup
-{
-    if (dirty) // Send notification to reload the bar menu
-        [[NSNotificationCenter defaultCenter] postNotificationName:RELOAD_TEAS object:nil];
-}
-
 // Invoked when hitting the ESC key
 - (void) cancelOperation:(id)sender
 {
@@ -57,7 +49,13 @@ bool dirty = false;
 
 - (void) windowWillClose:(NSNotification *)_
 {
-    [self cleanup];
+    // Save the data
+    // this will also send a CoreData didSave notification, triggering menu reloading
+    NSError *err = nil;
+    [self.managedObjectContext save:&err];
+    if (err) {
+        NSLog(@"Could not save! %@", err);
+    }
 }
 
 - (IBAction) addTea:(id)sender
@@ -65,24 +63,16 @@ bool dirty = false;
     [sheetContents makeFirstResponder:teaName];
     [self.window beginSheet:sheetContents completionHandler:^(NSModalResponse returnCode) {
         if (returnCode == NSModalResponseOK) {
-            // TODO Insert tea
-            dirty = true;
-            [table reloadData];
+            NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tea"
+                                                      inManagedObjectContext:self.managedObjectContext];
+            TeaObject *t = [[TeaObject alloc] initWithEntity:entity
+                              insertIntoManagedObjectContext:self.managedObjectContext];
+            t.name = teaName.stringValue;
+            t.time = @(teaTime.integerValue);
+            [teaArrayController addObject:t];
         }
         [self clearSheet];
     }];
-}
-
-- (IBAction) removeTea:(id)sender
-{
-    if (table.selectedRow == -1) // no tea selected
-        return;
-    
-    // TODO Delete tea
-    
-    dirty = true;
-    
-    [table reloadData];
 }
 
 // Sheet actions
@@ -102,24 +92,5 @@ bool dirty = false;
 }
 
 #undef DISMISS
-
-// TableView protocols implementation
-- (NSInteger) numberOfRowsInTableView:(NSTableView *)tableView
-{
-    return 0; // TODO implementation
-}
-
-- (NSView *) tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
-{
-    bool isTeaCell = [tableColumn.identifier isEqual: @"teaCol"];
-    NSString *identifier = (isTeaCell) ? @"teaCV" : @"timeCV";
-    
-    NSTableCellView *result = [tableView makeViewWithIdentifier:identifier owner:self];
-    
-    // TODO cell or view based?
-    
-    return result;
-}
-
 
 @end

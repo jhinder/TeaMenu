@@ -20,7 +20,6 @@
 @synthesize appMenu = _appMenu;
 @synthesize item = _item;
 @synthesize stopTeaItem = stopTimerItem;
-@synthesize database;
 @synthesize mug, mugSteaming;
 @synthesize editor;
 @synthesize customTeaItem;
@@ -222,10 +221,10 @@ NSUserDefaults *defaults;
 /* Shows the tea database editor */
 - (IBAction)openTeaEditor:(id)sender
 {
-    if (database == nil)
-        return;
-	if (editor == nil)
-		editor = [[TeaEditor alloc] initWithWindowNibName:@"TeaEditorWindow"];
+    if (editor == nil) {
+        editor = [[TeaEditor alloc] initWithWindowNibName:@"TeaEditorWindow"];
+        editor.managedObjectContext = self.managedObjectContext;
+    }
 	[editor showWindow:self];
 }
 

@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "TeaTimerNotification.h"
 
-@class TeaManager, CustomTeaItemViewController, TeaDatabase;
+@class TeaManager, CustomTeaItemViewController;
 @class TeaEditor;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, TeaTimerNotification>
@@ -17,7 +17,6 @@
 @property (weak) IBOutlet NSMenu *appMenu;
 @property  NSStatusItem *item;
 @property (weak) IBOutlet NSMenuItem *stopTeaItem;
-@property (strong) TeaDatabase *database;
 @property (strong) NSImage *mug, *mugSteaming;
 @property (strong) TeaEditor *editor;
 @property (strong) CustomTeaItemViewController *customTeaItem;

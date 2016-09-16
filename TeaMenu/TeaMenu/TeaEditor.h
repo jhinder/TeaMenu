@@ -3,22 +3,19 @@
 //  TeaMenu
 //
 //  Created by Jan on 28.03.15.
-//  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2015 dfragment.net. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
 
-#ifndef RELOAD_TEAS
-#define RELOAD_TEAS @"ReloadTeas"
-#endif
-
 @class TeaDatabase;
 
-@interface TeaEditor : NSWindowController <NSTableViewDelegate, NSTableViewDataSource> {
+@interface TeaEditor : NSWindowController {
 }
 
 // Main window
-@property IBOutlet NSTableView *table;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong) IBOutlet NSArrayController *teaArrayController;
 
 // Sheet view
 @property IBOutlet NSWindow *sheetContents;
@@ -26,13 +23,11 @@
 @property IBOutlet NSTextField *teaTime;
 
 - (IBAction) addTea:(id)sender;
-- (IBAction) removeTea:(id)sender;
 
 - (void) clearSheet;
 - (IBAction) cancelSheet:(id)sender;
 - (IBAction) submitSheet:(id)sender;
 
 - (void) windowWillClose: (NSNotification *)_;
-- (void) cleanup;
 
 @end
