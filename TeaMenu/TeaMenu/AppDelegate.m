@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 
-#import "TeaDatabase.h"
 #import "TeaObject.h"
 #import "TeaEditor.h"
 #import "CustomTeaItemViewController.h"
@@ -46,10 +45,6 @@ NSInteger currentTeaCount = 0;
 /* Called when the app launches, and sets up the menu. */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	database = [[TeaDatabase alloc] init];
-    if (database == nil) {
-        // Could not init the database, for some reason. (How to handle?)
-    }
     
     teaManager = [[TeaManager alloc] init];
 	
@@ -64,11 +59,16 @@ NSInteger currentTeaCount = 0;
     
     RegisterForNotification(START_TEA_NOTIFICATION, startTeaNotification:);
     RegisterForNotification(STOP_TEA_NOTIFICATION, stopTeaNotification:);
-    RegisterForNotification(RELOAD_TEAS, reloadTeaMenu:);
-	
-	// Database init/loading
-	if ([database countTeas] == 0)
-		[self copyDefaultTeas];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Tea"];
+    
+    NSError *err = nil;
+    NSUInteger count = [self.managedObjectContext countForFetchRequest:request error:&err];
+    if (count == NSNotFound || err) {
+        NSLog(@"Can't count teas: %@", err);
+    } else if (count == 0) {
+        [self copyDefaultTeas];
+    }
 	
 	// Initialize menu bar/status item
     _item = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
@@ -97,6 +97,10 @@ NSInteger currentTeaCount = 0;
     }
     [(displayPreference == 1 ? _displayOptionAlertItem : _displayOptionNCItem) setState:NSOnState];
     
+    // Useful: Core Data notifies us whenever data are persisted.
+    // Register here so we don't get notified for the inserts made by copyDefaultTeas.
+    RegisterForNotification(NSManagedObjectContextDidSaveNotification, reloadTeaMenu:);
+    
     _item.menu = _appMenu;
     
 }
@@ -118,10 +122,21 @@ NSInteger currentTeaCount = 0;
     NSDictionary *teaDicts = [NSDictionary dictionaryWithContentsOfURL:defaultPrefs];
     NSDictionary *langDict = teaDicts[userLocale];
 	
+    NSEntityDescription *newTeaDesc = [NSEntityDescription entityForName:@"Tea"
+                                                  inManagedObjectContext:self.managedObjectContext];
+    
 	for (NSDictionary *subTea in langDict[@"Teas"]) {
-		NSString *name = subTea[@"TeaType"];
-		int time = [subTea[@"Time"] intValue];
-		[database insertTeaWithName:name andTime:time];
+		NSString *name = subTea[@"Tea Type"];
+        NSNumber *time = @([subTea[@"Time"] integerValue]);
+        NSManagedObject *newTea = [[NSManagedObject alloc] initWithEntity:newTeaDesc
+                                           insertIntoManagedObjectContext:self.managedObjectContext];
+        [newTea setValue:name forKey:@"name"];
+        [newTea setValue:time forKey:@"time"];
+        
+        NSError *error = nil;
+        if (![newTea.managedObjectContext save:&error]) {
+            NSLog(@"Could not save the tea.\n%@,\n%@", error, error.localizedDescription);
+        }
 	}
 }
 
@@ -215,7 +230,14 @@ NSInteger currentTeaCount = 0;
     }
     
     // Phase 2: insert all teas.
-    NSArray *dbTeas = [database queryTeas];
+    NSFetchRequest *fetchReq = [[NSFetchRequest alloc] initWithEntityName:@"Tea"];
+    NSError *error = nil;
+    NSArray *dbTeas = [self.managedObjectContext executeFetchRequest:fetchReq error:&error];
+    if (error) {
+        NSLog(@"Could not fetch teas:\n%@\n%@", error, error.localizedDescription);
+        return;
+    }
+    
     int index = 0;
     for (TeaObject *tea in dbTeas) {
         NSInteger teaTime = tea.time.integerValue;
