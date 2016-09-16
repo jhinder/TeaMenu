@@ -6,8 +6,7 @@
 //  Copyright (c) 2014 dfragment.net. All rights reserved.
 //
 
-#import <AppKit/AppKit.h>
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 #import "TeaTimerNotification.h"
 
 @class TeaManager, CustomTeaItemViewController, TeaDatabase;
@@ -24,6 +23,11 @@
 @property (strong) CustomTeaItemViewController *customTeaItem;
 @property (strong) TeaManager *teaManager;
 @property (weak) IBOutlet NSMenuItem *displayOptionAlertItem, *displayOptionNCItem;
+
+// Core Data
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 - (IBAction)startTimer:(id)sender;
 - (IBAction)stopTimer:(id)sender;
