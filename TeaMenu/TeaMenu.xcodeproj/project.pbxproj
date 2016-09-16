@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D1442B71AC7436A00816B7F /* TeaEditorWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1442B91AC7436A00816B7F /* TeaEditorWindow.xib */; };
 		3D1442BD1AC746B400816B7F /* TeaEditor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3D1442BC1AC746B400816B7F /* TeaEditor.mm */; };
-		3D1BDE0D1C5AD51500E95DF9 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D1BDE0C1C5AD51500E95DF9 /* Icons.xcassets */; settings = {ASSET_TAGS = (); }; };
+		3D1BDE0D1C5AD51500E95DF9 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D1BDE0C1C5AD51500E95DF9 /* Icons.xcassets */; };
 		3D36300E1A7AE9CE00B34E2C /* TeaIcon1.1.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3D36300D1A7AE9CE00B34E2C /* TeaIcon1.1.icns */; };
 		3D3FBF241A15649E00E7E6A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3FBF231A15649E00E7E6A9 /* main.m */; };
 		3D3FBF2B1A15649E00E7E6A9 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3D3FBF2A1A15649E00E7E6A9 /* AppDelegate.mm */; };
@@ -214,7 +214,7 @@
 		3D3FBF0A1A15649D00E7E6A9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 			};
 			buildConfigurationList = 3D3FBF0D1A15649D00E7E6A9 /* Build configuration list for PBXProject "TeaMenu" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -339,11 +339,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
@@ -377,11 +380,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
