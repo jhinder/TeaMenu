@@ -24,15 +24,3 @@
 - (NSArray *) queryTeas;
 
 @end
-
-// -- Declaration of TeaObject
-
-@interface TeaObject : NSObject
-
-@property (assign) NSInteger teaDuration;
-@property (strong) NSString *teaName;
-
-//- (instancetype) initWithTeaNode: (TeaNode &)node;
-- (instancetype) initWithName:(NSString *)name andDuration:(NSInteger)duration;
-
-@end

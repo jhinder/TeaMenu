@@ -56,20 +56,3 @@
 }
 
 @end
-
-@implementation TeaObject
-
-@synthesize teaName;
-@synthesize teaDuration;
-
-- (instancetype) initWithName:(NSString *)name andDuration:(NSInteger)duration
-{
-	self = [super init];
-	if (self) {
-		teaName = name;
-		teaDuration = duration;
-	}
-	return self;
-}
-
-@end

@@ -70,12 +70,9 @@ bool dirty = false;
     [sheetContents makeFirstResponder:teaName];
     [self.window beginSheet:sheetContents completionHandler:^(NSModalResponse returnCode) {
         if (returnCode == NSModalResponseOK) {
-            TeaObject *obj = [[TeaObject alloc] initWithName:self->teaName.stringValue
-                                                 andDuration:self->teaTime.intValue];
-            [teaCache addObject:obj];
-            [db insertTeaWithObject:obj];
+            // TODO Insert tea
             dirty = true;
-            [self->table reloadData];
+            [table reloadData];
         }
         [self clearSheet];
     }];
@@ -86,11 +83,7 @@ bool dirty = false;
     if (table.selectedRow == -1) // no tea selected
         return;
     
-    NSInteger toDelete = table.selectedRow;
-    
-    NSString *deleteKey = ((TeaObject *)teaCache[toDelete]).teaName;
-    [db deleteTeaWithName:deleteKey];
-    [teaCache removeObjectAtIndex:toDelete];
+    // TODO Delete tea
     
     dirty = true;
     
@@ -128,11 +121,7 @@ bool dirty = false;
     
     NSTableCellView *result = [tableView makeViewWithIdentifier:identifier owner:self];
     
-    TeaObject *tea = (TeaObject *)teaCache[row];
-    if (isTeaCell)
-        result.textField.stringValue = [NSString stringWithFormat:@"%@", tea.teaName];
-    else
-        result.textField.stringValue = [NSString stringWithFormat:@"%ld min", tea.teaDuration];
+    // TODO cell or view based?
     
     return result;
 }

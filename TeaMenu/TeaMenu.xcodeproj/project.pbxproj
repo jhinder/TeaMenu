@@ -15,6 +15,7 @@
 		3D3FBF2B1A15649E00E7E6A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3FBF2A1A15649E00E7E6A9 /* AppDelegate.m */; };
 		3D3FBF2E1A15649E00E7E6A9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D3FBF2C1A15649E00E7E6A9 /* MainMenu.xib */; };
 		3D3FBF481A157B8F00E7E6A9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D3FBF4A1A157B8F00E7E6A9 /* Localizable.strings */; };
+		3D58919C1D8C08FE00909081 /* TeaObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D58919B1D8C08FE00909081 /* TeaObject.m */; };
 		3D673B641BEBFEF90051B2C4 /* TeaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D673B631BEBFEF90051B2C4 /* TeaManager.m */; };
 		3D6F8BE81A7AD14D000794CA /* TeaIcon_Done.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F8BE71A7AD14D000794CA /* TeaIcon_Done.png */; };
 		3D77CBEF1D8C012C0047F8B5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77CBEE1D8C012C0047F8B5 /* Cocoa.framework */; };
@@ -58,6 +59,8 @@
 		3D46067A1C5C255B00766414 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		3D46067B1C5C255E00766414 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		3D46067C1C5CEB5600766414 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TeaEditorWindow.xib; sourceTree = "<group>"; };
+		3D58919A1D8C08FE00909081 /* TeaObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeaObject.h; sourceTree = "<group>"; };
+		3D58919B1D8C08FE00909081 /* TeaObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeaObject.m; sourceTree = "<group>"; };
 		3D673B621BEBFEF90051B2C4 /* TeaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeaManager.h; sourceTree = "<group>"; };
 		3D673B631BEBFEF90051B2C4 /* TeaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeaManager.m; sourceTree = "<group>"; };
 		3D6F8BE71A7AD14D000794CA /* TeaIcon_Done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TeaIcon_Done.png; sourceTree = "<group>"; };
@@ -119,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				3DD20B781BE9634B00C184E4 /* Custom Tea Timer */,
-				3D9ECC8B1AC5F37E0007256B /* Database */,
+				3D9ECC8B1AC5F37E0007256B /* Core Data */,
 				3D3FBF291A15649E00E7E6A9 /* AppDelegate.h */,
 				3D3FBF2A1A15649E00E7E6A9 /* AppDelegate.m */,
 				3D0629891BEBF8C8008C98F4 /* TeaTimerNotification.h */,
@@ -138,7 +141,6 @@
 		3D3FBF1E1A15649E00E7E6A9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3D77CC4D1D8C02BC0047F8B5 /* TeaMenu.xcdatamodeld */,
 				3DF0CBEE1AC842E100B5AEDE /* DefaultTeas.plist */,
 				3D3FBF1F1A15649E00E7E6A9 /* TeaMenu-Info.plist */,
 				3D3FBF201A15649E00E7E6A9 /* InfoPlist.strings */,
@@ -157,13 +159,16 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
-		3D9ECC8B1AC5F37E0007256B /* Database */ = {
+		3D9ECC8B1AC5F37E0007256B /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				3D77CC4D1D8C02BC0047F8B5 /* TeaMenu.xcdatamodeld */,
+				3D58919A1D8C08FE00909081 /* TeaObject.h */,
+				3D58919B1D8C08FE00909081 /* TeaObject.m */,
 				3D9ECC881AC5F1E00007256B /* TeaDatabase.h */,
 				3D9ECC891AC5F1E00007256B /* TeaDatabase.m */,
 			);
-			name = Database;
+			name = "Core Data";
 			sourceTree = "<group>";
 		};
 		3DD20B781BE9634B00C184E4 /* Custom Tea Timer */ = {
@@ -255,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D58919C1D8C08FE00909081 /* TeaObject.m in Sources */,
 				3D3FBF241A15649E00E7E6A9 /* main.m in Sources */,
 				3D3FBF2B1A15649E00E7E6A9 /* AppDelegate.m in Sources */,
 				3D9ECC8A1AC5F1E00007256B /* TeaDatabase.m in Sources */,

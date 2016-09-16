@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "TeaDatabase.h"
+#import "TeaObject.h"
 #import "TeaEditor.h"
 #import "CustomTeaItemViewController.h"
 #import "TeaManager.h"
@@ -217,9 +218,9 @@ NSInteger currentTeaCount = 0;
     NSArray *dbTeas = [database queryTeas];
     int index = 0;
     for (TeaObject *tea in dbTeas) {
-        NSInteger teaTime = tea.teaDuration;
+        NSInteger teaTime = tea.time.integerValue;
         NSString *menuItemTitle = [NSString stringWithFormat:@"%@ (%ld %@)",
-                                   tea.teaName,
+                                   tea.name,
                                    (long)teaTime,
                                    T("MINUTES.SHORT")];
         NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:menuItemTitle
