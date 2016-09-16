@@ -25,7 +25,6 @@
 {
     self = [super initWithWindow:window];
     if (self) {
-        // TODO implementation
         [self clearSheet];
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(windowWillClose:)
@@ -36,11 +35,6 @@
     return self;
 }
 
-- (void)windowDidLoad
-{
-    [super windowDidLoad];
-}
-
 // Invoked when hitting the ESC key
 - (void) cancelOperation:(id)sender
 {
@@ -49,12 +43,11 @@
 
 - (void) windowWillClose:(NSNotification *)_
 {
-    // Save the data
-    // this will also send a CoreData didSave notification, triggering menu reloading
+    // Save the data. This will also send a CoreData
+    // didSave notification, triggering menu reloading.
     NSError *err = nil;
-    [self.managedObjectContext save:&err];
-    if (err) {
-        NSLog(@"Could not save! %@", err);
+    if (![self.managedObjectContext save:&err]) {
+        NSLog(@"Could not save!\n%@", err);
     }
 }
 
@@ -75,22 +68,16 @@
     }];
 }
 
-// Sheet actions
-
-#define DISMISS(action) [self.sheetContents.sheetParent endSheet:self.sheetContents returnCode:action]
+#pragma mark - Sheet actions
 
 - (IBAction) cancelSheet:(id)sender
 {
-    DISMISS(NSModalResponseCancel);
-//    [self.sheetContents.sheetParent endSheet:self.sheetContents returnCode:NSModalResponseOK];
+    [sheetContents.sheetParent endSheet:sheetContents returnCode:NSModalResponseCancel];
 }
 
 - (IBAction) submitSheet:(id)sender
 {
-    DISMISS(NSModalResponseOK);
-//    [self.sheetContents.sheetParent endSheet:self.sheetContents returnCode:NSModalResponseOK];
+    [sheetContents.sheetParent endSheet:sheetContents returnCode:NSModalResponseOK];
 }
-
-#undef DISMISS
 
 @end
