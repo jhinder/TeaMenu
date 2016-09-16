@@ -7,13 +7,10 @@
 //
 
 #import "TeaEditor.h"
-#import "TeaDatabase.h"
 
 @implementation TeaEditor
 
-@synthesize db;
 @synthesize table;
-@synthesize teaCache;
 
 @synthesize sheetContents;
 @synthesize teaName, teaTime;
@@ -30,9 +27,7 @@ bool dirty = false;
 {
     self = [super initWithWindow:window];
     if (self) {
-        // Initialization code here.
-        db = [[TeaDatabase alloc] init];
-        teaCache = [NSMutableArray arrayWithArray:[db queryTeas]];
+        // TODO implementation
         [self clearSheet];
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(windowWillClose:)
@@ -111,7 +106,7 @@ bool dirty = false;
 // TableView protocols implementation
 - (NSInteger) numberOfRowsInTableView:(NSTableView *)tableView
 {
-    return teaCache.count;
+    return 0; // TODO implementation
 }
 
 - (NSView *) tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row

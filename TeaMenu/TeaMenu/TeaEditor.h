@@ -18,9 +18,7 @@
 }
 
 // Main window
-@property (strong) TeaDatabase *db;
 @property IBOutlet NSTableView *table;
-@property NSMutableArray *teaCache;
 
 // Sheet view
 @property IBOutlet NSWindow *sheetContents;
