@@ -13,7 +13,6 @@
 #import "CustomTeaItemViewController.h"
 #import "TeaManager.h"
 
-#define CAN_USE_NCENTER NSAppKitVersionNumber >= NSAppKitVersionNumber10_8
 #define NOTIFICATION_DISPLAY_PREF_KEY @"NotificationDisplay"
 
 @implementation AppDelegate
@@ -87,6 +86,7 @@ NSInteger currentTeaCount = 0;
 	[_appMenu insertItem:customSliderItem atIndex:currentTeaCount];
     // used to be (index+1); using (index) puts the custom slider just above the "Stop timer" field, which is where it should go.
 	
+    // Load preferences for notification display
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSInteger displayPreference = [prefs integerForKey:NOTIFICATION_DISPLAY_PREF_KEY];
     if (displayPreference == 0) { // 0 = not set
@@ -166,10 +166,9 @@ NSInteger currentTeaCount = 0;
  */
 - (void) showTeaNotification:(bool)showInCenter
 {
-    if (showInCenter && !(CAN_USE_NCENTER))
-        showInCenter = false; // Can't use Notification Center before 10.8
-    
     if (showInCenter) {
+        // Clear all previous notifications so we don't clutter up the NC
+        [[NSUserNotificationCenter defaultUserNotificationCenter] removeAllDeliveredNotifications];
         NSUserNotification *notification = [[NSUserNotification alloc] init];
         [notification setTitle:T("TEA_READY")];
         [notification setDeliveryDate:[NSDate date]]; // i.e. now
@@ -191,7 +190,7 @@ NSInteger currentTeaCount = 0;
     [self changeIcons:NO];
 	[stopTimerItem setEnabled:NO];
     if (notification.object != nil && !((NSNumber *)notification.object).boolValue) {
-        BOOL showInNC = ([[NSUserDefaults standardUserDefaults] integerForKey:NOTIFICATION_DISPLAY_PREF_KEY]); // 1 = NC, 0 = window
+        BOOL showInNC = ([[NSUserDefaults standardUserDefaults] integerForKey:NOTIFICATION_DISPLAY_PREF_KEY]) == 2;
         [self showTeaNotification:showInNC];
     }
 }
@@ -246,8 +245,7 @@ NSInteger currentTeaCount = 0;
 - (IBAction)terminate:(id)sender
 {
     // Cleanup
-    if (CAN_USE_NCENTER)
-        [[NSUserNotificationCenter defaultUserNotificationCenter] removeAllDeliveredNotifications];
+    [[NSUserNotificationCenter defaultUserNotificationCenter] removeAllDeliveredNotifications];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     // Terminate the app
