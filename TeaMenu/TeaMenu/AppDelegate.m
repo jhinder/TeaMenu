@@ -41,27 +41,41 @@
         object:nil]
 
 NSInteger currentTeaCount = 0;
+NSInteger displayPreference;
+NSUserDefaults *defaults;
+
+- (id) init {
+    self = [super init];
+    if (self) {
+        // Some initialisation can be done here.
+        
+        teaManager = [[TeaManager alloc] init];
+        
+        /* Templating has two major benefits:
+         * a) we get white versions of the icons when needed,
+         * b) it works natively with the dark mode of 10.10+.
+         */
+        mug = [NSImage imageNamed:@"menu-black"];
+        [mug setTemplate:YES];
+        mugSteaming = [NSImage imageNamed:@"menu-steamblack"];
+        [mugSteaming setTemplate:YES];
+        
+        // Initialize menu bar/status item
+        _item = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+        [self changeIcons:false];
+        _item.highlightMode = true;
+        
+        // Load preferences
+        defaults = [NSUserDefaults standardUserDefaults];
+    }
+    return self;
+}
 
 /* Called when the app launches, and sets up the menu. */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    
-    teaManager = [[TeaManager alloc] init];
-	
-	/* Templating has two major benefits:
-	 * a) we get white versions of the icons when needed,
-	 * b) it works natively with the dark mode of 10.10+.
-	 */
-	mug = [NSImage imageNamed:@"menu-black"];
-	[mug setTemplate:YES];
-	mugSteaming = [NSImage imageNamed:@"menu-steamblack"];
-	[mugSteaming setTemplate:YES];
-    
-    RegisterForNotification(START_TEA_NOTIFICATION, startTeaNotification:);
-    RegisterForNotification(STOP_TEA_NOTIFICATION, stopTeaNotification:);
-    
+    // Count teas; insert defaults if the table is empty
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Tea"];
-    
     NSError *err = nil;
     NSUInteger count = [self.managedObjectContext countForFetchRequest:request error:&err];
     if (count == NSNotFound || err) {
@@ -69,40 +83,34 @@ NSInteger currentTeaCount = 0;
     } else if (count == 0) {
         [self copyDefaultTeas];
     }
-	
-	// Initialize menu bar/status item
-    _item = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    [self changeIcons:false];
-    _item.highlightMode = true;
     
+    // Register for notifications
+    RegisterForNotification(START_TEA_NOTIFICATION, startTeaNotification:);
+    RegisterForNotification(STOP_TEA_NOTIFICATION, stopTeaNotification:);
+    // Useful: Core Data notifies us whenever data are persisted.
+    RegisterForNotification(NSManagedObjectContextDidSaveNotification, reloadTeaMenu:);
+	
     // Add all user teas to the menu
     [self reloadTeaMenu:nil];
 	
-	// Load and insert the custom slider view
+    // Load and insert the custom slider view
     customTeaItem = [[CustomTeaItemViewController alloc] initWithNibName:@"CustomTeaMenuItem"
                                                                   bundle:[NSBundle mainBundle]];
-	NSView *theView = [customTeaItem view];
-	NSMenuItem *customSliderItem = [[NSMenuItem alloc] init];
-	[customSliderItem setView:theView];
+    NSView *theView = [customTeaItem view];
+    NSMenuItem *customSliderItem = [[NSMenuItem alloc] init];
+    [customSliderItem setView:theView];
 	[_appMenu insertItem:customSliderItem atIndex:currentTeaCount];
     // used to be (index+1); using (index) puts the custom slider just above the "Stop timer" field, which is where it should go.
 	
-    // Load preferences for notification display
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    NSInteger displayPreference = [prefs integerForKey:NOTIFICATION_DISPLAY_PREF_KEY];
+    displayPreference = [defaults integerForKey:NOTIFICATION_DISPLAY_PREF_KEY];
     if (displayPreference == 0) { // 0 = not set
         displayPreference = 2;
-        [prefs setInteger:displayPreference forKey:NOTIFICATION_DISPLAY_PREF_KEY];
-        [prefs synchronize];
+        [defaults setInteger:displayPreference forKey:NOTIFICATION_DISPLAY_PREF_KEY];
+        [defaults synchronize];
     }
     [(displayPreference == 1 ? _displayOptionAlertItem : _displayOptionNCItem) setState:NSOnState];
     
-    // Useful: Core Data notifies us whenever data are persisted.
-    // Register here so we don't get notified for the inserts made by copyDefaultTeas.
-    RegisterForNotification(NSManagedObjectContextDidSaveNotification, reloadTeaMenu:);
-    
     _item.menu = _appMenu;
-    
 }
 
 /* Copy the Default Teas plist into the database */
@@ -206,7 +214,7 @@ NSInteger currentTeaCount = 0;
     [self changeIcons:NO];
 	[stopTimerItem setEnabled:NO];
     if (notification.object != nil && !((NSNumber *)notification.object).boolValue) {
-        BOOL showInNC = ([[NSUserDefaults standardUserDefaults] integerForKey:NOTIFICATION_DISPLAY_PREF_KEY]) == 2;
+        BOOL showInNC = (displayPreference == 2);
         [self showTeaNotification:showInNC];
     }
 }
@@ -257,7 +265,7 @@ NSInteger currentTeaCount = 0;
 - (IBAction)changeNotificationDisplayPrefs:(id)sender
 {
     NSInteger tag = ((NSMenuItem *)sender).tag;
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    displayPreference = tag;
     [defaults setInteger:tag forKey:NOTIFICATION_DISPLAY_PREF_KEY];
     [_displayOptionAlertItem setState:(tag == 1) ? NSOnState : NSOffState];
     [_displayOptionNCItem    setState:(tag == 2) ? NSOnState : NSOffState];
@@ -267,6 +275,13 @@ NSInteger currentTeaCount = 0;
 /* Interface action for app exit. Saves the settings, then terminates. */
 - (IBAction)terminate:(id)sender
 {
+    NSApplicationTerminateReply shouldQuit = [self applicationShouldTerminate:NSApp];
+    // the method only returns Now and Cancel, but not Later, so we can ignore that case.
+    if (shouldQuit == NSTerminateCancel) {
+        NSLog(@"Cannot terminate!");
+        return;
+    }
+    
     // Cleanup
     [[NSUserNotificationCenter defaultUserNotificationCenter] removeAllDeliveredNotifications];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
