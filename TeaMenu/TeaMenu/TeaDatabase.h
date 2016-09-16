@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#include "sqlite.hpp"
 
 @class TeaObject; // forward declaration for TeaDatabase
 
@@ -33,7 +32,7 @@
 @property (assign) NSInteger teaDuration;
 @property (strong) NSString *teaName;
 
-- (instancetype) initWithTeaNode: (TeaNode &)node;
+//- (instancetype) initWithTeaNode: (TeaNode &)node;
 - (instancetype) initWithName:(NSString *)name andDuration:(NSInteger)duration;
 
 @end
