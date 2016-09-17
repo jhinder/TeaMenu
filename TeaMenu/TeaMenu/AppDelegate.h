@@ -15,13 +15,15 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate, TeaTimerNotification>
 
 @property (weak) IBOutlet NSMenu *appMenu;
-@property  NSStatusItem *item;
 @property (weak) IBOutlet NSMenuItem *stopTeaItem;
+@property (weak) IBOutlet NSMenuItem *displayOptionAlertItem, *displayOptionNCItem;
+@property (strong) NSStatusItem *item;
+
 @property (strong) NSImage *mug, *mugSteaming;
 @property (strong) TeaEditor *editor;
 @property (strong) CustomTeaItemViewController *customTeaItem;
 @property (strong) TeaManager *teaManager;
-@property (weak) IBOutlet NSMenuItem *displayOptionAlertItem, *displayOptionNCItem;
+@property (strong) NSUserDefaults *defaults;
 
 // Core Data
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;

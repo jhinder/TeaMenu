@@ -8,10 +8,10 @@
 
 #import "AppDelegate.h"
 
-#import "TeaObject.h"
-#import "TeaEditor.h"
 #import "CustomTeaItemViewController.h"
+#import "TeaEditor.h"
 #import "TeaManager.h"
+#import "TeaObject.h"
 
 #define NOTIFICATION_DISPLAY_PREF_KEY @"NotificationDisplay"
 
@@ -24,6 +24,7 @@
 @synthesize editor;
 @synthesize customTeaItem;
 @synthesize teaManager;
+@synthesize defaults;
 
 /* Quick translation macro. */
 #ifndef T
@@ -39,10 +40,9 @@
         name:notifName \
         object:nil]
 
-NSInteger currentTeaCount = 0;
 NSInteger displayPreference;
-NSUserDefaults *defaults;
 
+/** AppDelegate constructor */
 - (id) init {
     self = [super init];
     if (self) {
@@ -70,7 +70,7 @@ NSUserDefaults *defaults;
     return self;
 }
 
-/* Called when the app launches, and sets up the menu. */
+/** Called when the app launches, and sets up the menu. */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Count teas; insert defaults if the table is empty
@@ -89,17 +89,16 @@ NSUserDefaults *defaults;
     // Useful: Core Data notifies us whenever data are persisted.
     RegisterForNotification(NSManagedObjectContextDidSaveNotification, reloadTeaMenu:);
 	
-    // Add all user teas to the menu
-    [self reloadTeaMenu:nil];
-	
     // Load and insert the custom slider view
     customTeaItem = [[CustomTeaItemViewController alloc] initWithNibName:@"CustomTeaMenuItem"
                                                                   bundle:[NSBundle mainBundle]];
     NSView *theView = [customTeaItem view];
     NSMenuItem *customSliderItem = [[NSMenuItem alloc] init];
     [customSliderItem setView:theView];
-	[_appMenu insertItem:customSliderItem atIndex:currentTeaCount];
-    // used to be (index+1); using (index) puts the custom slider just above the "Stop timer" field, which is where it should go.
+	[_appMenu insertItem:customSliderItem atIndex:0];
+    
+    // Add all user teas to the menu
+    [self reloadTeaMenu:nil];
 	
     displayPreference = [defaults integerForKey:NOTIFICATION_DISPLAY_PREF_KEY];
     if (displayPreference == 0) { // 0 = not set
@@ -112,7 +111,7 @@ NSUserDefaults *defaults;
     _item.menu = _appMenu;
 }
 
-/* Copy the Default Teas plist into the database */
+/** Copy the Default Teas plist into the database. */
 - (void) copyDefaultTeas
 {
     // Detecting user's preferred language or default to en
@@ -218,7 +217,7 @@ NSUserDefaults *defaults;
     }
 }
 
-/* Shows the tea database editor */
+/** Shows the tea database editor. */
 - (IBAction)openTeaEditor:(id)sender
 {
     if (editor == nil) {
@@ -228,6 +227,7 @@ NSUserDefaults *defaults;
 	[editor showWindow:self];
 }
 
+/** Reloads the tea items in the menu. */
 - (void) reloadTeaMenu:(NSNotification *)_
 {
     // Phase 1: remove all teas
@@ -258,7 +258,6 @@ NSUserDefaults *defaults;
         [item setTag:(teaTime * 60)];
         [_appMenu insertItem:item atIndex:(index++)];
     }
-    currentTeaCount = dbTeas.count;
 }
 
 - (IBAction)changeNotificationDisplayPrefs:(id)sender
