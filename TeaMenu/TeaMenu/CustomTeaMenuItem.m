@@ -8,14 +8,28 @@
 
 #import "CustomTeaMenuItem.h"
 
+#define EOS_FEEDBACK_EVENT @"EndOfSliderFeedbackEvent"
+
 @implementation CustomTeaMenuItem
 
 @synthesize model;
 
+// Some API calls in this class are only supported on 10.11+
+static BOOL osxElCapOrHigher;
+
 - (instancetype) initWithFrame:(CGRect)frame
 {
-    // no custom constructor needed
-    return (self = [super initWithFrame:frame]);
+    self = [super initWithFrame:frame];
+    if (self) {
+        // Cache the value, it won't ever change at runtime
+        osxElCapOrHigher = (NSAppKitVersionNumber >= NSAppKitVersionNumber10_11);
+        // Register for haptic feedback notifications
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(hapticFeedback)
+                                                     name:EOS_FEEDBACK_EVENT
+                                                   object:nil];
+    }
+    return self;
 }
 
 // Overrides to allow for touch & scroll events
@@ -51,6 +65,16 @@
 	[model setMinutes:(model.minutes + stepDelta)]; // using the setter also updates the bindings
 }
 
+/** Sends a small haptic feedback if the device supports it. */
+- (void) hapticFeedback {
+    if (!osxElCapOrHigher)
+        return;
+    // This class is available from 10.11 onwards
+    // On a device without a compatible trackpad this does nothing.
+    [[NSHapticFeedbackManager defaultPerformer] performFeedbackPattern:NSHapticFeedbackPatternAlignment
+                                                       performanceTime:NSHapticFeedbackPerformanceTimeNow];
+}
+
 @end
 
 // TeaTime data model
@@ -63,8 +87,15 @@ static const int MAX_MINUTES = 10;
 - (void) setMinutes:(NSInteger)minutes
 {
     // Custom setter: restrict values to (0, 10]
-    if (minutes > 0 && minutes <= MAX_MINUTES)
+    if (minutes != _minutes && minutes > 0 && minutes <= MAX_MINUTES) {
         _minutes = minutes;
+        if (_minutes == 1 || _minutes == MAX_MINUTES) {
+            // Send notification to give off a small haptic feedback
+            [[NSNotificationCenter defaultCenter] postNotificationName:EOS_FEEDBACK_EVENT
+                                                                object:nil];
+        }
+    }
+
 }
 
 @end
