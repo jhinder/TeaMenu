@@ -2,11 +2,17 @@
 /* Class = "NSWindow"; title = "Edit tea database"; ObjectID = "1"; */
 "1.title" = "Tee-Datenbank bearbeiten";
 
+/* Class = "NSTextFieldCell"; placeholderString = "3"; ObjectID = "2rU-pN-liG"; */
+"2rU-pN-liG.placeholderString" = "3";
+
 /* Class = "NSTableColumn"; headerCell.title = "Tea Name"; ObjectID = "6WX-kH-tkJ"; */
-"6WX-kH-tkJ.headerCell.title" = "Tee-Name";
+"6WX-kH-tkJ.headerCell.title" = "Name";
 
 /* Class = "NSButtonCell"; title = "OK"; ObjectID = "GDy-MT-sxM"; */
 "GDy-MT-sxM.title" = "OK";
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "Ktn-Kk-1S9"; */
+"Ktn-Kk-1S9.title" = "Sheet Window";
 
 /* Class = "NSTextFieldCell"; title = "Name:"; ObjectID = "Rzl-dT-cCi"; */
 "Rzl-dT-cCi.title" = "Name:";
@@ -18,7 +24,7 @@
 "gym-fn-iaA.title" = "Zeit:";
 
 /* Class = "NSTextFieldCell"; title = "min"; ObjectID = "ywe-k2-wUa"; */
-"ywe-k2-wUa.title" = "min";
+"ywe-k2-wUa.title" = "min.";
 
 /* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "zGg-h5-1tQ"; */
 "zGg-h5-1tQ.title" = "Abbrechen";

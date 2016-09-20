@@ -1,12 +1,12 @@
 
 /* Class = "NSWindow"; title = "Edit tea database"; ObjectID = "1"; */
-"1.title" = "Editar base de datos de té";
+"1.title" = "Bewerken thee databank";
 
 /* Class = "NSTextFieldCell"; placeholderString = "3"; ObjectID = "2rU-pN-liG"; */
 "2rU-pN-liG.placeholderString" = "3";
 
 /* Class = "NSTableColumn"; headerCell.title = "Tea Name"; ObjectID = "6WX-kH-tkJ"; */
-"6WX-kH-tkJ.headerCell.title" = "Nombre del té";
+"6WX-kH-tkJ.headerCell.title" = "Naam van de thee";
 
 /* Class = "NSButtonCell"; title = "OK"; ObjectID = "GDy-MT-sxM"; */
 "GDy-MT-sxM.title" = "OK";
@@ -15,16 +15,16 @@
 "Ktn-Kk-1S9.title" = "Sheet Window";
 
 /* Class = "NSTextFieldCell"; title = "Name:"; ObjectID = "Rzl-dT-cCi"; */
-"Rzl-dT-cCi.title" = "Nombre:";
+"Rzl-dT-cCi.title" = "Naam:";
 
 /* Class = "NSTableColumn"; headerCell.title = "Time"; ObjectID = "cuc-ko-nO9"; */
-"cuc-ko-nO9.headerCell.title" = "Hora";
+"cuc-ko-nO9.headerCell.title" = "Tijd";
 
 /* Class = "NSTextFieldCell"; title = "Time:"; ObjectID = "gym-fn-iaA"; */
-"gym-fn-iaA.title" = "Hora:";
+"gym-fn-iaA.title" = "Tijd:";
 
 /* Class = "NSTextFieldCell"; title = "min"; ObjectID = "ywe-k2-wUa"; */
 "ywe-k2-wUa.title" = "min";
 
 /* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "zGg-h5-1tQ"; */
-"zGg-h5-1tQ.title" = "Cancelar";
+"zGg-h5-1tQ.title" = "Annuleer";
