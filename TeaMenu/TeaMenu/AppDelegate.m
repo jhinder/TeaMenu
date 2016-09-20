@@ -201,7 +201,7 @@ NSInteger displayPreference;
         NSAlert *alert = [[NSAlert alloc] init];
         [alert setMessageText:T("TEA_READY")];
         [alert setIcon:[NSImage imageNamed:@"TeaIcon_Done"]];
-        [alert addButtonWithTitle:@"OK"];
+        [alert addButtonWithTitle:T("OK")];
         [alert runModal];
     }
 }
