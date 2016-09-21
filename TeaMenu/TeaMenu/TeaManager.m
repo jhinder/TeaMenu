@@ -36,9 +36,12 @@
     if (notification.object != nil) {
         /* Conditional compilation: if 'seconds' is assigned at initialisation,
          * it might get overwritten right after, which is something the static
-         * analysis 
+         * analysis will complain about (dead store) if using the Debug config.
+         * I think it's fine to suppress this warning -- a Release build will
+         * not contain the second assignment anyway.
          */
         NSInteger seconds = ((NSNumber *)notification.object).integerValue;
+        (void)seconds; // Silences the dead store warning. See also: http://clang-analyzer.llvm.org/faq.html#dead_store
 #ifdef DEBUG
         seconds = 5;
 #endif
