@@ -43,7 +43,7 @@
 NSInteger displayPreference;
 
 /** AppDelegate constructor */
-- (id) init {
+- (instancetype) init {
     self = [super init];
     if (self) {
         // Some initialisation can be done here.
@@ -66,6 +66,7 @@ NSInteger displayPreference;
         
         // Load preferences
         defaults = [NSUserDefaults standardUserDefaults];
+        // For some reason the docs state that standardUserDefaults is 10.12+, but it's clearly not.
     }
     return self;
 }
@@ -149,9 +150,10 @@ NSInteger displayPreference;
 	_item.image = (steaming ? mugSteaming : mug);
 }
 
-/* Action to start a pre-defined timer.
- * Note: if you want to add other pre-defined timers, set their tag
- * property to the seconds the timer should run for.
+/** Action to start a pre-defined timer.
+ * @param sender: The sender of this message. Must have the tag property.
+ * @note If you want to add other pre-defined timers, the sender's tag
+ *       property must be the timer duration in seconds.
  */
 - (IBAction)startTimer:(id)sender
 {
@@ -160,7 +162,7 @@ NSInteger displayPreference;
                                                         object:startObj];
 }
 
-/* Interface action to stop the timer. */
+/** Interface action to stop the timer. */
 - (IBAction) stopTimer:(id)sender
 {
 	NSNumber *stopObj = @YES; // true = user cancelled
@@ -168,6 +170,7 @@ NSInteger displayPreference;
                                                         object:stopObj];
 }
 
+/** Notification handler for the "Start Tea" notification. */
 - (void) startTeaNotification:(NSNotification *)notification
 {
     // Set user interface to "tea brewing"
@@ -200,6 +203,7 @@ NSInteger displayPreference;
     }
 }
 
+/** Notification handler for the "Stop Tea" notification. */
 - (void) stopTeaNotification:(NSNotification *)notification
 {
     // Set user interface to "no tea brewing"
@@ -233,7 +237,7 @@ NSInteger displayPreference;
     // Phase 2: insert all teas.
     NSFetchRequest *fetchReq = [[NSFetchRequest alloc] initWithEntityName:@"Tea"];
     NSError *error = nil;
-    NSArray *dbTeas = [self.managedObjectContext executeFetchRequest:fetchReq error:&error];
+    NSArray<TeaObject *> *dbTeas = [self.managedObjectContext executeFetchRequest:fetchReq error:&error];
     if (error) {
         NSLog(@"Could not fetch teas:\n%@\n%@", error, error.localizedDescription);
         return;
@@ -254,6 +258,7 @@ NSInteger displayPreference;
     }
 }
 
+/** Interface action for changing the preferred display of notifications. */
 - (IBAction)changeNotificationDisplayPrefs:(id)sender
 {
     NSInteger tag = ((NSMenuItem *)sender).tag;
@@ -264,7 +269,7 @@ NSInteger displayPreference;
     [defaults synchronize];
 }
 
-/* Interface action for app exit. Saves the settings, then terminates. */
+/** Interface action for app exit. Saves the settings, then terminates. */
 - (IBAction)terminate:(id)sender
 {
     NSApplicationTerminateReply shouldQuit = [self applicationShouldTerminate:NSApp];
