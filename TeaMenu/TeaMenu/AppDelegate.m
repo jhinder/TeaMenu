@@ -114,19 +114,13 @@ NSInteger displayPreference;
 /** Copy the Default Teas plist into the database. */
 - (void) copyDefaultTeas
 {
-    // Detecting user's preferred language or default to en
-    NSArray *language = [NSLocale preferredLanguages];
-    NSString *userLocale = (language.count == 0) ? @"en" : language[0];
-    NSArray *supportedLanguages = @[@"en", @"de", @"it",
-                                    @"fr", @"es", @"nl",
-                                    @"sv", @"da", @"pt"];
-	if (![supportedLanguages containsObject:userLocale])
-		userLocale = @"en";
+    // Intersection between bundle langs and user langs. Defaults to "en" if intersection is empty.
+    NSString *language = [[[NSBundle mainBundle] preferredLocalizations] firstObject];
     
     NSURL *defaultPrefs = [[NSBundle mainBundle] URLForResource:@"DefaultTeas"
                                                  withExtension:@"plist"];
     NSDictionary *teaDicts = [NSDictionary dictionaryWithContentsOfURL:defaultPrefs];
-    NSDictionary *langDict = teaDicts[userLocale];
+    NSDictionary *langDict = teaDicts[language];
 	
     NSEntityDescription *newTeaDesc = [NSEntityDescription entityForName:@"Tea"
                                                   inManagedObjectContext:self.managedObjectContext];
