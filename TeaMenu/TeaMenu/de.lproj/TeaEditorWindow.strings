@@ -1,6 +1,6 @@
 
-/* Class = "NSWindow"; title = "Edit tea database"; ObjectID = "1"; */
-"1.title" = "Tee-Datenbank bearbeiten";
+/* Class = "NSWindow"; title = "Edit tea list"; ObjectID = "1"; */
+"1.title" = "Liste der Tees bearbeiten";
 
 /* Class = "NSTextFieldCell"; placeholderString = "3"; ObjectID = "2rU-pN-liG"; */
 "2rU-pN-liG.placeholderString" = "3";
