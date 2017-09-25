@@ -30,7 +30,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="oLc-h8-6ie">
+                    <button toolTip="The alert will show up as an alert window." tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="oLc-h8-6ie">
                         <rect key="frame" x="157" y="44" width="101" height="18"/>
                         <buttonCell key="cell" type="radio" title="Alert window" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="bOz-Ao-gGd">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -40,7 +40,7 @@
                             <action selector="changeNotificationDisplayPreference:" target="-2" id="Ec5-Zj-qdD"/>
                         </connections>
                     </button>
-                    <button toolTip="Only applicable if your Mac has a Force Touch trackpad." translatesAutoresizingMaskIntoConstraints="NO" id="448-ha-PR5">
+                    <button toolTip="Enables haptic feedback throughout the app." translatesAutoresizingMaskIntoConstraints="NO" id="448-ha-PR5">
                         <rect key="frame" x="16" y="70" width="156" height="18"/>
                         <buttonCell key="cell" type="check" title="Allow haptic feedback" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="V4R-Ch-Smz">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -50,7 +50,7 @@
                             <binding destination="c9e-kx-av4" name="value" keyPath="values.AllowHapticFeedback" id="9k1-Er-nnM"/>
                         </connections>
                     </button>
-                    <button tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="2ft-Ju-Z4K">
+                    <button toolTip="The alert will show up as a notification." tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="2ft-Ju-Z4K">
                         <rect key="frame" x="157" y="18" width="137" height="18"/>
                         <buttonCell key="cell" type="radio" title="Notification Centre" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="NQn-hx-hHR">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
