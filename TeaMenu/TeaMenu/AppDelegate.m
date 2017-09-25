@@ -17,9 +17,9 @@
 
 @implementation AppDelegate
 
-@synthesize appMenu = _appMenu;
-@synthesize item = _item;
-@synthesize stopTeaItem = stopTimerItem;
+@synthesize appMenu;
+@synthesize item;
+@synthesize stopTeaItem;
 @synthesize mug, mugSteaming;
 @synthesize editor;
 @synthesize customTeaItem;
@@ -60,9 +60,9 @@ NSInteger displayPreference;
         [mugSteaming setTemplate:YES];
         
         // Initialize menu bar/status item
-        _item = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+        item = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
         [self changeIcons:false];
-        _item.highlightMode = true;
+        item.highlightMode = true;
         
         // Load preferences
         defaults = [NSUserDefaults standardUserDefaults];
@@ -96,7 +96,7 @@ NSInteger displayPreference;
     NSView *theView = [customTeaItem view];
     NSMenuItem *customSliderItem = [[NSMenuItem alloc] init];
     [customSliderItem setView:theView];
-	[_appMenu insertItem:customSliderItem atIndex:0];
+	[appMenu insertItem:customSliderItem atIndex:0];
     
     // Add all user teas to the menu
     [self reloadTeaMenu:nil];
@@ -109,7 +109,7 @@ NSInteger displayPreference;
     }
     [(displayPreference == 1 ? _displayOptionAlertItem : _displayOptionNCItem) setState:NSOnState];
     
-    _item.menu = _appMenu;
+    item.menu = appMenu;
 }
 
 /** Copy the Default Teas plist into the database. */
@@ -147,7 +147,7 @@ NSInteger displayPreference;
  */
 - (void) changeIcons:(bool)steaming
 {
-	_item.image = (steaming ? mugSteaming : mug);
+	item.image = (steaming ? mugSteaming : mug);
 }
 
 /** Action to start a pre-defined timer.
@@ -175,8 +175,8 @@ NSInteger displayPreference;
 {
     // Set user interface to "tea brewing"
     [self changeIcons:true];
-	[stopTimerItem setEnabled:YES];
-    [_appMenu cancelTracking]; // closes the menu on click, even for CustomTeaMI
+	[stopTeaItem setEnabled:YES];
+    [appMenu cancelTracking]; // closes the menu on click, even for CustomTeaMI
 }
 
 /**
@@ -208,7 +208,7 @@ NSInteger displayPreference;
 {
     // Set user interface to "no tea brewing"
     [self changeIcons:NO];
-	[stopTimerItem setEnabled:NO];
+	[stopTeaItem setEnabled:NO];
     if (notification.object != nil && !((NSNumber *)notification.object).boolValue) {
         BOOL showInNC = (displayPreference == 2);
         [self showTeaNotification:showInNC];
@@ -229,9 +229,9 @@ NSInteger displayPreference;
 - (void) reloadTeaMenu:(NSNotification *)_
 {
     // Phase 1: remove all teas
-    for (NSMenuItem *item in _appMenu.itemArray) {
+    for (NSMenuItem *item in appMenu.itemArray) {
         if (item.tag != 0)
-            [_appMenu removeItem:item];
+            [appMenu removeItem:item];
     }
     
     // Phase 2: insert all teas.
@@ -254,7 +254,7 @@ NSInteger displayPreference;
                                                       action:@selector(startTimer:)
                                                keyEquivalent:@""];
         [item setTag:(teaTime * 60)];
-        [_appMenu insertItem:item atIndex:(index++)];
+        [appMenu insertItem:item atIndex:(index++)];
     }
 }
 
