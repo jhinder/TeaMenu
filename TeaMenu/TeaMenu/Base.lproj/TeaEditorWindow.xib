@@ -29,7 +29,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="500" height="290"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="e3V-OQ-Nod">
+                    <button toolTip="Add a new tea" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="e3V-OQ-Nod">
                         <rect key="frame" x="10" y="9" width="20" height="22"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="e3V-OQ-Nod" secondAttribute="height" multiplier="1:1" id="89E-Ku-3PE"/>
@@ -43,7 +43,7 @@
                             <action selector="addTea:" target="-2" id="sav-2g-CQA"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JRj-d3-Vl9">
+                    <button toolTip="Remove selected tea" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JRj-d3-Vl9">
                         <rect key="frame" x="32" y="9" width="20" height="22"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="JRj-d3-Vl9" secondAttribute="height" multiplier="1:1" id="69T-3A-QVI"/>
