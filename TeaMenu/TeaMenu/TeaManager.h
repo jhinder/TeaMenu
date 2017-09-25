@@ -9,8 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TeaTimerNotification.h"
 
-@interface TeaManager : NSObject <TeaTimerNotification> {
-}
+@interface TeaManager : NSObject <TeaTimerNotification>
 
 @property (assign) BOOL teaBrewing;
 
