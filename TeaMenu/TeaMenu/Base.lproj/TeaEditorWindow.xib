@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="TeaEditor">
@@ -21,7 +22,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="500" height="290"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
             <value key="minSize" type="size" width="500" height="290"/>
             <value key="maxSize" type="size" width="800" height="600"/>
             <view key="contentView" id="2">
@@ -140,7 +141,7 @@
             <windowStyleMask key="styleMask" titled="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="131" y="165" width="293" height="129"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
             <view key="contentView" id="M5E-EE-XSa">
                 <rect key="frame" x="0.0" y="0.0" width="293" height="129"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -226,6 +227,7 @@ Gw
                     <constraint firstItem="z5h-Mk-aar" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8tc-dv-vef" secondAttribute="trailing" priority="250" constant="8" id="Lds-pa-Jhb"/>
                     <constraint firstAttribute="bottom" secondItem="jK9-0H-MVq" secondAttribute="bottom" constant="20" id="MQ5-Pu-bSO"/>
                     <constraint firstItem="def-vi-wzk" firstAttribute="leading" secondItem="jK9-0H-MVq" secondAttribute="trailing" constant="12" id="NSi-AC-A0u"/>
+                    <constraint firstItem="jK9-0H-MVq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="M5E-EE-XSa" secondAttribute="leading" constant="20" symbolic="YES" id="OBW-4O-epb"/>
                     <constraint firstAttribute="bottom" secondItem="def-vi-wzk" secondAttribute="bottom" constant="20" id="RSb-Zx-q9s"/>
                     <constraint firstItem="YUn-0V-adM" firstAttribute="leading" relation="lessThanOrEqual" secondItem="z5h-Mk-aar" secondAttribute="trailing" priority="750" constant="8" id="VPx-sn-oCl"/>
                     <constraint firstItem="iCx-ON-76C" firstAttribute="leading" secondItem="M5E-EE-XSa" secondAttribute="leading" constant="20" id="XOc-jV-tk1"/>
