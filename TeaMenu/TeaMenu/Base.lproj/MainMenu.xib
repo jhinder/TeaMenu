@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -15,8 +15,6 @@
         <customObject id="494" customClass="AppDelegate">
             <connections>
                 <outlet property="appMenu" destination="536" id="541"/>
-                <outlet property="displayOptionAlertItem" destination="4Xy-Ei-bDC" id="i9L-DZ-S8p"/>
-                <outlet property="displayOptionNCItem" destination="3jp-0Z-BBE" id="C3F-Xg-H3u"/>
                 <outlet property="stopTeaItem" destination="547" id="549"/>
             </connections>
         </customObject>
@@ -29,24 +27,11 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="540"/>
-                <menuItem title="Show notifications in" id="NzY-7u-sUC">
+                <menuItem title="Preferences…" id="E5K-QN-bLu">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Show notifications in" id="Nwa-MU-tqx">
-                        <items>
-                            <menuItem title="Alert window" tag="1" id="4Xy-Ei-bDC">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="changeNotificationDisplayPrefs:" target="494" id="WzY-AL-Kpe"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Notification Center" tag="2" id="3jp-0Z-BBE">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="changeNotificationDisplayPrefs:" target="494" id="bYM-RK-PQp"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
+                    <connections>
+                        <action selector="openPreferences:" target="494" id="M1U-Er-3D0"/>
+                    </connections>
                 </menuItem>
                 <menuItem title="Edit teas…" id="Omt-Mc-5bm">
                     <modifierMask key="keyEquivalentModifierMask"/>

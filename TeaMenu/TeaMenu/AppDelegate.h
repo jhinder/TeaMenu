@@ -10,20 +10,16 @@
 #import "TeaTimerNotification.h"
 
 @class TeaManager, CustomTeaItemViewController;
-@class TeaEditor;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, TeaTimerNotification>
 
 @property (weak) IBOutlet NSMenu *appMenu;
 @property (weak) IBOutlet NSMenuItem *stopTeaItem;
-@property (weak) IBOutlet NSMenuItem *displayOptionAlertItem, *displayOptionNCItem;
 @property (strong) NSStatusItem *item;
 
 @property (strong) NSImage *mug, *mugSteaming;
-@property (strong) TeaEditor *editor;
 @property (strong) CustomTeaItemViewController *customTeaItem;
 @property (strong) TeaManager *teaManager;
-@property (strong) NSUserDefaults *defaults;
 
 // Core Data
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
@@ -34,11 +30,6 @@
 - (IBAction)stopTimer:(id)sender;
 - (IBAction)terminate:(id)sender;
 - (IBAction)openTeaEditor:(id)sender;
-- (IBAction)changeNotificationDisplayPrefs:(id)sender;
-
-- (void) changeIcons:(bool)steaming;
-- (void) copyDefaultTeas;
-- (void) showTeaNotification:(bool)showInCenter;
-- (void) reloadTeaMenu: (NSNotification *)_;
+- (IBAction)openPreferences:(id)sender;
 
 @end

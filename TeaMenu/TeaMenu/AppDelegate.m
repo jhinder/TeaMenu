@@ -9,11 +9,26 @@
 #import "AppDelegate.h"
 
 #import "CustomTeaItemViewController.h"
+#import "PreferencesWindow.h"
 #import "TeaEditor.h"
 #import "TeaManager.h"
 #import "TeaObject.h"
 
 #define NOTIFICATION_DISPLAY_PREF_KEY @"NotificationDisplay"
+@interface AppDelegate ()
+
+// Class extension, for all internal properties/methods
+
+@property (strong) TeaEditor *editor;
+@property (strong) PreferencesWindow *prefWindow;
+@property (strong) NSUserDefaults *defaults;
+
+- (void) changeIcons:(bool)steaming;
+- (void) copyDefaultTeas;
+- (void) reloadTeaMenu: (NSNotification *)_;
+- (void) showTeaNotification:(bool)showInCenter;
+
+@end
 
 @implementation AppDelegate
 
@@ -22,6 +37,7 @@
 @synthesize stopTeaItem = stopTimerItem;
 @synthesize mug, mugSteaming;
 @synthesize editor;
+@synthesize prefWindow;
 @synthesize customTeaItem;
 @synthesize teaManager;
 @synthesize defaults;
@@ -74,6 +90,13 @@ NSInteger displayPreference;
 /** Called when the app launches, and sets up the menu. */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    // Set initial preference values
+    NSString *initialPrefVal = [[NSBundle mainBundle] pathForResource:@"InitialPreferences"
+                                                               ofType:@"plist"];
+    NSDictionary *initialPrefs = [NSDictionary dictionaryWithContentsOfFile:initialPrefVal];
+    [defaults registerDefaults:initialPrefs];
+    [defaults synchronize];
+    
     // Count teas; insert defaults if the table is empty
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Tea"];
     NSError *err = nil;
@@ -107,7 +130,6 @@ NSInteger displayPreference;
         [defaults setInteger:displayPreference forKey:NOTIFICATION_DISPLAY_PREF_KEY];
         [defaults synchronize];
     }
-    [(displayPreference == 1 ? _displayOptionAlertItem : _displayOptionNCItem) setState:NSOnState];
     
     _item.menu = _appMenu;
 }
@@ -225,6 +247,15 @@ NSInteger displayPreference;
 	[editor showWindow:self];
 }
 
+/** SHows the preferences window. */
+- (IBAction)openPreferences:(id)sender
+{
+    if (prefWindow == nil) {
+        prefWindow = [[PreferencesWindow alloc] initWithWindowNibName:@"PreferencesWindow"];
+    }
+    [prefWindow showWindow:self];
+}
+
 /** Reloads the tea items in the menu. */
 - (void) reloadTeaMenu:(NSNotification *)_
 {
@@ -256,17 +287,6 @@ NSInteger displayPreference;
         [item setTag:(teaTime * 60)];
         [_appMenu insertItem:item atIndex:(index++)];
     }
-}
-
-/** Interface action for changing the preferred display of notifications. */
-- (IBAction)changeNotificationDisplayPrefs:(id)sender
-{
-    NSInteger tag = ((NSMenuItem *)sender).tag;
-    displayPreference = tag;
-    [defaults setInteger:tag forKey:NOTIFICATION_DISPLAY_PREF_KEY];
-    [_displayOptionAlertItem setState:(tag == 1) ? NSOnState : NSOffState];
-    [_displayOptionNCItem    setState:(tag == 2) ? NSOnState : NSOffState];
-    [defaults synchronize];
 }
 
 /** Interface action for app exit. Saves the settings, then terminates. */
