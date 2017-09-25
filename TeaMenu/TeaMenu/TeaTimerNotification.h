@@ -16,12 +16,22 @@
 #define STOP_TEA_NOTIFICATION @"StopTea"
 #endif
 
-@protocol TeaTimerNotification <NSObject>
+NS_ASSUME_NONNULL_BEGIN
 
-/* Notification for when a tea timer has started */
+@protocol TeaTimerNotification
+
+/**
+ * Notification for when a tea timer has started
+ * @param notification The notification.
+ */
 - (void) startTeaNotification: (NSNotification *) notification;
 
-/* Notification for when the tea timer has stopped */
+/**
+ * Notification for when the tea timer has stopped
+ * @param notification The notification.
+ */
 - (void) stopTeaNotification: (NSNotification *) notification;
 
 @end
+
+NS_ASSUME_NONNULL_END
