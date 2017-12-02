@@ -11,6 +11,9 @@
 /* Class = "NSButtonCell"; title = "OK"; ObjectID = "GDy-MT-sxM"; */
 "GDy-MT-sxM.title" = "OK";
 
+/* Class = "NSButton"; ibShadowedToolTip = "Remove selected tea"; ObjectID = "JRj-d3-Vl9"; */
+"JRj-d3-Vl9.ibShadowedToolTip" = "Supprimer ce thé";
+
 /* Class = "NSWindow"; title = "Window"; ObjectID = "Ktn-Kk-1S9"; */
 "Ktn-Kk-1S9.title" = "Sheet Window";
 
@@ -19,6 +22,9 @@
 
 /* Class = "NSTableColumn"; headerCell.title = "Time"; ObjectID = "cuc-ko-nO9"; */
 "cuc-ko-nO9.headerCell.title" = "Durée";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Add a new tea"; ObjectID = "e3V-OQ-Nod"; */
+"e3V-OQ-Nod.ibShadowedToolTip" = "Ajouter un nouveau thé";
 
 /* Class = "NSTextFieldCell"; title = "Time:"; ObjectID = "gym-fn-iaA"; */
 "gym-fn-iaA.title" = "Durée:";
