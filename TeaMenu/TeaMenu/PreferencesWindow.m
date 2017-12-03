@@ -18,7 +18,7 @@
 
 - (instancetype) init
 {
-    if (self = [super init]) {
+    if ((self = [super init])) {
         defaults = [NSUserDefaults standardUserDefaults];
     }
     return self;
