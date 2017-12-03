@@ -22,7 +22,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="500" height="290"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
             <value key="minSize" type="size" width="500" height="290"/>
             <value key="maxSize" type="size" width="800" height="600"/>
             <view key="contentView" id="2">
@@ -141,7 +141,7 @@
             <windowStyleMask key="styleMask" titled="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="131" y="165" width="293" height="129"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
             <view key="contentView" id="M5E-EE-XSa">
                 <rect key="frame" x="0.0" y="0.0" width="293" height="129"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -182,7 +182,7 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="def-vi-wzk">
-                        <rect key="frame" x="220" y="13" width="59" height="32"/>
+                        <rect key="frame" x="197" y="13" width="82" height="32"/>
                         <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GDy-MT-sxM">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -203,7 +203,7 @@ DQ
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jK9-0H-MVq">
-                        <rect key="frame" x="138" y="13" width="82" height="32"/>
+                        <rect key="frame" x="115" y="13" width="82" height="32"/>
                         <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zGg-h5-1tQ">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -233,6 +233,7 @@ Gw
                     <constraint firstItem="iCx-ON-76C" firstAttribute="leading" secondItem="M5E-EE-XSa" secondAttribute="leading" constant="20" id="XOc-jV-tk1"/>
                     <constraint firstAttribute="trailing" secondItem="YUn-0V-adM" secondAttribute="trailing" constant="20" id="bVE-V8-VaN"/>
                     <constraint firstItem="Gpy-zN-9ji" firstAttribute="leading" secondItem="iCx-ON-76C" secondAttribute="trailing" constant="8" id="ceh-Sa-ZHH"/>
+                    <constraint firstItem="def-vi-wzk" firstAttribute="width" secondItem="jK9-0H-MVq" secondAttribute="width" id="eTX-0a-W2f"/>
                     <constraint firstAttribute="trailing" secondItem="Gpy-zN-9ji" secondAttribute="trailing" constant="20" id="iL9-Nn-Ys4"/>
                     <constraint firstItem="Gpy-zN-9ji" firstAttribute="top" secondItem="M5E-EE-XSa" secondAttribute="top" constant="20" id="rtN-Bq-IM0"/>
                     <constraint firstItem="YUn-0V-adM" firstAttribute="top" secondItem="Gpy-zN-9ji" secondAttribute="bottom" constant="7" id="wbO-00-UKQ"/>

@@ -12,7 +12,7 @@
 "GDy-MT-sxM.title" = "OK";
 
 /* Class = "NSButton"; ibShadowedToolTip = "Remove selected tea"; ObjectID = "JRj-d3-Vl9"; */
-"JRj-d3-Vl9.ibShadowedToolTip" = "Ausgewählten Tee aus der Datenbank entfernen";
+"JRj-d3-Vl9.ibShadowedToolTip" = "Diesen Tee entfernen";
 
 /* Class = "NSWindow"; title = "Window"; ObjectID = "Ktn-Kk-1S9"; */
 "Ktn-Kk-1S9.title" = "Sheet Window";

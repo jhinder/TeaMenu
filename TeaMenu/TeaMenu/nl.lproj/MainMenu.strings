@@ -3,21 +3,10 @@
 "539.title" = "Stop TeaMenu";
 
 /* Class = "NSMenuItem"; title = "Stop timer"; ObjectID = "547"; */
-"547.title" = "Stop stopwatch";
+"547.title" = "Stop timer";
 
-/* Class = "NSMenuItem"; title = "Notification Center"; ObjectID = "3jp-0Z-BBE"; */
-"3jp-0Z-BBE.title" = "Berichtencentrum";
-
-/* Class = "NSMenuItem"; title = "Alert window"; ObjectID = "4Xy-Ei-bDC"; */
-"4Xy-Ei-bDC.title" = "Waarschuwingsvenster";
-
-/* Class = "NSMenu"; title = "Show notifications in"; ObjectID = "Nwa-MU-tqx"; */
-/* Submenu title */
-"Nwa-MU-tqx.title" = "Meldingen weergeven in";
-
-/* Class = "NSMenuItem"; title = "Show notifications in"; ObjectID = "NzY-7u-sUC"; */
-/* Menu Item */
-"NzY-7u-sUC.title" = "Meldingen weergeven in";
+/* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "E5K-QN-bLu"; */
+"E5K-QN-bLu.title" = "Voorkeuren…";
 
 /* Class = "NSMenuItem"; title = "Edit teas…"; ObjectID = "Omt-Mc-5bm"; */
-"Omt-Mc-5bm.title" = "Thee bewerken…";
+"Omt-Mc-5bm.title" = "Theeën bewerken…";

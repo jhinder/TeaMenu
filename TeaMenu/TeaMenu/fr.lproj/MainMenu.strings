@@ -5,19 +5,8 @@
 /* Class = "NSMenuItem"; title = "Stop timer"; ObjectID = "547"; */
 "548.title" = "Arrêter minuteur";
 
-/* Class = "NSMenuItem"; title = "Notification Center"; ObjectID = "3jp-0Z-BBE"; */
-"3jp-0Z-BBE.title" = "Centre de notifications";
-
-/* Class = "NSMenuItem"; title = "Alert window"; ObjectID = "4Xy-Ei-bDC"; */
-"4Xy-Ei-bDC.title" = "Fenêtre d'alerte";
-
-/* Class = "NSMenu"; title = "Show notifications in"; ObjectID = "Nwa-MU-tqx"; */
-/* Submenu title */
-"Nwa-MU-tqx.title" = "Afficher les notifications dans";
-
-/* Class = "NSMenuItem"; title = "Show notifications in"; ObjectID = "NzY-7u-sUC"; */
-/* Menu Item */
-"NzY-7u-sUC.title" = "Afficher les notifications dans";
+/* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "E5K-QN-bLu"; */
+"E5K-QN-bLu.title" = "Préférences…";
 
 /* Class = "NSMenuItem"; title = "Edit teas…"; ObjectID = "Omt-Mc-5bm"; */
-"Omt-Mc-5bm.title" = "Modifier thés…";
+"Omt-Mc-5bm.title" = "Modifier les thés…";

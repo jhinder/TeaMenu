@@ -11,8 +11,7 @@
 
 @class CustomTeaTimeModel, CustomTeaMenuItem;
 
-@interface CustomTeaItemViewController : NSViewController <TeaTimerNotification> {
-}
+@interface CustomTeaItemViewController : NSViewController <TeaTimerNotification>
 
 @property (strong) CustomTeaTimeModel *timerModel;
 @property (strong) CustomTeaMenuItem *timerView;

@@ -44,17 +44,10 @@
 		3D3FBF491A157B8F00E7E6A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D3FBF4B1A157B9300E7E6A9 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D3FBF4C1A157BBA00E7E6A9 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3D3FBF551A157EEF00E7E6A9 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3D3FBF561A157EEF00E7E6A9 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D46066F1C5C232400766414 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3D4606711C5C232E00766414 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		3D4606741C5C249500766414 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		3D4606751C5C254B00766414 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MainMenu.strings; sourceTree = "<group>"; };
-		3D4606761C5C254F00766414 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/MainMenu.strings; sourceTree = "<group>"; };
-		3D4606771C5C255200766414 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainMenu.strings; sourceTree = "<group>"; };
-		3D4606781C5C255500766414 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/MainMenu.strings; sourceTree = "<group>"; };
-		3D4606791C5C255800766414 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/MainMenu.strings; sourceTree = "<group>"; };
-		3D46067A1C5C255B00766414 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		3D46067B1C5C255E00766414 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		3D46067C1C5CEB5600766414 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TeaEditorWindow.xib; sourceTree = "<group>"; };
 		3D58919A1D8C08FE00909081 /* TeaObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeaObject.h; sourceTree = "<group>"; };
@@ -63,7 +56,6 @@
 		3D673B631BEBFEF90051B2C4 /* TeaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeaManager.m; sourceTree = "<group>"; };
 		3D6F8BE71A7AD14D000794CA /* TeaIcon_Done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TeaIcon_Done.png; sourceTree = "<group>"; };
 		3D73E27E1A1AC8DA0002A5C8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3D73E2811A1ACAE40002A5C8 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D77CBEE1D8C012C0047F8B5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3D77CC4E1D8C02BC0047F8B5 /* TeaMenu.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TeaMenu.xcdatamodel; sourceTree = "<group>"; };
 		3D81150D1D94782F00319CCB /* PreferencesWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindow.h; sourceTree = "<group>"; };
@@ -74,14 +66,7 @@
 		3DBB8A7D1D91DC9F004ABF63 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TeaEditorWindow.strings; sourceTree = "<group>"; };
 		3DBB8A7F1D91DCA8004ABF63 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/TeaEditorWindow.strings; sourceTree = "<group>"; };
 		3DBB8A811D91DCAF004ABF63 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/TeaEditorWindow.strings; sourceTree = "<group>"; };
-		3DBB8A831D91DCB1004ABF63 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/TeaEditorWindow.strings; sourceTree = "<group>"; };
-		3DBB8A851D91DCB5004ABF63 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/TeaEditorWindow.strings; sourceTree = "<group>"; };
-		3DBB8A871D91DCB7004ABF63 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/TeaEditorWindow.strings; sourceTree = "<group>"; };
-		3DBB8A891D91DCB8004ABF63 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/TeaEditorWindow.strings; sourceTree = "<group>"; };
-		3DBB8A8B1D91DCBA004ABF63 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/TeaEditorWindow.strings; sourceTree = "<group>"; };
 		3DBB8A8D1D91DCBC004ABF63 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/TeaEditorWindow.strings; sourceTree = "<group>"; };
-		3DC149541A1B2A0400718D30 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3DC149561A1B2C1500718D30 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3DD20B741BE9600000C184E4 /* CustomTeaMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTeaMenuItem.h; sourceTree = "<group>"; };
 		3DD20B751BE9600000C184E4 /* CustomTeaMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTeaMenuItem.m; sourceTree = "<group>"; };
 		3DD20B7E1BE9640800C184E4 /* CustomTeaItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTeaItemViewController.h; sourceTree = "<group>"; };
@@ -220,7 +205,7 @@
 		3D3FBF0A1A15649D00E7E6A9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0900;
 			};
 			buildConfigurationList = 3D3FBF0D1A15649D00E7E6A9 /* Build configuration list for PBXProject "TeaMenu" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -230,12 +215,7 @@
 				en,
 				de,
 				fr,
-				it,
-				es,
 				nl,
-				sv,
-				da,
-				pt,
 				Base,
 			);
 			mainGroup = 3D3FBF081A15649D00E7E6A9;
@@ -295,11 +275,6 @@
 				3DBB8A7D1D91DC9F004ABF63 /* en */,
 				3DBB8A7F1D91DCA8004ABF63 /* de */,
 				3DBB8A811D91DCAF004ABF63 /* fr */,
-				3DBB8A831D91DCB1004ABF63 /* it */,
-				3DBB8A851D91DCB5004ABF63 /* es */,
-				3DBB8A871D91DCB7004ABF63 /* pt */,
-				3DBB8A891D91DCB8004ABF63 /* da */,
-				3DBB8A8B1D91DCBA004ABF63 /* sv */,
 				3DBB8A8D1D91DCBC004ABF63 /* nl */,
 			);
 			name = TeaEditorWindow.xib;
@@ -320,11 +295,6 @@
 				3D4606711C5C232E00766414 /* en */,
 				3D4606741C5C249500766414 /* de */,
 				3D4606751C5C254B00766414 /* fr */,
-				3D4606761C5C254F00766414 /* it */,
-				3D4606771C5C255200766414 /* es */,
-				3D4606781C5C255500766414 /* pt */,
-				3D4606791C5C255800766414 /* da */,
-				3D46067A1C5C255B00766414 /* sv */,
 				3D46067B1C5C255E00766414 /* nl */,
 			);
 			name = MainMenu.xib;
@@ -336,12 +306,7 @@
 				3D3FBF491A157B8F00E7E6A9 /* en */,
 				3D3FBF4B1A157B9300E7E6A9 /* de */,
 				3D3FBF4C1A157BBA00E7E6A9 /* fr */,
-				3D3FBF551A157EEF00E7E6A9 /* it */,
-				3D3FBF561A157EEF00E7E6A9 /* es */,
 				3D73E27E1A1AC8DA0002A5C8 /* nl */,
-				3D73E2811A1ACAE40002A5C8 /* sv */,
-				3DC149541A1B2A0400718D30 /* da */,
-				3DC149561A1B2C1500718D30 /* pt */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -362,12 +327,18 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -403,12 +374,18 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

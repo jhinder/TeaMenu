@@ -10,8 +10,7 @@
 
 @class TeaDatabase;
 
-@interface TeaEditor : NSWindowController {
-}
+@interface TeaEditor : NSWindowController
 
 // Main window
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
