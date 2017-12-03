@@ -62,7 +62,8 @@
 }
 
 /** Sends a small haptic feedback if the device supports it. */
-- (void) hapticFeedback {
+- (void) hapticFeedback
+{
     // This class is available from 10.11 onwards
     // On a device without a compatible trackpad this does nothing.
     if (@available(macOS 10.11, *)) {

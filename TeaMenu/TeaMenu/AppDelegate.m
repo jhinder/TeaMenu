@@ -151,7 +151,7 @@ NSInteger displayPreference;
 }
 
 /** Action to start a pre-defined timer.
- * @param sender: The sender of this message. Must have the tag property.
+ * @param sender The sender of this message. Must have the tag property.
  * @note If you want to add other pre-defined timers, the sender's tag
  *       property must be the timer duration in seconds.
  */

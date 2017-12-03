@@ -9,8 +9,10 @@
 #import <AppKit/AppKit.h>
 
 @interface CustomTeaTimeModel : NSObject
+
 @property (nonatomic, assign) NSInteger minutes;
 @property (assign) BOOL teaNotBrewing; // inverted because it'll bind to NSButton's Enabled property
+
 @end
 
 @interface CustomTeaMenuItem : NSView
