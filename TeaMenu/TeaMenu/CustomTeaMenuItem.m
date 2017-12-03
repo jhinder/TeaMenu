@@ -14,15 +14,11 @@
 
 @synthesize model;
 
-// Some API calls in this class are only supported on 10.11+
-static BOOL osxElCapOrHigher;
 
 - (instancetype) initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Cache the value, it won't ever change at runtime
-        osxElCapOrHigher = (NSAppKitVersionNumber >= NSAppKitVersionNumber10_11);
         // Register for haptic feedback notifications
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(hapticFeedback)
@@ -67,12 +63,12 @@ static BOOL osxElCapOrHigher;
 
 /** Sends a small haptic feedback if the device supports it. */
 - (void) hapticFeedback {
-    if (!osxElCapOrHigher)
-        return;
     // This class is available from 10.11 onwards
     // On a device without a compatible trackpad this does nothing.
-    [[NSHapticFeedbackManager defaultPerformer] performFeedbackPattern:NSHapticFeedbackPatternAlignment
-                                                       performanceTime:NSHapticFeedbackPerformanceTimeNow];
+    if (@available(macOS 10.11, *)) {
+        [[NSHapticFeedbackManager defaultPerformer] performFeedbackPattern:NSHapticFeedbackPatternAlignment
+                                                           performanceTime:NSHapticFeedbackPerformanceTimeNow];
+    }
 }
 
 @end
