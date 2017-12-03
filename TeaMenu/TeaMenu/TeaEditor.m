@@ -60,9 +60,9 @@
                                                       inManagedObjectContext:self.managedObjectContext];
             TeaObject *t = [[TeaObject alloc] initWithEntity:entity
                               insertIntoManagedObjectContext:self.managedObjectContext];
-            t.name = teaName.stringValue;
-            t.time = @(teaTime.integerValue);
-            [teaArrayController addObject:t];
+            t.name = self->teaName.stringValue;
+            t.time = @(self->teaTime.integerValue);
+            [self->teaArrayController addObject:t];
         }
         [self clearSheet];
     }];
