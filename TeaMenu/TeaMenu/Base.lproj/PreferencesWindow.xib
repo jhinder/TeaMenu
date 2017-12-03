@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesWindow">
             <connections>
+                <outlet property="hapticCheckbox" destination="448-ha-PR5" id="m62-wh-UWE"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -40,7 +41,7 @@
                             <action selector="changeNotificationDisplayPreference:" target="-2" id="Ec5-Zj-qdD"/>
                         </connections>
                     </button>
-                    <button toolTip="Enables haptic feedback throughout the app." translatesAutoresizingMaskIntoConstraints="NO" id="448-ha-PR5">
+                    <button toolTip="Enables haptic feedback throughout the app (macOS 10.11 and above)." translatesAutoresizingMaskIntoConstraints="NO" id="448-ha-PR5">
                         <rect key="frame" x="16" y="70" width="156" height="18"/>
                         <buttonCell key="cell" type="check" title="Allow haptic feedback" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="V4R-Ch-Smz">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>

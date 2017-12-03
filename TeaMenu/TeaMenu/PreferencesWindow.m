@@ -27,7 +27,12 @@
 - (void) windowDidLoad
 {
     [super windowDidLoad];
-    // Set correct Dingsda mit den Radiuobuttons
+    
+    if (NSAppKitVersionNumber < NSAppKitVersionNumber10_11) {
+        [_hapticCheckbox setEnabled:NO];
+    }
+    
+    // TODO Load value, set radio buttons
 }
 
 - (IBAction)changeNotificationDisplayPreference:(NSButton * __nonnull)sender

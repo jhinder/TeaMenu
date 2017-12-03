@@ -14,6 +14,8 @@
 
 @property () NSUserDefaults *defaults;
 
+@property (weak) IBOutlet NSButton *hapticCheckbox;
+
 - (IBAction)changeNotificationDisplayPreference:(NSButton *)sender;
 
 @end
