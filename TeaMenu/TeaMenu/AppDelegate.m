@@ -43,7 +43,8 @@
 NSInteger displayPreference;
 
 /** AppDelegate constructor */
-- (instancetype) init {
+- (instancetype) init
+{
     self = [super init];
     if (self) {
         // Some initialisation can be done here.
